@@ -489,15 +489,6 @@ int main(){
       }// Loop over curves in each model
 
     if(mod.model.Contains("T2tt")){ // T2tt tweaks from Pieters Everaerts
-      // Drawing white over area that should have no limit lines
-      Float_t diagX2[4] = {95,795,780,80};
-      Float_t diagY2[4] = {0,700,735,35};
-      TGraph *gdiagonal2 = new TGraph(4, diagX2, diagY2);
-      gdiagonal2->SetName("MtopDiagonal");
-      gdiagonal2->SetFillColor(kWhite);
-      gdiagonal2->SetLineColor(kBlack);
-      gdiagonal2->Draw("FSAME");
-
       // Blocking out the top corridor at low LSP mass
       Float_t diagX[4] = {176.+25.,287.5,262.5,175.-24.};
       Float_t diagY[4] = {1,87.5,112.5,1};
