@@ -12,8 +12,14 @@
 using namespace std;
 
 int GetNumBins(const vector<double> &pts, double width){
-  double pmin = *min_element(pts.cbegin(), pts.cend());
-  double pmax = *max_element(pts.cbegin(), pts.cend());
+  double pmin = 1.e30;
+  double pmax = 0.;
+  for ( auto i=pts.cbegin(); i!=pts.cend(); ++i ) {
+    if ( *i < pmin )  pmin = *i;
+    if ( *i > pmin )  pmax = *i;
+  }
+  // double pmin = *min_element(pts.cbegin(), pts.cend());
+  // double pmax = *max_element(pts.cbegin(), pts.cend());
   return max(1, min(500, static_cast<int>(ceil((pmax-pmin)/width))));
 }
 
