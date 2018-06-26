@@ -77,9 +77,11 @@ int main(){
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
   TString mt2("M#lower[-.1]{_{T2}}"), mht("H_{#lower[-.4]{T}}^{miss}"), aT("#alpha#lower[-.1]{_{T}}");
+  TString alphat("#alpha_{T}");
 
   // Folder with root files containing the TGraphs
-  TString basefolder("rootfiles/2017_Moriond/");
+  //  TString basefolder("rootfiles/2017_Moriond/");
+  TString basefolder("rootfiles/2018_Summer/");
   TString folder(basefolder+"input_root/");
   vector<model_limits> models;
   vector<float> mLSPs({0., 200.}); // mLSP values for which excluded mGlu is printed
@@ -251,17 +253,21 @@ int main(){
   ///////////////////////////////    Defining T1tttt plot    /////////////////////////////////
   models.push_back(model_limits("T1tttt", pp_to_xx("g")+"t#kern[0.4]{#bar{t}}#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
-  models.back().setRanges(700, 2000, 0, 2050, 225); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().setRanges(700, 2100, 0, 2050, 225); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
 
   models.back().add("SUS-16-033, 0-lep ("+mht+")", folder+"t1tttt_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t1tttt_sus16_036.root", 
-  		    cSus16036, "ObsLim", "ExpLim");
+  		    cSus16036-10, "ObsLim", "ExpLim");
+  models.back().add("SUS-16-038, 0-lep ("+alphat+")", folder+"t1tttt_sus16_038.root", 
+  		    kGray, "contour_Obs_0", "contour_Exp_0");
+  models.back().add("SUS-16-050, 0-lep (stop)", folder+"t1tttt_sus16_050.root", 
+  		    kBlack, "ObsLim", "ExpLim");
   models.back().add("SUS-16-037, 1-lep ("+mj+")", folder+"t1tttt_sus16_037.root", 
    		    cSus16037, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add("SUS-16-042, 1-lep ("+dphi+")", folder+"t1tttt_sus16_042.root", 
-    		    cSus16042, "graph_smoothed_Obs", "graph_smoothed_Exp");
+    		    cSus16042-10, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add("SUS-16-035, #geq2-lep (SS)", folder+"t1tttt_sus16_035.root", 
    		    cSus16035, "ssobs", "ssexp");
   models.back().add("SUS-16-041, #geq3-lep", folder+"t1tttt_sus16_041.root", 
@@ -278,6 +284,8 @@ int main(){
    		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("SUS-16-036 ("+mt2+")", folder+"t1bbbb_sus16_036.root", 
   		    cSus16036, "ObsLim", "ExpLim");
+  models.back().add("SUS-16-038 ("+alphat+")", folder+"t1bbbb_sus16_038.root", 
+  		    kBlack, "contour_Obs_0", "contour_Exp_0");
 
 
   ///////////////////////////////    Defining T1qqqq plot    /////////////////////////////////
@@ -290,6 +298,8 @@ int main(){
   		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("SUS-16-036 ("+mt2+")", folder+"t1qqqq_sus16_036.root", 
   		    cSus16036, "ObsLim", "ExpLim");
+  models.back().add("SUS-16-038 ("+alphat+")", folder+"t1qqqq_sus16_038.root", 
+  		    kBlack, "contour_Obs", "contour_Exp_0");
 
   ///////////////////////////////    Defining T5qqqqVV plot    /////////////////////////////////
   models.push_back(model_limits("T5qqqqVV", pp_to_xx("g")+"q#kern[0.2]{#bar{q}}#kern[0.2]{V}#kern[0.2]{"+lsp+"}"));
@@ -543,7 +553,8 @@ void addLabelsTitle(float lMargin, float tMargin, float rMargin, TString title, 
   label.DrawLatex((1-rMargin-lMargin)/2.+lMargin-0.05, 1-tMargin+0.024, title);
   // Printing date
   label.SetTextAlign(31); label.SetTextFont(52); label.SetTextSize(0.45*tMargin);
-  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "Moriond 2017");
+  //  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "Moriond 2017");
+  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "June 2018");
   // Printing energy
   label.SetTextAlign(31); label.SetTextFont(42); label.SetTextSize(0.53*tMargin);
   if(lumi=="") lumi = "13 TeV";
