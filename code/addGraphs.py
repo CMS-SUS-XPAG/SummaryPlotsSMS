@@ -2,15 +2,15 @@ import ROOT
 import sys,os,re
 import argparse
 
-def addGraphs(newGraph,oldGraphNames,tf):
+def addGraphs(newGraph,oldGraphs,tf):
     n = newGraph.GetN() # should be 0
     print "Filling new graph",newGraph.GetName()," - starting with",n,"points"
-    for nog in oldGraphNames:
+    for sgn,nog in oldGraphs:
         og = tf.Get(nog)
         npog = og.GetN()
         xs = og.GetX()
         ys = og.GetY()
-        for i in range(npog):
+        for i in range(npog)[::sgn]:
             newGraph.SetPoint(n,xs[i],ys[i])
             n += 1
     print "Finished adding, final count =",newGraph.GetN()
@@ -50,12 +50,13 @@ for c in args.toadd:
     # in case 1st element has no sign: add '+'
     if fs[0]!='+' and fs[0]!='-':
         fs.insert(0,'+')
-    print fs
-    sys.exit(0)
-    for g in fs:
+    assert len(fs)%2==0
+    for i in range(0,len(fs),2):
+        sgn = 1 if fs[i]=='+' else -1
+        g = fs[i+1]
         if g in oldgraphs:
             raise ValueError("Graph "+g+" is used in multiple conversions")
-        toadd[gnew].append(g)
+        toadd[gnew].append( (sgn,g) )
         oldgraphs.append(g)
 
 
