@@ -1,5 +1,9 @@
 //// plot_limits_summary: Plots various limit curves on same canvas
 
+//
+// Publications
+//  SUS-16-033 - arXiv:1707.07274 - PLB 778 (2018) 263
+//  SUS-17-004 - arXiv:1801.03957 - JHEP 03 (2018) 160
 // System includes
 #include <fstream>
 #include <iostream>
@@ -101,6 +105,8 @@ int main(){
   		    cwh43, "massplane_obs", "contourplot", 124.5);
   models.back().add("SUS-16-045, H#rightarrow#gamma#gamma (WH)", folder+"ewkino_sus16_045_wh.root", 
    		    kOrange, "obs", "exp", 124.5);
+  models.back().add("SUS-17-004, combined (WH)", folder+"ewkino_sus17_004_wh_gr.root", 
+  		    cwz39+2, "gr_obs", "gr_exp", 124.5);
 
   ///////////////////////////////    Defining WZ only plot   //////////////////////////////
   models.push_back(model_limits("WZ","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
@@ -112,10 +118,12 @@ int main(){
 
   models.back().add("SUS-16-034, 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
-  models.back().add("SUS-17-004, 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
-  		    cwz39, "gr_obs", "gr_exp", 7);
+  models.back().add("SUS-17-004, $\geq$3l (WZ)", folder+"ewkino_sus17_004_wz_3l_gr.root", 
+    		    cwz39, "gr_obs", "gr_exp", 7);
   models.back().add("SUS-16-048, soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
+  models.back().add("SUS-17-004, combined (WZ)", folder+"ewkino_sus17_004_wz.root", 
+  		    cwz39+2, "gr_obs", "gr_exp", 7);
 
   ///////////////////////////////    Defining EWKino only plot   //////////////////////////////
   models.push_back(model_limits("EWKino","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
@@ -148,11 +156,11 @@ int main(){
   models.back().setRanges(100, 700, 0, 430); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  models.back().add("SUS-17-004, comb. (WH)", folder+"ewkino_sus17_004_wh.root", 
+  models.back().add("SUS-17-004, comb. (WH)", folder+"ewkino_sus17_004_wh_gr.root", 
   		    cwh43, "gr_obs", "gr_exp", 124.5);
   models.back().add("SUS-17-004, comb. (WZ)", folder+"ewkino_sus17_004_wz.root", 
   		    cwz39, "gr_obs", "gr_exp", 25);
-  models.back().add("SUS-17-004, comb. (0.5#timesWH+0.5#timesWZ)", folder+"ewkino_sus17_004_wzmix.root", 
+  models.back().add("SUS-17-004, comb. (0.5#timesWH+0.5#timesWZ)", folder+"ewkino_sus17_004_wzmix_gr.root", 
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 124.5);
 
   // models.back().add(WHdecay+" = 1 (WH)", folder+"ewkino_sus17_004_wh.root", 
@@ -359,6 +367,8 @@ int main(){
 		    cSus15003, "ObsLim", "ExpLim");
   models.back().add("SUS-16-049, 0-lep stop", folder+"t2tt_sus16_049.root", 
 		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
+  models.back().add("SUS-16-050, 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
+		    kGray, "ObsLim", "ExpLim");
   models.back().add("SUS-16-051, 1-lep stop", folder+"t2tt_sus16_051.root",
 		    cSus16002, "gObs", "gExp");
   models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
