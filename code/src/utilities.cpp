@@ -25,8 +25,12 @@ int GetNumBins(const vector<double> &pts, double width){
 
 TGraph* getGraph(TFile &flimit, TString gname){
   if(gname == "noplot") return 0;
-  TGraph *graph = static_cast<TGraph*>(flimit.Get(gname));
-  //cout<<endl<<"Finding "<<gname<<" which is graph: "<<graph->InheritsFrom(TGraph::Class())<<endl;
+  TObject* object = flimit.Get(gname);
+  if (object==NULL) {
+    cout << "Did not find object "<<gname<<" in file "<<flimit.GetName()<<endl;
+  }
+  TGraph *graph = static_cast<TGraph*>(object);
+  cout<<endl<<"Finding "<<gname<<" which is graph: "<<graph->InheritsFrom(TGraph::Class())<<endl;
   if(graph->InheritsFrom(TMultiGraph::Class())){
     TMultiGraph *mgraph = static_cast<TMultiGraph*>(flimit.Get(gname));
     TList *list = mgraph->GetListOfGraphs();
