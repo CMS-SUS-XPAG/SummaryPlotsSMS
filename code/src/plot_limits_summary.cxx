@@ -31,6 +31,7 @@ namespace{
   bool do_prelim = true;
   bool no_shade = true;
   bool debug = false;
+  int arxivIdx = 0;
 
   int LineWidth = 4;
   float cmsH = 0.075;
@@ -66,7 +67,10 @@ namespace{
   int c10050 = kOrange-2, c10005 = kGray+1, c10095 = kOrange+2;
   int ctau50 = kPink+1;
   int cwh = kMagenta+1, cwh43 = kGreen+1, cwz39 = kRed, cwz48 = 1, cwz34 = kCyan+2;
+
+
 }
+
 
 void addLabelsTitle(float lMargin, float tMargin, float rMargin, TString title, TString lumi);
 TString pp_to_xx(TString x){
@@ -78,6 +82,27 @@ TString pp_to_xx(TString x){
 int main(){
   gErrorIgnoreLevel=kWarning; // Turns off ROOT INFO messages
 
+  vector<TString> sus16032; sus16032.push_back("SUS-16-032"); sus16032.push_back("SUS-16-032");
+  vector<TString> sus16033; sus16033.push_back("SUS-16-033"); sus16033.push_back("1704.07781");
+  vector<TString> sus16034; sus16034.push_back("SUS-16-034"); sus16034.push_back("SUS-16-034");
+  vector<TString> sus16035; sus16035.push_back("SUS-16-035"); sus16035.push_back("SUS-16-035");
+  vector<TString> sus16036; sus16036.push_back("SUS-16-036"); sus16036.push_back("SUS-16-036");
+  vector<TString> sus16037; sus16037.push_back("SUS-16-037"); sus16037.push_back("SUS-16-037");
+  vector<TString> sus16038; sus16038.push_back("SUS-16-038"); sus16038.push_back("SUS-16-038");
+  vector<TString> sus16039; sus16039.push_back("SUS-16-039"); sus16039.push_back("SUS-16-039");
+  vector<TString> sus16040; sus16040.push_back("SUS-16-040"); sus16040.push_back("SUS-16-040");
+  vector<TString> sus16041; sus16041.push_back("SUS-16-041"); sus16041.push_back("SUS-16-041");
+  vector<TString> sus16042; sus16042.push_back("SUS-16-042"); sus16042.push_back("SUS-16-042");
+  vector<TString> sus16043; sus16043.push_back("SUS-16-043"); sus16043.push_back("SUS-16-043");
+  vector<TString> sus16044; sus16044.push_back("SUS-16-044"); sus16044.push_back("SUS-16-044");
+  vector<TString> sus16045; sus16045.push_back("SUS-16-045"); sus16045.push_back("SUS-16-045");
+  vector<TString> sus16046; sus16046.push_back("SUS-16-046"); sus16046.push_back("SUS-16-046");
+  vector<TString> sus16047; sus16047.push_back("SUS-16-047"); sus16047.push_back("SUS-16-047");
+  vector<TString> sus16048; sus16048.push_back("SUS-16-048"); sus16048.push_back("SUS-16-048");
+  vector<TString> sus16049; sus16049.push_back("SUS-16-049"); sus16049.push_back("SUS-16-049");
+  vector<TString> sus16050; sus16050.push_back("SUS-16-050"); sus16050.push_back("SUS-16-050");
+  vector<TString> sus16051; sus16051.push_back("SUS-16-051"); sus16051.push_back("SUS-16-051");
+
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
   TString mt2("M#lower[-.1]{_{T2}}"), mht("H_{#lower[-.4]{T}}^{miss}"), aT("#alpha#lower[-.1]{_{T}}");
@@ -88,6 +113,7 @@ int main(){
   TString basefolder("rootfiles/2018_Summer/");
   TString folder(basefolder+"input_root/");
   vector<model_limits> models;
+
   vector<float> mLSPs({0., 200.}); // mLSP values for which excluded mGlu is printed
   TString energy=""; // " (13 TeV)"; // Used when there are 8 and 13 TeV results
 
@@ -264,7 +290,7 @@ int main(){
   models.back().setRanges(700, 2100, 0, 2050, 225); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
 
-  models.back().add("SUS-16-033, 0-lep ("+mht+")", folder+"t1tttt_sus16_033.root", 
+  models.back().add(sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t1tttt_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t1tttt_sus16_036.root", 
   		    cSus16036-10, "ObsLim", "ExpLim");
@@ -361,6 +387,40 @@ int main(){
 
   ///////////////////////////////    Defining T2tt plot    ///////////////////////////////// 
   models.push_back(model_limits("T2tt", pp_to_xx("t")+"t#kern[0.4]{"+lsp+"}"));
+  models.back().lumi = "35.9"; 
+  models.back().setRanges(100, 1200, 0, 900, 100); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
+
+  models.back().add("SUS-16-033, 0-lep ("+mht+")", folder+"t2tt_sus16_033.root", 
+   		    cSus16033, "ObsLim2", "ExpLim2");
+  models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t2tt_sus16_036.root", 
+   		    cSus15003, "ObsLim", "ExpLim");
+  models.back().add("SUS-16-049, 0-lep stop", folder+"t2tt_sus16_049.root", 
+		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
+  models.back().add("SUS-16-050, 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
+   		    kGray, "ObsLim", "ExpLim");
+  models.back().add("SUS-16-051, 1-lep stop", folder+"t2tt_sus16_051.root",
+  		    cSus16002, "gObs", "gExp");
+  models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
+    		    cSus15004, "contour_obs", "contour_exp");
+  models.back().add("", folder+"t2tt_sus16_033.root", 
+    		    cSus16033, "ObsLim", "ExpLim");
+  models.back().add("", folder+"t2tt_sus16_049.root", 
+  		    cSus16007A, "graph_smoothed_Obs_12", "graph_smoothed_Exp");
+  models.back().add("", folder+"t2tt_sus16_049.root",
+                    cSus16007A, "graph_smoothed_Obs_8", "graph_smoothed_Exp");
+  models.back().add("", folder+"t2tt_sus16_049.root",
+                    cSus16007A, "graph_smoothed_Obs_6", "graph_smoothed_Exp");
+  models.back().add("", folder+"t2tt_sus16_051.root",
+                    cSus16002, "gObs_2", "gExp_2");
+  models.back().add("", folder+"t2tt_sus16_049.root",
+                    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
+  models.back().add("Comb. 0-, 1- and 2-lep stop", folder+"t2tt_comb.root", 
+    		    cComb, "gObs", "gExp");
+
+
+  ///////////////////////////////    Defining T2tt plot    ///////////////////////////////// 
+  models.push_back(model_limits("T2tt+C", pp_to_xx("t")+"t#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
   models.back().setRanges(100, 1200, 0, 900, 100); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
