@@ -335,6 +335,8 @@ int main(){
   		    cSus16033, "ObsLim2", "ExpLim2");
   models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t2qq_sus16_036.root", 
  		    cSus15003, "ObsLim_1squark", "ExpLim_1squark");
+  models.back().add("SUS-16-038, 0-lep ("+alphat+")", folder+"t2qq_sus16_038.root", 
+  		    kGray, "contour_Obs_0", "contour_Exp_0");
   models.back().add("", folder+"t2qq_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("", folder+"t2qq_sus16_036.root",
@@ -353,6 +355,8 @@ int main(){
    		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t2bb_sus16_036.root", 
                     cSus15003, "ObsLim", "ExpLim");
+  models.back().add("SUS-16-038, 0-lep ("+alphat+")", folder+"t2bb_sus16_038.root", 
+  		    kBlack, "contour_Obs_0", "contour_Exp_0");
 
 
   ///////////////////////////////    Defining T2tt plot    ///////////////////////////////// 
@@ -362,21 +366,21 @@ int main(){
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
 
   models.back().add("SUS-16-033, 0-lep ("+mht+")", folder+"t2tt_sus16_033.root", 
-  		    cSus16033, "ObsLim2", "ExpLim2");
+   		    cSus16033, "ObsLim2", "ExpLim2");
   models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t2tt_sus16_036.root", 
-		    cSus15003, "ObsLim", "ExpLim");
+   		    cSus15003, "ObsLim", "ExpLim");
   models.back().add("SUS-16-049, 0-lep stop", folder+"t2tt_sus16_049.root", 
 		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add("SUS-16-050, 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
-		    kGray, "ObsLim", "ExpLim");
+   		    kGray, "ObsLim", "ExpLim");
   models.back().add("SUS-16-051, 1-lep stop", folder+"t2tt_sus16_051.root",
-		    cSus16002, "gObs", "gExp");
+  		    cSus16002, "gObs", "gExp");
   models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
     		    cSus15004, "contour_obs", "contour_exp");
   models.back().add("", folder+"t2tt_sus16_033.root", 
     		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("", folder+"t2tt_sus16_049.root", 
-		    cSus16007A, "graph_smoothed_Obs_12", "graph_smoothed_Exp");
+  		    cSus16007A, "graph_smoothed_Obs_12", "graph_smoothed_Exp");
   models.back().add("", folder+"t2tt_sus16_049.root",
                     cSus16007A, "graph_smoothed_Obs_8", "graph_smoothed_Exp");
   models.back().add("", folder+"t2tt_sus16_049.root",
