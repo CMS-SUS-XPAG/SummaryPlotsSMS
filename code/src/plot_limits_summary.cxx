@@ -432,14 +432,14 @@ int main(){
   //  		    cSus16033, "ObsLim2", "ExpLim2");
   // models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t2tt_sus16_036.root", 
   //  		    cSus15003, "ObsLim", "ExpLim");
-  models.back().add("SUS-16-049, 0-lep stop", folder+"t2tt_sus16_049.root", 
-   		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
+  models.back().add("SUS-16-049, 0-lep", folder+"t2tt_sus16_049.root", 
+   		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp", 85.);
   // models.back().add("SUS-16-050, 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
   //  		    kGray, "ObsLim", "ExpLim");
-  models.back().add("SUS-16-051, 1-lep stop", folder+"t2tt_sus16_051.root",
-   		    cSus16002, "gObs", "gExp");
-  models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
-     		    cSus15004, "contour_obs", "contour_exp");
+  models.back().add("SUS-16-051, 1-lep", folder+"t2tt_sus16_051.root",
+   		    cSus16002, "gObs", "gExp", 85.);
+  // models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
+  //    		    cSus15004, "contour_obs", "contour_exp", 85.);
   // models.back().add("", folder+"t2tt_sus16_033.root", 
   //   		    cSus16033, "ObsLim", "ExpLim");
   // models.back().add("", folder+"t2tt_sus16_049.root", 
@@ -452,13 +452,13 @@ int main(){
   //                   cSus16002, "gObs_2", "gExp_2");
   // models.back().add("", folder+"t2tt_sus16_049.root",
   //                   cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
-  models.back().add("Comb. 0-, 1- and 2-lep stop (2-body)", folder+"t2tt_comb.root", 
-    		    cComb, "gObs", "gExp");
+  // models.back().add("Comb. 0-, 1- and 2-lep stop (2-body)", folder+"t2tt_comb.root", 
+  //   		    cComb, "gObs", "gExp");
   // models.back().add("SUS-17-010 (2l, 3-body)", folder+"t2tt_comb.root", 
   //   		    cComb, "gObs", "gExp");
-  models.back().add("SUS-16-049/SUS-17-005 (0l+soft 1l stop, 4-body)", folder+"t2tt4c_sus17_005_gr.root", 
+  models.back().add("SUS-17-005 (soft 1l+0l)", folder+"t2tt4c_sus17_005_gr.root", 
     		    kRed, "gOBSOut0", "gEXPOut0");
-  models.back().add("SUS-17-005 (soft 1l MVA, 4-body)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
+  models.back().add("SUS-17-005 (soft 1l MVA)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
     		    kGreen, "gOBSOut0", "gEXPOut0");
 
 
@@ -494,13 +494,14 @@ int main(){
   TLatex labMass; labMass.SetNDC();  
   labMass.SetTextAlign(33); labMass.SetTextFont(42); 
   TLine line;
-  TLatex label;
 
   //// Looping over each model
   cout<<endl;
   for(size_t imodel(0); imodel < models.size(); imodel++){
     model_limits mod(models[imodel]);
 
+    TLatex label;
+    cout << "lines " << mod.model << " " << mod.lines.size() << endl;
     //// Creating base histogram and drawing lumi labels
     float Xmin(mod.Xmin), Xmax(mod.Xmax), Ymin(mod.Ymin), Ymax(mod.Ymax), glu_lsp(mod.glu_lsp);
     TString xtitle = mod.xtitle;
@@ -523,23 +524,25 @@ int main(){
       // offsetX controls where along the line to put the label, offsetY how far from it
       float offsetX=(Xmax-Xmin)/38, offsetY=(Xmax-Xmin)/38;
       if(mod.lines[iline].above){
-	label.SetTextAlign(31); 
+       	label.SetTextAlign(31); 
       } else {
-	label.SetTextAlign(33);
-	offsetX *= -0.4;
-	offsetY *= -0.7;
+       	label.SetTextAlign(33);
+       	offsetX *= -0.4;
+       	offsetY *= -0.7;
       }
       label.DrawLatex(dM+maxh-offsetX, maxh-offsetX+offsetY, mod.lines[iline].label);
+      // label.DrawLatex(200., 200., mod.lines[iline].label);
+      cout << "Drawing label " << dM+maxh-offsetX << " " << maxh-offsetX+offsetY << " " << mod.lines[iline].label << endl;
     }// Loop over lines
+
     for(size_t ilabel=0; ilabel<mod.plot_labels.size(); ilabel++){
       label.SetNDC(); label.SetTextAngle(0); label.SetTextColor(1); 
       label.SetTextFont(42);
-      label.SetTextSize(0.04);
+       label.SetTextSize(0.04);
       label.SetTextAlign(mod.plot_labels[ilabel].text_align);
 
       label.DrawLatex(mod.plot_labels[ilabel].X, mod.plot_labels[ilabel].Y, mod.plot_labels[ilabel].label);
     }// Loop over labels
-
     //// Plotting limits
     size_t ncurves(mod.files.size()), ncurvesleg = mod.files.size();
     vector<TGraph*> obs(ncurves, 0), exp(ncurves, 0);
