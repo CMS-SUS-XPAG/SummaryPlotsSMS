@@ -108,6 +108,12 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
 
   graph->GetPoint(0, iniglu, inilsp);
   graph->GetPoint(np-1, endglu, endlsp);
+
+  //
+  // don't touch closed graphs
+  //
+  if ( fabs(iniglu-endglu)>0.5 || fabs(inilsp-endlsp)>0.5 ) {
+
   // Reversing graph if printed towards decreasing mgluino
   if(inilsp < endlsp || (inilsp==endlsp && iniglu>endglu)) {
     reverseGraph(graph);
@@ -117,6 +123,7 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
 
   // Adding a point so that it goes down to mLSP = 0, but not for WZ,SOS
   if(endlsp<20){
+    cout << "Setting point at 0 " << graph->GetN() << " " << endglu << " " << endlsp << endl;
     graph->SetPoint(graph->GetN(), endglu, 0);
     np++;
   }
@@ -137,7 +144,7 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
       graph->GetPoint(point, mglu, mlsp);
       cout << point << " " << mglu << " " << mlsp << " " << glu_lsp << " " << mlsp-(mglu-glu_lsp) << endl;
       if(mlsp > mglu-glu_lsp && glu_lsp<1000){
-        while(point <= graph->GetN()) {
+        while(point <= graph->GetN() && graph->GetN()>0) {
 	  cout << point << " " << graph->GetN() << endl;
           graph->RemovePoint(graph->GetN()-1);
           np--;
@@ -156,13 +163,24 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
 
 
     // Adding extrapolation into the diagonal, and point for mglu = 0
+    // check that intersection is in the direction of the last segment
+    // cout << "Slope/inter "<< (x1-x2)*(intersection-x1)+(y1-y2)*((intersection-glu_lsp-y1)) << endl;
+    if ( (x1-x2)*(intersection-x1)+(y1-y2)*((intersection-glu_lsp-y1))>0 ){
     if(slope<1) graph->SetPoint(graph->GetN(), intersection, intersection-glu_lsp);
+    if(slope<1) 
+      cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << intersection-glu_lsp << endl;
+
     if(glu_lsp<1000) graph->SetPoint(graph->GetN(), 0, -glu_lsp);
+    if(glu_lsp<1000)
+      cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << 0. << " " << -glu_lsp << endl;
+    }
+      
     if(x1 == x2 || y1 == y2 || slope == 1){
       // cout<<"Slope is one"<<endl;
     }
     if(debug && style==1) printGraph(graph, "as is returned to main function");
   } // If not T2tt
+  } // patchGraph
 }
 
 void printGraph(TGraph *graph, TString comment){
