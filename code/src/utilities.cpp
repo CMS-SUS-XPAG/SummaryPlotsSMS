@@ -121,11 +121,16 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     np++;
   }
 
-  reverseGraph(graph);
+  // reverse graph based on deltaM of first and last point
+  double mglu1, mlsp1, mglu2, mlsp2;
+  graph->GetPoint(0,mglu1,mlsp1);
+  graph->GetPoint(graph->GetN()-1,mglu2,mlsp2);
+  if ((mglu1-mlsp1)<(mglu2-mlsp2))
+    reverseGraph(graph);
 
   if(debug && style==1) printGraph(graph, "after reversing it and adding point to go down to mLSP = 0");
 
-  if(model_leg != "T2tt_")){
+  if(model_leg != "T2tt_"){
     cout << model_leg << endl;
     // Adding a point at mLSP = 0, and removing points beyond the diagonal
     for(int point(0); point < np; point++){
