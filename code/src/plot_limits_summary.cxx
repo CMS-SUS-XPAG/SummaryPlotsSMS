@@ -423,20 +423,23 @@ int main(){
   models.push_back(model_limits("T2tt234", pp_to_xx("t")+"t#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
   models.back().setRanges(100, 1200, 0, 900, 5); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{b}", 5, 600);
+  models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{W}+m_{b}", 85, 600);
+  models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{t}", 175, 600);
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
 
   // models.back().add("SUS-16-033, 0-lep ("+mht+")", folder+"t2tt_sus16_033.root", 
   //  		    cSus16033, "ObsLim2", "ExpLim2");
   // models.back().add("SUS-16-036, 0-lep ("+mt2+")", folder+"t2tt_sus16_036.root", 
   //  		    cSus15003, "ObsLim", "ExpLim");
-  // models.back().add("SUS-16-049, 0-lep stop", folder+"t2tt_sus16_049.root", 
-  // 		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
+  models.back().add("SUS-16-049, 0-lep stop", folder+"t2tt_sus16_049.root", 
+   		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
   // models.back().add("SUS-16-050, 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
   //  		    kGray, "ObsLim", "ExpLim");
-  // models.back().add("SUS-16-051, 1-lep stop", folder+"t2tt_sus16_051.root",
-  // 		    cSus16002, "gObs", "gExp");
-  // models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
-  //   		    cSus15004, "contour_obs", "contour_exp");
+  models.back().add("SUS-16-051, 1-lep stop", folder+"t2tt_sus16_051.root",
+   		    cSus16002, "gObs", "gExp");
+  models.back().add("SUS-17-001, 2-lep stop", folder+"t2tt_sus17_001.root", 
+     		    cSus15004, "contour_obs", "contour_exp");
   // models.back().add("", folder+"t2tt_sus16_033.root", 
   //   		    cSus16033, "ObsLim", "ExpLim");
   // models.back().add("", folder+"t2tt_sus16_049.root", 
