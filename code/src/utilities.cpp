@@ -125,12 +125,15 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
 
   if(debug && style==1) printGraph(graph, "after reversing it and adding point to go down to mLSP = 0");
 
-  if(model_leg != "T2tt_"){
+  if(model_leg != "T2tt_")){
+    cout << model_leg << endl;
     // Adding a point at mLSP = 0, and removing points beyond the diagonal
     for(int point(0); point < np; point++){
       graph->GetPoint(point, mglu, mlsp);
+      cout << point << " " << mglu << " " << mlsp << " " << glu_lsp << " " << mlsp-(mglu-glu_lsp) << endl;
       if(mlsp > mglu-glu_lsp && glu_lsp<1000){
         while(point <= graph->GetN()) {
+	  cout << point << " " << graph->GetN() << endl;
           graph->RemovePoint(graph->GetN()-1);
           np--;
         }
@@ -144,7 +147,7 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     double slope((y1-y2)/(x1-x2)), offset(y1-slope*x1);
     double intersection((offset+glu_lsp)/(1-slope));
     // cout<<endl<<"("<<x1<<","<<y1<<") to ("<<x2<<","<<y2<<") -> intersection at ("
-    //     <<intersection<<","<<intersection-glu_lsp<<"), slope "<<slope<<", offset "<<offset<<endl;
+    // <<intersection<<","<<intersection-glu_lsp<<"), slope "<<slope<<", offset "<<offset<<endl;
 
 
     // Adding extrapolation into the diagonal, and point for mglu = 0

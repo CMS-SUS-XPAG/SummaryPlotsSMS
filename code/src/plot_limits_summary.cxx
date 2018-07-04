@@ -86,7 +86,7 @@ int main(){
   vector<TString> sus16033; sus16033.push_back("SUS-16-033"); sus16033.push_back("1704.07781");
   vector<TString> sus16034; sus16034.push_back("SUS-16-034"); sus16034.push_back("SUS-16-034");
   vector<TString> sus16035; sus16035.push_back("SUS-16-035"); sus16035.push_back("SUS-16-035");
-  vector<TString> sus16036; sus16036.push_back("SUS-16-036"); sus16036.push_back("SUS-16-036");
+  vector<TString> sus16036; sus16036.push_back("SUS-16-036"); sus16036.push_back("1705.04650");
   vector<TString> sus16037; sus16037.push_back("SUS-16-037"); sus16037.push_back("SUS-16-037");
   vector<TString> sus16038; sus16038.push_back("SUS-16-038"); sus16038.push_back("SUS-16-038");
   vector<TString> sus16039; sus16039.push_back("SUS-16-039"); sus16039.push_back("SUS-16-039");
@@ -98,10 +98,10 @@ int main(){
   vector<TString> sus16045; sus16045.push_back("SUS-16-045"); sus16045.push_back("SUS-16-045");
   vector<TString> sus16046; sus16046.push_back("SUS-16-046"); sus16046.push_back("SUS-16-046");
   vector<TString> sus16047; sus16047.push_back("SUS-16-047"); sus16047.push_back("SUS-16-047");
-  vector<TString> sus16048; sus16048.push_back("SUS-16-048"); sus16048.push_back("SUS-16-048");
-  vector<TString> sus16049; sus16049.push_back("SUS-16-049"); sus16049.push_back("SUS-16-049");
-  vector<TString> sus16050; sus16050.push_back("SUS-16-050"); sus16050.push_back("SUS-16-050");
-  vector<TString> sus16051; sus16051.push_back("SUS-16-051"); sus16051.push_back("SUS-16-051");
+  vector<TString> sus16048; sus16048.push_back("SUS-16-048"); sus16048.push_back("1801.01846");
+  vector<TString> sus16049; sus16049.push_back("SUS-16-049"); sus16049.push_back("1707.03316");
+  vector<TString> sus16050; sus16050.push_back("SUS-16-050"); sus16050.push_back("1710.11188");
+  vector<TString> sus16051; sus16051.push_back("SUS-16-051"); sus16051.push_back("1706.04402");
 
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
@@ -422,7 +422,7 @@ int main(){
   ///////////////////////////////    Defining T2tt234 plot    ///////////////////////////////// 
   models.push_back(model_limits("T2tt234", pp_to_xx("t")+"t#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
-  models.back().setRanges(100, 1200, 0, 900, 100); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().setRanges(100, 1200, 0, 900, 5); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
 
   // models.back().add("SUS-16-033, 0-lep ("+mht+")", folder+"t2tt_sus16_033.root", 
@@ -451,8 +451,12 @@ int main(){
   //                   cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add("Comb. 0-, 1- and 2-lep stop (2-body)", folder+"t2tt_comb.root", 
     		    cComb, "gObs", "gExp");
-  models.back().add("SUS-16-049/SUS-17-005 (0l+soft 1l stop, 4-body)", folder+"t2tt4c_sus17_005.root", 
-    		    cComb, "gObs", "gExp");
+  // models.back().add("SUS-17-010 (2l, 3-body)", folder+"t2tt_comb.root", 
+  //   		    cComb, "gObs", "gExp");
+  models.back().add("SUS-16-049/SUS-17-005 (0l+soft 1l stop, 4-body)", folder+"t2tt4c_sus17_005_gr.root", 
+    		    kRed, "gOBSOut0", "gEXPOut0");
+  models.back().add("SUS-17-005 (soft 1l MVA, 4-body)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
+    		    kGreen, "gOBSOut0", "gEXPOut0");
 
 
 
