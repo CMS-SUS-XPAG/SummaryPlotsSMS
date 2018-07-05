@@ -507,6 +507,8 @@ int main(){
   models.back().legScale = 0.8;
   models.back().vsDM = true;
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
+  models.back().ytitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.12]{_{#lower[-0.12]{"+lsp+"}}}";
+  models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{W}", 80, 600, true);
 
   models.back().add("SUS-17-005 (soft 1l+0l; #tilde{t}#rightarrow t^{(*)} "+lsp+")", 
 		    folder+"t2tt4c_sus17_005_gr_dm.root", 
@@ -514,8 +516,7 @@ int main(){
   models.back().add("SUS-17-005 (soft 1l MVA; #tilde{t}#rightarrow t^{(*)} "+lsp+")", 
 		    folder+"t2tt4bdy_sus17_005_mva_gr_dm.root", 
     		    kGreen, "gOBSOut0", "gEXPOut0");
-
-
+  cout << "ytitle " << models.back().ytitle << endl;
 
    //////////////////////////////////////////////////////////////////////////////////////// 
   //////////////////////////////////    Making plots    //////////////////////////////////
@@ -555,17 +556,22 @@ int main(){
     model_limits mod(models[imodel]);
 
     TLatex label;
-    cout << "lines " << mod.model << " " << mod.lines.size() << endl;
     //// Creating base histogram and drawing lumi labels
     float Xmin(mod.Xmin), Xmax(mod.Xmax), Ymin(mod.Ymin), Ymax(mod.Ymax), glu_lsp(mod.glu_lsp);
     TString xtitle = mod.xtitle;
 
-    TH2D hbase = baseHistogram(Xmin, Xmax, Ymin, Ymax, xtitle);
+    TH2D hbase = baseHistogram(Xmin, Xmax, Ymin, Ymax, xtitle, mod.ytitle);
     hbase.Draw();
     addLabelsTitle(lMargin, tMargin, rMargin, mod.title, mod.lumi);
 
     //// Plot lines at constant dM
-    float degrees = 180/3.141593*atan2((1-tMargin-bMargin)/(Ymax-Ymin) , (1-lMargin-rMargin)/(Xmax-Xmin));
+    float degrees;
+    if (mod.vsDM) {
+      degrees = 0.;
+    }
+    else {
+      degrees = 180/3.141593*atan2((1-tMargin-bMargin)/(Ymax-Ymin) , (1-lMargin-rMargin)/(Xmax-Xmin));
+    }
     int lcolor(kGray+2);
     line.SetLineStyle(2); line.SetLineWidth(2); line.SetLineColor(lcolor);
     label.SetTextSize(0.027); label.SetTextAngle(degrees); label.SetTextColor(lcolor);
@@ -574,19 +580,35 @@ int main(){
       float minGlu=dM;
       float maxh = mod.lines[iline].maxHeight;
       if(dM<Xmin) minGlu = Xmin;
-      line.DrawLine(minGlu, minGlu-dM, dM+maxh, maxh);
-      // offsetX controls where along the line to put the label, offsetY how far from it
-      float offsetX=(Xmax-Xmin)/38, offsetY=(Xmax-Xmin)/38;
-      if(mod.lines[iline].above){
-       	label.SetTextAlign(31); 
-      } else {
-       	label.SetTextAlign(33);
-       	offsetX *= -0.4;
-       	offsetY *= -0.7;
+      if (mod.vsDM) {
+	line.DrawLine(Xmin,dM,Xmax,dM);
+	// offsetX controls where along the line to put the label, offsetY how far from it
+	float offsetX=(Xmax-Xmin)/38, offsetY=0.;
+	if(mod.lines[iline].above){
+	  label.SetTextAlign(31); 
+	  offsetY += 0.02*(Ymax-Ymin);
+	} else {
+	  label.SetTextAlign(33);
+	  offsetY -= 0.02*(Ymax-Ymin);
+	}
+	label.DrawLatex(Xmax-offsetX, dM+offsetY, mod.lines[iline].label);
+	// label.DrawLatex(200., 200., mod.lines[iline].label);
       }
-      label.DrawLatex(dM+maxh-offsetX, maxh-offsetX+offsetY, mod.lines[iline].label);
-      // label.DrawLatex(200., 200., mod.lines[iline].label);
-      cout << "Drawing label " << dM+maxh-offsetX << " " << maxh-offsetX+offsetY << " " << mod.lines[iline].label << endl;
+      else {
+	line.DrawLine(minGlu, minGlu-dM, dM+maxh, maxh);
+	// offsetX controls where along the line to put the label, offsetY how far from it
+	float offsetX=(Xmax-Xmin)/38, offsetY=(Xmax-Xmin)/38;
+	if(mod.lines[iline].above){
+	  label.SetTextAlign(31); 
+	} else {
+	  label.SetTextAlign(33);
+	  offsetX *= -0.4;
+	  offsetY *= -0.7;
+	}
+	label.DrawLatex(dM+maxh-offsetX, maxh-offsetX+offsetY, mod.lines[iline].label);
+	// label.DrawLatex(200., 200., mod.lines[iline].label);
+	cout << "Drawing label " << dM+maxh-offsetX << " " << maxh-offsetX+offsetY << " " << mod.lines[iline].label << endl;
+      }
     }// Loop over lines
 
     for(size_t ilabel=0; ilabel<mod.plot_labels.size(); ilabel++){
@@ -618,8 +640,8 @@ int main(){
       // 	changeDmCoordinates(exp[file]);
       // 	changeDmCoordinates(obs[file]);
       // }
-      setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], debug);
-      setGraphStyle(obs[file], mod.colors[file], 1, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], debug);
+      setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], mod.vsDM, debug);
+      setGraphStyle(obs[file], mod.colors[file], 1, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], mod.vsDM, debug);
       //printExclGlu(obs[file], exp[file], mLSPs, mod.labels[file]);
       obs[file]->Draw("f same");
 

@@ -13,9 +13,9 @@
 #include "TFile.h"
 
 void setCanvas(TCanvas &can, float lMargin, float tMargin, float rMargin, float bMargin);
-TH2D baseHistogram(float Xmin, float Xmax, float Ymin, float Ymax, TString xtitle);
+TH2D baseHistogram(float Xmin, float Xmax, float Ymin, float Ymax, TString xtitle, TString ytitle);
 TGraph* getGraph(TFile &flimit, TString gname);
-void setGraphStyle(TGraph *graph, int color, int style, int width, double glu_lsp, TString model_leg, bool debug=false);
+void setGraphStyle(TGraph *graph, int color, int style, int width, double glu_lsp, TString model_leg, bool vsDM, bool debug=false);
 TGraph* joinGraphs(TGraph *graph1, TGraph *graph2);
 void reverseGraph(TGraph *graph);
 void changeDmCoordinates(TGraph *graph);

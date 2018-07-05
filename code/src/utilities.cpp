@@ -23,6 +23,11 @@ int GetNumBins(const vector<double> &pts, double width){
   return max(1, min(500, static_cast<int>(ceil((pmax-pmin)/width))));
 }
 
+double deltaM(double& x, double& y, bool vsDM) {
+  if ( vsDM ) return y;
+  else return x-y;
+}
+
 TGraph* getGraph(TFile &flimit, TString gname){
   if(gname == "noplot") return 0;
   TObject* object = flimit.Get(gname);
@@ -78,7 +83,7 @@ TGraph* getGraph(TFile &flimit, TString gname){
   return graph;
 }
 
-void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_lsp, TString model_leg, bool debug){
+void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_lsp, TString model_leg, bool vsDM, bool debug){
   if(graph==0) return;
 
   // Setting graph style
@@ -132,7 +137,7 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
   double mglu1, mlsp1, mglu2, mlsp2;
   graph->GetPoint(0,mglu1,mlsp1);
   graph->GetPoint(graph->GetN()-1,mglu2,mlsp2);
-  if ((mglu1-mlsp1)<(mglu2-mlsp2))
+  if (deltaM(mglu1,mlsp1,vsDM)<deltaM(mglu2,mlsp2,vsDM))
     reverseGraph(graph);
 
   if(debug && style==1) printGraph(graph, "after reversing it and adding point to go down to mLSP = 0");
@@ -142,8 +147,9 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     // Adding a point at mLSP = 0, and removing points beyond the diagonal
     for(int point(0); point < np; point++){
       graph->GetPoint(point, mglu, mlsp);
-      cout << point << " " << mglu << " " << mlsp << " " << glu_lsp << " " << mlsp-(mglu-glu_lsp) << endl;
-      if(mlsp > mglu-glu_lsp && glu_lsp<1000){
+      cout << point << " " << mglu << " " << mlsp << " " << glu_lsp << " " << -deltaM(mglu,mlsp,vsDM)+glu_lsp << " " << vsDM << endl;
+      // if(mlsp > mglu-glu_lsp && glu_lsp<1000){
+      if(deltaM(mglu,mlsp,vsDM)<glu_lsp && glu_lsp<1000){
         while(point <= graph->GetN() && graph->GetN()>0) {
 	  cout << point << " " << graph->GetN() << endl;
           graph->RemovePoint(graph->GetN()-1);
@@ -157,7 +163,13 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     graph->GetPoint(np-1, x1, y1);
     graph->GetPoint(np-2, x2, y2);
     double slope((y1-y2)/(x1-x2)), offset(y1-slope*x1);
-    double intersection((offset+glu_lsp)/(1-slope));
+    double intersection;
+    if (vsDM) {
+      intersection = (glu_lsp-offset)/slope;
+    }
+    else {
+      intersection = (offset+glu_lsp)/(1-slope);
+    }
     // cout<<endl<<"("<<x1<<","<<y1<<") to ("<<x2<<","<<y2<<") -> intersection at ("
     // <<intersection<<","<<intersection-glu_lsp<<"), slope "<<slope<<", offset "<<offset<<endl;
 
@@ -166,6 +178,10 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     // check that intersection is in the direction of the last segment
     // cout << "Slope/inter "<< (x1-x2)*(intersection-x1)+(y1-y2)*((intersection-glu_lsp-y1)) << endl;
     if ( (x1-x2)*(intersection-x1)+(y1-y2)*((intersection-glu_lsp-y1))>0 ){
+    if (vsDM) {
+      cout << "Slope (vsDM) " << slope << " " << intersection << " " << endl;
+    }
+    else{
     if(slope<1) graph->SetPoint(graph->GetN(), intersection, intersection-glu_lsp);
     if(slope<1) 
       cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << intersection-glu_lsp << endl;
@@ -174,10 +190,11 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     if(glu_lsp<1000)
       cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << 0. << " " << -glu_lsp << endl;
     }
-      
-    if(x1 == x2 || y1 == y2 || slope == 1){
-      // cout<<"Slope is one"<<endl;
     }
+      
+    // if(x1 == x2 || y1 == y2 || slope == 1){
+    //   // cout<<"Slope is one"<<endl;
+    // }
     if(debug && style==1) printGraph(graph, "as is returned to main function");
   } // If not T2tt
   } // patchGraph
@@ -315,7 +332,7 @@ void setCanvas(TCanvas &can, float lMargin, float tMargin, float rMargin, float 
   can.SetBottomMargin(bMargin);
 }
 
-TH2D baseHistogram(float Xmin, float Xmax, float Ymin, float Ymax, TString xtitle){
+TH2D baseHistogram(float Xmin, float Xmax, float Ymin, float Ymax, TString xtitle, TString ytitle){
   TString lsp = "#lower[-0.12]{#tilde{#chi}}#lower[0.2]{#scale[0.85]{^{0}}}#kern[-1.3]{#scale[0.85]{_{1}}}";
   TH2D hbase("hbase", "", 1, Xmin, Xmax, 1, Ymin, Ymax);
   hbase.GetXaxis()->SetLabelFont(42);
@@ -331,7 +348,8 @@ TH2D baseHistogram(float Xmin, float Xmax, float Ymin, float Ymax, TString xtitl
   hbase.GetYaxis()->SetTitleFont(42);
   hbase.GetYaxis()->SetTitleSize(0.05);
   hbase.GetYaxis()->SetTitleOffset(1.35);
-  hbase.GetYaxis()->SetTitle("m#kern[0.12]{_{"+lsp+"}} [GeV]");
+  // hbase.GetYaxis()->SetTitle("m#kern[0.12]{_{"+lsp+"}} [GeV]");
+  hbase.GetYaxis()->SetTitle(ytitle+" [GeV]");
   return hbase;
 }
 string execute(const string &cmd){

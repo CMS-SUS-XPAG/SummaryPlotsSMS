@@ -10,7 +10,6 @@ void model_limits::add(TString label, TString file, int color, TString obsname, 
   expnames.push_back(expname);
   colors.push_back(color);
   glu_lsps.push_back(iglu_lsp);
-  vsDM = false;
 }
 
 model_limits::model_limits(TString imodel, TString ititle, float ilegScale):
