@@ -32,6 +32,7 @@ public:
   TString lumi, xtitle, ytitle;
   float legScale, glu_lsp;
   bool reverseOrder;
+  bool vsDM;
   std::vector<TString> labels, files, obsnames, expnames;
   std::vector<int> colors;
   std::vector<float> glu_lsps;

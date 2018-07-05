@@ -10,6 +10,7 @@ void model_limits::add(TString label, TString file, int color, TString obsname, 
   expnames.push_back(expname);
   colors.push_back(color);
   glu_lsps.push_back(iglu_lsp);
+  vsDM = false;
 }
 
 model_limits::model_limits(TString imodel, TString ititle, float ilegScale):
@@ -26,6 +27,7 @@ model_limits::model_limits(TString imodel, TString ititle, float ilegScale):
   reverseOrder = true;
   xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
   ytitle = "#lower[-0.12]{#tilde{#chi}}#lower[0.2]{#scale[0.85]{^{0}}}#kern[-1.3]{#scale[0.85]{_{1}}}";
+  vsDM = false;
   }
 
 void model_limits::addLine(TString label, float dm, float maxHeight, bool above){
