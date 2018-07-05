@@ -295,20 +295,22 @@ int main(){
   models.back().lumi = "35.9"; 
   models.back().setRanges(700, 2100, 0, 2050, 225); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
+  models.back().do_prelim = false;
+  models.back().legScale = 0.8;
 
   models.back().add(sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t1tttt_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
-  models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t1tttt_sus16_036.root", 
-  		    cSus16036-10, "ObsLim", "ExpLim");
-  models.back().add(sus16038[arxivIdx]+", 0-lep ("+alphat+")", folder+"t1tttt_sus16_038.root", 
-  		    kGray, "contour_Obs_0", "contour_Exp_0");
+  // models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t1tttt_sus16_036.root", 
+  // 		    cSus16036-10, "ObsLim", "ExpLim");
+  // models.back().add(sus16038[arxivIdx]+", 0-lep ("+alphat+")", folder+"t1tttt_sus16_038.root", 
+  // 		    kGray, "contour_Obs_0", "contour_Exp_0");
   models.back().add(sus16050[arxivIdx]+", 0-lep (stop)", folder+"t1tttt_sus16_050.root", 
   		    kBlack, "ObsLim", "ExpLim");
   models.back().add(sus16037[arxivIdx]+", 1-lep ("+mj+")", folder+"t1tttt_sus16_037.root", 
    		    cSus16037, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add(sus16042[arxivIdx]+", 1-lep ("+dphi+")", folder+"t1tttt_sus16_042.root", 
     		    cSus16042-10, "graph_smoothed_Obs", "graph_smoothed_Exp");
-  models.back().add(sus16035[arxivIdx]+", #geq2-lep (SS)", folder+"t1tttt_sus16_035.root", 
+  models.back().add(sus16035[arxivIdx]+", #geq2-lep (same-sign)", folder+"t1tttt_sus16_035.root", 
    		    cSus16035, "ssobs", "ssexp");
   models.back().add(sus16041[arxivIdx]+", #geq3-lep", folder+"t1tttt_sus16_041.root", 
     		    kOrange, "contour_obs", "contour_exp");
@@ -319,12 +321,14 @@ int main(){
   models.back().lumi = "35.9"; 
   models.back().setRanges(700, 2200, 0, 1950); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
+  models.back().do_prelim = false;
+  models.back().legScale = 0.8;
 
-  models.back().add("SUS-16-033 ("+mht+")", folder+"t1bbbb_sus16_033.root", 
+  models.back().add(sus16033[arxivIdx]+" ("+mht+")", folder+"t1bbbb_sus16_033.root", 
    		    cSus16033, "ObsLim", "ExpLim");
-  models.back().add("SUS-16-036 ("+mt2+")", folder+"t1bbbb_sus16_036.root", 
+  models.back().add(sus16036[arxivIdx]+" ("+mt2+")", folder+"t1bbbb_sus16_036.root", 
   		    cSus16036, "ObsLim", "ExpLim");
-  models.back().add("SUS-16-038 ("+alphat+")", folder+"t1bbbb_sus16_038.root", 
+  models.back().add(sus16038[arxivIdx]+" ("+alphat+")", folder+"t1bbbb_sus16_038.root", 
   		    kBlack, "contour_Obs_0", "contour_Exp_0");
 
 
@@ -333,12 +337,14 @@ int main(){
   models.back().lumi = "35.9"; 
   models.back().setRanges(700, 2200, 0, 1750); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
+  models.back().do_prelim = false;
+  models.back().legScale = 0.8;
 
-  models.back().add("SUS-16-033 ("+mht+")", folder+"t1qqqq_sus16_033.root", 
+  models.back().add(sus16033[arxivIdx]+" ("+mht+")", folder+"t1qqqq_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
-  models.back().add("SUS-16-036 ("+mt2+")", folder+"t1qqqq_sus16_036.root", 
+  models.back().add(sus16036[arxivIdx]+" ("+mt2+")", folder+"t1qqqq_sus16_036.root", 
   		    cSus16036, "ObsLim", "ExpLim");
-  models.back().add("SUS-16-038 ("+alphat+")", folder+"t1qqqq_sus16_038.root", 
+  models.back().add(sus16038[arxivIdx]+" ("+alphat+")", folder+"t1qqqq_sus16_038.root", 
   		    kBlack, "contour_Obs", "contour_Exp_0");
 
   ///////////////////////////////    Defining T5qqqqVV plot    /////////////////////////////////
@@ -352,7 +358,7 @@ int main(){
   		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("V = W: SUS-16-042, 1-lep ("+dphi+")", folder+"t5qqqqvv_sus16_042_gr.root", 
   		    cSus16042, "Index6", "Index3");
-  models.back().add("V = W: SUS-16-035, #geq2-lep (SS)", folder+"t5qqqqvv_sus16_035.root", 
+  models.back().add("V = W: SUS-16-035, #geq2-lep (same-sign)", folder+"t5qqqqvv_sus16_035.root", 
   		    cSus16035, "ssobs", "ssexp");
 
   ///////////////////////////////    Defining T2qq plot    /////////////////////////////////
@@ -360,7 +366,10 @@ int main(){
   models.back().lumi = "35.9"; 
   models.back().setRanges(350, 1800, 0, 1200); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{q}}}}";
-  models.back().addLabel(0.22,0.27,"one light #lower[-0.12]{#tilde{q}}");
+  models.back().do_prelim = false;
+  models.back().legScale = 0.8;
+  // models.back().addLabel(0.22,0.27,"one light #lower[-0.12]{#tilde{q}}");
+  models.back().addLabel(0.15,0.18,"one light #lower[0.10]{#tilde{q}}");
   models.back().addLabel(0.36,0.52,"#lower[-0.12]{#tilde{q}}_{L}+#lower[-0.12]{#tilde{q}}_{R} (#lower[-0.12]{#tilde{u}},#lower[-0.12]{#tilde{d}},#lower[-0.12]{#tilde{s}},#lower[-0.12]{#tilde{c}})");
     
   models.back().add(sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t2qq_sus16_033.root", 
@@ -380,6 +389,8 @@ int main(){
   models.back().lumi = "35.9"; 
   models.back().setRanges(350, 1300, 0, 900); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{b}}}}";
+  models.back().do_prelim = false;
+  models.back().legScale = 0.8;
 
   models.back().add(sus16032[arxivIdx]+", 0-lep sbottom", folder+"t2bb_sus16_032.root",
                     cSus16007alpha, "combined_obsExclOneTimesProspino_BR100pct", "combined_expExclOneTimesProspino_BR100pct");
@@ -468,11 +479,11 @@ int main(){
   //                   cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
   // models.back().add("Comb. 0-, 1- and 2-lep stop (2-body)", folder+"t2tt_comb.root", 
   //   		    cComb, "gObs", "gExp");
-  // models.back().add("SUS-17-010 (2l, 3-body)", folder+"t2tt_comb.root", 
+  // models.back().add(sus17010[arxivIdx]+" (2l, 3-body)", folder+"t2tt_comb.root", 
   //   		    cComb, "gObs", "gExp");
-  models.back().add("SUS-17-005 (soft 1l+0l)", folder+"t2tt4c_sus17_005_gr.root", 
+  models.back().add(sus17005[arxivIdx]+" (soft 1l+0l)", folder+"t2tt4c_sus17_005_gr.root", 
     		    kRed, "gOBSOut0", "gEXPOut0");
-  models.back().add("SUS-17-005 (soft 1l MVA)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
+  models.back().add(sus17005[arxivIdx]+" (soft 1l MVA)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
     		    kGreen, "gOBSOut0", "gEXPOut0");
 
   ///////////////////////////////    Defining T6bbWW    ///////////////////////////////// 
@@ -495,9 +506,9 @@ int main(){
   		    cSus16002, "gObs_2", "gExp_2", 175.);
   models.back().add(sus17001[arxivIdx]+", 2-lep stop", folder+"t2bW_sus17_001_gr.root", 
     		    cSus15004, "contour_obs", "contour_exp", 175.);
-  models.back().add("SUS-17-005 (soft 1l+0l)", folder+"t2bWc_sus17_005_gr.root", 
+  models.back().add(sus17005[arxivIdx]+" (soft 1l+0l)", folder+"t2bWc_sus17_005_gr.root", 
      		    kRed, "gOBSOut0", "gEXPOut0", 5.);
-  models.back().add("SUS-16-048 (soft 2l)", folder+"t6bbWW_sus16_048.root", 
+  models.back().add(sus16048[arxivIdx]+" (soft 2l)", folder+"t6bbWW_sus16_048.root", 
      		    kGreen, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
 
   ///////////////////////////////    Defining stop compressed    ///////////////////////////////// 
@@ -510,10 +521,12 @@ int main(){
   models.back().setRanges(100, 800, 10, 150, 80); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().legScale = 0.8;
   models.back().vsDM = true;
+  models.back().do_prelim = false;
   models.back().xtitle = "m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}}";
   models.back().ytitle = "m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.24]{_{#lower[-0.12]{"+
     lsp+"}}}";
-  models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{W}", 80, 600, true);
+  models.back().addLine("m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} = m#kern[0.24]{_{#lower[-0.12]{"+
+			lsp+"}}} + m#kern[0.24]{_{#lower[-0.12]{W}}}", 80, 600, true);
 
   models.back().add(sus17005[arxivIdx]+
 		    " (soft 1l+0l; #tilde{t}#rightarrow t#lower[0.2]{#scale[0.85]{^{(*)}}} "+lsp+")", 
@@ -586,6 +599,7 @@ int main(){
 
     TH2D hbase = baseHistogram(Xmin, Xmax, Ymin, Ymax, xtitle, mod.ytitle);
     hbase.Draw();
+    do_prelim = mod.do_prelim;
     addLabelsTitle(lMargin, tMargin, rMargin, mod.title, mod.lumi);
 
     //// Plot lines at constant dM
@@ -742,7 +756,7 @@ void addLabelsTitle(float lMargin, float tMargin, float rMargin, TString title, 
   // Printing date
   label.SetTextAlign(31); label.SetTextFont(52); label.SetTextSize(0.45*tMargin);
   //  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "Moriond 2017");
-  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "June 2018");
+  label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "June 2018");
   // Printing energy
   label.SetTextAlign(31); label.SetTextFont(42); label.SetTextSize(0.53*tMargin);
   if(lumi=="") lumi = "13 TeV";

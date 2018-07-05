@@ -33,6 +33,7 @@ public:
   float legScale, glu_lsp;
   bool reverseOrder;
   bool vsDM;
+  bool do_prelim;
   std::vector<TString> labels, files, obsnames, expnames;
   std::vector<int> colors;
   std::vector<float> glu_lsps;
