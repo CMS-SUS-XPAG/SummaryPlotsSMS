@@ -500,6 +500,21 @@ int main(){
   models.back().add("SUS-16-048 (soft 2l)", folder+"t6bbWW_sus16_048.root", 
      		    kGreen, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
 
+  ///////////////////////////////    Defining stop compressed    ///////////////////////////////// 
+  models.push_back(model_limits("StopCompressed", pp_to_xx("t")));
+  models.back().lumi = "35.9"; 
+  models.back().setRanges(0, 1200, 0, 120, -100); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().legScale = 0.8;
+  models.back().vsDM = true;
+  models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
+
+  models.back().add("SUS-17-005 (soft 1l+0l; #tilde{t}#rightarrow t^{(*)} "+lsp+")", 
+		    folder+"t2tt4c_sus17_005_gr_dm.root", 
+    		    kRed, "gOBSOut0", "gEXPOut0");
+  models.back().add("SUS-17-005 (soft 1l MVA; #tilde{t}#rightarrow t^{(*)} "+lsp+")", 
+		    folder+"t2tt4bdy_sus17_005_mva_gr_dm.root", 
+    		    kGreen, "gOBSOut0", "gEXPOut0");
+
 
 
    //////////////////////////////////////////////////////////////////////////////////////// 
