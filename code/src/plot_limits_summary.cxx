@@ -85,13 +85,13 @@ TString pp_to_xx(TString x){
 int main(){
   gErrorIgnoreLevel=kWarning; // Turns off ROOT INFO messages
 
-  vector<TString> sus16032; sus16032.push_back("SUS-16-032"); sus16032.push_back("SUS-16-032");
+  vector<TString> sus16032; sus16032.push_back("SUS-16-032"); sus16032.push_back("1707.07274");
   vector<TString> sus16033; sus16033.push_back("SUS-16-033"); sus16033.push_back("1704.07781");
   vector<TString> sus16034; sus16034.push_back("SUS-16-034"); sus16034.push_back("SUS-16-034");
   vector<TString> sus16035; sus16035.push_back("SUS-16-035"); sus16035.push_back("SUS-16-035");
   vector<TString> sus16036; sus16036.push_back("SUS-16-036"); sus16036.push_back("1705.04650");
   vector<TString> sus16037; sus16037.push_back("SUS-16-037"); sus16037.push_back("SUS-16-037");
-  vector<TString> sus16038; sus16038.push_back("SUS-16-038"); sus16038.push_back("SUS-16-038");
+  vector<TString> sus16038; sus16038.push_back("SUS-16-038"); sus16038.push_back("1802.02110");
   vector<TString> sus16039; sus16039.push_back("SUS-16-039"); sus16039.push_back("SUS-16-039");
   vector<TString> sus16040; sus16040.push_back("SUS-16-040"); sus16040.push_back("SUS-16-040");
   vector<TString> sus16041; sus16041.push_back("SUS-16-041"); sus16041.push_back("SUS-16-041");
@@ -426,7 +426,7 @@ int main(){
 
 
   ///////////////////////////////    Defining T2tt+compressed plot    ///////////////////////////////// 
-  models.push_back(model_limits("T2ttWithCompressed", pp_to_xx("t")+"t^{(*)}#kern[0.4]{"+lsp+"}"));
+  models.push_back(model_limits("T2ttWithCompressed", pp_to_xx("t")+"t#lower[0.2]{#scale[0.85]{^{(*)}}}#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
   models.back().setRanges(100, 1200, 0, 900, 5); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{b}", 5, 600);
@@ -501,22 +501,46 @@ int main(){
      		    kGreen, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
 
   ///////////////////////////////    Defining stop compressed    ///////////////////////////////// 
-  models.push_back(model_limits("StopCompressed", pp_to_xx("t")));
+  TString titleStopCompressed = "pp #rightarrow #tilde{t}#kern[0.3]{#bar{#tilde{t}}}, ";
+  titleStopCompressed += "(m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.24]{_{#lower[-0.12]{";
+  titleStopCompressed += lsp+"}}})";
+  titleStopCompressed += " < m#kern[0.24]{_{#lower[-0.12]{W}}}";
+  models.push_back(model_limits("StopCompressed", titleStopCompressed));
   models.back().lumi = "35.9"; 
-  models.back().setRanges(0, 1200, 0, 120, -100); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().setRanges(100, 800, 10, 150, 80); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().legScale = 0.8;
   models.back().vsDM = true;
-  models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
-  models.back().ytitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.12]{_{#lower[-0.12]{"+lsp+"}}}";
+  models.back().xtitle = "m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}}";
+  models.back().ytitle = "m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.24]{_{#lower[-0.12]{"+
+    lsp+"}}}";
   models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{W}", 80, 600, true);
 
-  models.back().add("SUS-17-005 (soft 1l+0l; #tilde{t}#rightarrow t^{(*)} "+lsp+")", 
+  models.back().add(sus17005[arxivIdx]+
+		    " (soft 1l+0l; #tilde{t}#rightarrow t#lower[0.2]{#scale[0.85]{^{(*)}}} "+lsp+")", 
 		    folder+"t2tt4c_sus17_005_gr_dm.root", 
-    		    kRed, "gOBSOut0", "gEXPOut0");
-  models.back().add("SUS-17-005 (soft 1l MVA; #tilde{t}#rightarrow t^{(*)} "+lsp+")", 
+    		    kGreen+3, "gOBSOut0", "gEXPOut0");
+  models.back().add(sus17005[arxivIdx]+
+		    " (soft 1l MVA; #tilde{t}#rightarrow t#lower[0.2]{#scale[0.85]{^{(*)}}} "+lsp+")", 
 		    folder+"t2tt4bdy_sus17_005_mva_gr_dm.root", 
-    		    kGreen, "gOBSOut0", "gEXPOut0");
-  cout << "ytitle " << models.back().ytitle << endl;
+    		    kGreen-9, "gOBSOut0", "gEXPOut0");
+  models.back().add(sus16032[arxivIdx]+" (0l; #tilde{t}#rightarrow c "+lsp+")", 
+		    folder+"t2cc_sus16_032_dm.root", 
+    		    kRed+2, "smoothed_obs", "smoothed_Exp");
+  models.back().add(sus16036[arxivIdx]+" (0l; #tilde{t}#rightarrow c "+lsp+")", 
+		    folder+"t2cc_sus16_036_dm.root", 
+    		    kRed-4, "ObsLim", "ExpLim");
+  models.back().add(sus16049[arxivIdx]+" (0l; #tilde{t}#rightarrow c "+lsp+")", 
+		    folder+"t2cc_sus16_049_dm.root", 
+    		    kMagenta, "graph_smoothed_Obs", "graph_smoothed_Exp");
+  models.back().add(sus16038[arxivIdx]+" (0l; #tilde{t}#rightarrow c "+lsp+")", 
+		    folder+"t2cc_sus16_038_dm.root", 
+    		    kOrange, "contour_Obs_0", "contour_Exp_0");
+  models.back().add(sus17005[arxivIdx]+" (soft 1l+0l; #tilde{t}#rightarrow b "+chip+")", 
+		    folder+"t2bWc_sus17_005_gr_dm.root", 
+    		    kBlue+3, "gOBSOut0", "gEXPOut0");
+  models.back().add(sus16048[arxivIdx]+" (soft 2l; #tilde{t}#rightarrow b "+chip+")", 
+		    folder+"t6bbWW_sus16_048_dm.root", 
+    		    kBlue-9, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph");
 
    //////////////////////////////////////////////////////////////////////////////////////// 
   //////////////////////////////////    Making plots    //////////////////////////////////
@@ -640,8 +664,10 @@ int main(){
       // 	changeDmCoordinates(exp[file]);
       // 	changeDmCoordinates(obs[file]);
       // }
-      setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], mod.vsDM, debug);
-      setGraphStyle(obs[file], mod.colors[file], 1, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], mod.vsDM, debug);
+      setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], 
+		    mod, debug);
+      setGraphStyle(obs[file], mod.colors[file], 1, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], 
+		    mod, debug);
       //printExclGlu(obs[file], exp[file], mLSPs, mod.labels[file]);
       obs[file]->Draw("f same");
 

@@ -83,7 +83,8 @@ TGraph* getGraph(TFile &flimit, TString gname){
   return graph;
 }
 
-void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_lsp, TString model_leg, bool vsDM, bool debug){
+void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_lsp,TString model_leg, 
+		   model_limits& model, bool debug){
   if(graph==0) return;
 
   // Setting graph style
@@ -127,17 +128,23 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
   }
 
   // Adding a point so that it goes down to mLSP = 0, but not for WZ,SOS
-  if(endlsp<20){
+  if(endlsp<20 && !model.vsDM){
     cout << "Setting point at 0 " << graph->GetN() << " " << endglu << " " << endlsp << endl;
     graph->SetPoint(graph->GetN(), endglu, 0);
     np++;
   }
 
+  int sgnReverse = 1;
+  if ( model.vsDM )  sgnReverse = -1;
+
   // reverse graph based on deltaM of first and last point
   double mglu1, mlsp1, mglu2, mlsp2;
   graph->GetPoint(0,mglu1,mlsp1);
   graph->GetPoint(graph->GetN()-1,mglu2,mlsp2);
-  if (deltaM(mglu1,mlsp1,vsDM)<deltaM(mglu2,mlsp2,vsDM))
+  cout << "reverse " << sgnReverse*deltaM(mglu1,mlsp1,model.vsDM) 
+       << " " << sgnReverse*deltaM(mglu2,mlsp2,model.vsDM) << endl;
+
+  if ( sgnReverse*deltaM(mglu1,mlsp1,model.vsDM)<sgnReverse*deltaM(mglu2,mlsp2,model.vsDM) )
     reverseGraph(graph);
 
   if(debug && style==1) printGraph(graph, "after reversing it and adding point to go down to mLSP = 0");
@@ -147,24 +154,25 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     // Adding a point at mLSP = 0, and removing points beyond the diagonal
     for(int point(0); point < np; point++){
       graph->GetPoint(point, mglu, mlsp);
-      cout << point << " " << mglu << " " << mlsp << " " << glu_lsp << " " << -deltaM(mglu,mlsp,vsDM)+glu_lsp << " " << vsDM << endl;
+      cout << "Point1 " << point << " " << mglu << " " << mlsp << " " << glu_lsp << " " << -deltaM(mglu,mlsp,model.vsDM)+glu_lsp << " " << model.vsDM << endl;
       // if(mlsp > mglu-glu_lsp && glu_lsp<1000){
-      if(deltaM(mglu,mlsp,vsDM)<glu_lsp && glu_lsp<1000){
-        while(point <= graph->GetN() && graph->GetN()>0) {
-	  cout << point << " " << graph->GetN() << endl;
+      if( sgnReverse*(deltaM(mglu,mlsp,model.vsDM)-glu_lsp)<0 && glu_lsp<1000){
+        while(point < graph->GetN() && graph->GetN()>0) {
+	  cout << "Point2 " << point << " " << graph->GetN() << endl;
           graph->RemovePoint(graph->GetN()-1);
           np--;
         }
-        break;
+        // break;
       }
     }
+    cout << "After removal " << graph->GetN() << " " << np << endl;
     // Finding intersection of line between last 2 points and mlsp = mglu - glu_lsp
     double x1, y1, x2, y2;
     graph->GetPoint(np-1, x1, y1);
     graph->GetPoint(np-2, x2, y2);
     double slope((y1-y2)/(x1-x2)), offset(y1-slope*x1);
     double intersection;
-    if (vsDM) {
+    if (model.vsDM) {
       intersection = (glu_lsp-offset)/slope;
     }
     else {
@@ -178,18 +186,22 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
     // check that intersection is in the direction of the last segment
     // cout << "Slope/inter "<< (x1-x2)*(intersection-x1)+(y1-y2)*((intersection-glu_lsp-y1)) << endl;
     if ( (x1-x2)*(intersection-x1)+(y1-y2)*((intersection-glu_lsp-y1))>0 ){
-    if (vsDM) {
-      cout << "Slope (vsDM) " << slope << " " << intersection << " " << endl;
-    }
-    else{
-    if(slope<1) graph->SetPoint(graph->GetN(), intersection, intersection-glu_lsp);
-    if(slope<1) 
-      cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << intersection-glu_lsp << endl;
-
-    if(glu_lsp<1000) graph->SetPoint(graph->GetN(), 0, -glu_lsp);
-    if(glu_lsp<1000)
-      cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << 0. << " " << -glu_lsp << endl;
-    }
+      if (model.vsDM) {
+	cout << "Slope (model.vsDM) " << slope << " " << intersection << " " << endl;
+	if (intersection>model.Xmin && intersection<model.Xmax) {
+	  graph->SetPoint(graph->GetN(), intersection, glu_lsp);
+	  cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << glu_lsp << endl;
+	}
+      }
+      else{
+	if(slope<1) graph->SetPoint(graph->GetN(), intersection, intersection-glu_lsp);
+	if(slope<1) 
+	  cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << intersection-glu_lsp << endl;
+	
+	if(glu_lsp<1000) graph->SetPoint(graph->GetN(), 0, -glu_lsp);
+	if(glu_lsp<1000)
+	  cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << 0. << " " << -glu_lsp << endl;
+      }
     }
       
     // if(x1 == x2 || y1 == y2 || slope == 1){
