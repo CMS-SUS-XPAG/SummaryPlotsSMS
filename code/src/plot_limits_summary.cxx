@@ -90,7 +90,7 @@ int main(){
   vector<TString> sus16034; sus16034.push_back("SUS-16-034"); sus16034.push_back("SUS-16-034");
   vector<TString> sus16035; sus16035.push_back("SUS-16-035"); sus16035.push_back("1704.07323");
   vector<TString> sus16036; sus16036.push_back("SUS-16-036"); sus16036.push_back("1705.04650");
-  vector<TString> sus16037; sus16037.push_back("SUS-16-037"); sus16037.push_back("SUS-16-037");
+  vector<TString> sus16037; sus16037.push_back("SUS-16-037"); sus16037.push_back("1705.04673");
   vector<TString> sus16038; sus16038.push_back("SUS-16-038"); sus16038.push_back("1802.02110");
   vector<TString> sus16039; sus16039.push_back("SUS-16-039"); sus16039.push_back("SUS-16-039");
   vector<TString> sus16040; sus16040.push_back("SUS-16-040"); sus16040.push_back("SUS-16-040");
@@ -537,10 +537,10 @@ int main(){
   models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16036[arxivIdx]+", 0-lep ("+mt2+")", 
 		    folder+"t2cc_sus16_036_dm.root", 
     		    kRed-4, "ObsLim", "ExpLim");
-  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16049[arxivIdx]+"0-lep (stop)", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16049[arxivIdx]+", 0-lep (stop)", 
 		    folder+"t2cc_sus16_049_dm.root", 
     		    kMagenta, "graph_smoothed_Obs", "graph_smoothed_Exp");
-  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16038[arxivIdx]+"0-lep ("+alphat+")", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16038[arxivIdx]+", 0-lep ("+alphat+")", 
 		    folder+"t2cc_sus16_038_dm.root", 
     		    kOrange, "contour_Obs_0", "contour_Exp_0");
   // models.back().add("#tilde{t}#rightarrow b "+chip+": "+sus17005[arxivIdx]+" (soft 1-lep + 0-lep)",
@@ -735,7 +735,7 @@ int main(){
     can.SaveAs(plotname);
     cout<<" open "<<plotname<<endl<<endl;
     can.SaveAs(plotname.ReplaceAll(".pdf",".root").ReplaceAll("_pdf", "_root"));
-    can.SaveAs(plotname.ReplaceAll(".root",".png").ReplaceAll("_root", "_png"));
+    // can.SaveAs(plotname.ReplaceAll(".root",".png").ReplaceAll("_root", "_png"));
   } // Loop over models
   cout<<endl<<endl;
 }
