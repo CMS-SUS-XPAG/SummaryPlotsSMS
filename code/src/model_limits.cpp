@@ -3,13 +3,15 @@
 
 using namespace std;
 
-void model_limits::add(TString label, TString file, int color, TString obsname, TString expname, float iglu_lsp){
+void model_limits::add(TString label, TString file, int color, TString obsname, TString expname, float iglu_lsp,
+		       bool extend){
   labels.push_back(label);
   files.push_back(file);
   obsnames.push_back(obsname);
   expnames.push_back(expname);
   colors.push_back(color);
   glu_lsps.push_back(iglu_lsp);
+  ext_graph.push_back(extend);
 }
 
 model_limits::model_limits(TString imodel, TString ititle, float ilegScale):

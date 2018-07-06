@@ -124,171 +124,171 @@ int main(){
   TString energy=""; // " (13 TeV)"; // Used when there are 8 and 13 TeV results
 
 
-  ///////////////////////////////    Defining WH only plot   //////////////////////////////
-  models.push_back(model_limits("WH","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 120);
-  models.back().setRanges(120, 550, 0, 190); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // ///////////////////////////////    Defining WH only plot   //////////////////////////////
+  // models.push_back(model_limits("WH","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 120);
+  // models.back().setRanges(120, 550, 0, 190); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
-  		    cwh, "gr_obs", "gr_exp", 124.5);
-  models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
-  		    cwh43, "massplane_obs", "contourplot", 124.5);
-  models.back().add(sus16045[arxivIdx]+", H#rightarrow#gamma#gamma (WH)", folder+"ewkino_sus16_045_wh.root", 
-   		    kOrange, "obs", "exp", 124.5);
-  models.back().add(sus17004[arxivIdx]+", combined (WH)", folder+"ewkino_sus17_004_wh_gr.root", 
-  		    cwz39+2, "gr_obs", "gr_exp", 124.5);
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
+  // 		    cwh, "gr_obs", "gr_exp", 124.5);
+  // models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
+  // 		    cwh43, "massplane_obs", "contourplot", 124.5);
+  // models.back().add(sus16045[arxivIdx]+", H#rightarrow#gamma#gamma (WH)", folder+"ewkino_sus16_045_wh.root", 
+  //  		    kOrange, "obs", "exp", 124.5);
+  // models.back().add(sus17004[arxivIdx]+", combined (WH)", folder+"ewkino_sus17_004_wh_gr.root", 
+  // 		    cwz39+2, "gr_obs", "gr_exp", 124.5);
 
-  ///////////////////////////////    Defining WZ only plot   //////////////////////////////
-  models.push_back(model_limits("WZ","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 250);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 250);
-  models.back().setRanges(100, 650, 0, 390); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // ///////////////////////////////    Defining WZ only plot   //////////////////////////////
+  // models.push_back(model_limits("WZ","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 250);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 250);
+  // models.back().setRanges(100, 650, 0, 390); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
-  		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
-  models.back().add(sus17004[arxivIdx]+", #geq3l (WZ)", folder+"ewkino_sus17_004_wz_3l_gr.root", 
-    		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
-   		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
-  models.back().add(sus17004[arxivIdx]+", combined (WZ)", folder+"ewkino_sus17_004_wz.root", 
-  		    cwz39+2, "gr_obs", "gr_exp", 7);
+  // models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
+  // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
+  // models.back().add(sus17004[arxivIdx]+", #geq3l (WZ)", folder+"ewkino_sus17_004_wz_3l_gr.root", 
+  //   		    cwz39, "gr_obs", "gr_exp", 7);
+  // models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
+  //  		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
+  // models.back().add(sus17004[arxivIdx]+", combined (WZ)", folder+"ewkino_sus17_004_wz.root", 
+  // 		    cwz39+2, "gr_obs", "gr_exp", 7);
 
-  ///////////////////////////////    Defining EWKino only plot   //////////////////////////////
-  models.push_back(model_limits("EWKino","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 250);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 250);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 250);
-  models.back().setRanges(100, 650, 0, 470); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // ///////////////////////////////    Defining EWKino only plot   //////////////////////////////
+  // models.push_back(model_limits("EWKino","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 250);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 250);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 250);
+  // models.back().setRanges(100, 650, 0, 470); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
-  		    cwh, "gr_obs", "gr_exp", 124.5);
-  models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
-  		    cwh43, "massplane_obs", "contourplot", 124.5);
-  models.back().add(sus16045[arxivIdx]+", H#rightarrow#gamma#gamma (WH)", folder+"ewkino_sus16_045_wh.root", 
-   		    kOrange, "obs", "exp", 124.5);
-  models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
-  		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
-  models.back().add(sus17004[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
-  		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
-   		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
-
-  ///////////////////////////////    Defining EWK combination plot   //////////////////////////////
-  models.push_back(model_limits("EWKComb","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.9)); 
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 290);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 290);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 290);
-  models.back().setRanges(100, 700, 0, 430); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
-
-  models.back().add(sus17004[arxivIdx]+", comb. (WH)", folder+"ewkino_sus17_004_wh_gr.root", 
-  		    cwh43, "gr_obs", "gr_exp", 124.5);
-  models.back().add(sus17004[arxivIdx]+", comb. (WZ)", folder+"ewkino_sus17_004_wz.root", 
-  		    cwz39, "gr_obs", "gr_exp", 25);
-  models.back().add(sus17004[arxivIdx]+", comb. (0.5#timesWH+0.5#timesWZ)", folder+"ewkino_sus17_004_wzmix_gr.root", 
-  		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 124.5);
-
-  // models.back().add(WHdecay+" = 1 (WH)", folder+"ewkino_sus17_004_wh.root", 
-  // 		    cwh43, "gr_obs", "gr_exp", 124.5);
-  // models.back().add(WZdecay+" = 1 (WZ)", folder+"ewkino_sus17_004_wz.root", 
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
+  // 		    cwh, "gr_obs", "gr_exp", 124.5);
+  // models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
+  // 		    cwh43, "massplane_obs", "contourplot", 124.5);
+  // models.back().add(sus16045[arxivIdx]+", H#rightarrow#gamma#gamma (WH)", folder+"ewkino_sus16_045_wh.root", 
+  //  		    kOrange, "obs", "exp", 124.5);
+  // models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
+  // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
+  // models.back().add(sus17004[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
   // 		    cwz39, "gr_obs", "gr_exp", 7);
-  // models.back().add(WZdecay+" = "+WHdecay+" = 0.5 (WH+WZ)", folder+"ewkino_sus17_004_wzmix.root", 
+  // models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
+  //  		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
+
+  // ///////////////////////////////    Defining EWK combination plot   //////////////////////////////
+  // models.push_back(model_limits("EWKComb","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.9)); 
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 290);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 290);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 290);
+  // models.back().setRanges(100, 700, 0, 430); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+
+  // models.back().add(sus17004[arxivIdx]+", comb. (WH)", folder+"ewkino_sus17_004_wh_gr.root", 
+  // 		    cwh43, "gr_obs", "gr_exp", 124.5);
+  // models.back().add(sus17004[arxivIdx]+", comb. (WZ)", folder+"ewkino_sus17_004_wz.root", 
+  // 		    cwz39, "gr_obs", "gr_exp", 25);
+  // models.back().add(sus17004[arxivIdx]+", comb. (0.5#timesWH+0.5#timesWZ)", folder+"ewkino_sus17_004_wzmix_gr.root", 
   // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 124.5);
 
-  ///////////////////////////////    Defining EWK-slep plot    /////////////////////////////////
-  models.push_back(model_limits("EWK-slep-0p5","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.9));
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 590);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
-  models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // // models.back().add(WHdecay+" = 1 (WH)", folder+"ewkino_sus17_004_wh.root", 
+  // // 		    cwh43, "gr_obs", "gr_exp", 124.5);
+  // // models.back().add(WZdecay+" = 1 (WZ)", folder+"ewkino_sus17_004_wz.root", 
+  // // 		    cwz39, "gr_obs", "gr_exp", 7);
+  // // models.back().add(WZdecay+" = "+WHdecay+" = 0.5 (WH+WZ)", folder+"ewkino_sus17_004_wzmix.root", 
+  // // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 124.5);
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root", 
-  		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root", 
-  		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauDom+", "+xl+"=0.5)",folder+"ewkino_sus16_039_bftau_x0p5_gr.root", 
-  		    ctau50, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
-  		    cwh, "gr_obs", "gr_exp", 124.5);
-  models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
-  		    cwh43, "graph_smoothed_Obs", "graph_smoothed_Exp", 124.5);
-  models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
-  		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
-  models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
-  		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
-   		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
+  // ///////////////////////////////    Defining EWK-slep plot    /////////////////////////////////
+  // models.push_back(model_limits("EWK-slep-0p5","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.9));
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 590);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
+  // models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  ///////////////////////////////    Defining EWK-slep plot    /////////////////////////////////
-  models.push_back(model_limits("EWK-slep","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.8));
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 590);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
-  models.back().setRanges(100, 1250, 0, 1570); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root", 
+  // 		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root", 
+  // 		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauDom+", "+xl+"=0.5)",folder+"ewkino_sus16_039_bftau_x0p5_gr.root", 
+  // 		    ctau50, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
+  // 		    cwh, "gr_obs", "gr_exp", 124.5);
+  // models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
+  // 		    cwh43, "graph_smoothed_Obs", "graph_smoothed_Exp", 124.5);
+  // models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
+  // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
+  // models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
+  // 		    cwz39, "gr_obs", "gr_exp", 7);
+  // models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
+  //  		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root", 
-  		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf1_x0p05_gr.root", 
-  		    c10005, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf1_x0p95_gr.root", 
-  		    c10095, "gr_obs_smoothed", "gr_exp_smoothed");
+  // ///////////////////////////////    Defining EWK-slep plot    /////////////////////////////////
+  // models.push_back(model_limits("EWK-slep","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.8));
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 590);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
+  // models.back().setRanges(100, 1250, 0, 1570); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root", 
-  		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf0p5_x0p05_gr.root", 
-  		    c5005, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf0p5_x0p95_gr.root", 
-  		    c5095, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root", 
+  // 		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf1_x0p05_gr.root", 
+  // 		    c10005, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf1_x0p95_gr.root", 
+  // 		    c10095, "gr_obs_smoothed", "gr_exp_smoothed");
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauDom+", "+xl+"=0.5)",folder+"ewkino_sus16_039_bftau_x0p5_gr.root", 
-  		    ctau50, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
-  		    cwh, "gr_obs", "gr_exp", 124.5);
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root", 
+  // 		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf0p5_x0p05_gr.root", 
+  // 		    c5005, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf0p5_x0p95_gr.root", 
+  // 		    c5095, "gr_obs_smoothed", "gr_exp_smoothed");
 
-  models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
-  		    cwh43, "graph_smoothed_Obs", "graph_smoothed_Exp", 124.5);
-  models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
-  		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
-  models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
-  		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
-   		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauDom+", "+xl+"=0.5)",folder+"ewkino_sus16_039_bftau_x0p5_gr.root", 
+  // 		    ctau50, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root", 
+  // 		    cwh, "gr_obs", "gr_exp", 124.5);
 
-  ///////////////////////////////    Defining Sleptons plot    /////////////////////////////////
-  models.push_back(model_limits("Sleptons","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.91));
-  models.back().lumi = "35.9"; models.back().reverseOrder = false;
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 590);
-  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
-  models.back().setRanges(100, 1250, 0, 1350); // Xmin, Xmax, Ymin, Ymax
-  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // models.back().add(sus16043[arxivIdx]+", 1l (WH)", folder+"ewkino_sus16_043_wh.root", 
+  // 		    cwh43, "graph_smoothed_Obs", "graph_smoothed_Exp", 124.5);
+  // models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root", 
+  // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
+  // models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root", 
+  // 		    cwz39, "gr_obs", "gr_exp", 7);
+  // models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root", 
+  //  		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root", 
-  		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf1_x0p05_gr.root", 
-  		    c10005, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf1_x0p95_gr.root", 
-  		    c10095, "gr_obs_smoothed", "gr_exp_smoothed");
+  // ///////////////////////////////    Defining Sleptons plot    /////////////////////////////////
+  // models.push_back(model_limits("Sleptons","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}", 0.91));
+  // models.back().lumi = "35.9"; models.back().reverseOrder = false;
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 590);
+  // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
+  // models.back().setRanges(100, 1250, 0, 1350); // Xmin, Xmax, Ymin, Ymax
+  // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root", 
-  		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf0p5_x0p05_gr.root", 
-  		    c5005, "gr_obs_smoothed", "gr_exp_smoothed");
-  models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf0p5_x0p95_gr.root", 
-  		    c5095, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root", 
+  // 		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf1_x0p05_gr.root", 
+  // 		    c10005, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf1_x0p95_gr.root", 
+  // 		    c10095, "gr_obs_smoothed", "gr_exp_smoothed");
 
-  models.back().add(sus16039[arxivIdx]+", 3l ("+tauDom+", "+xl+"=0.5)",folder+"ewkino_sus16_039_bftau_x0p5_gr.root", 
-  		    ctau50, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root", 
+  // 		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.05)",folder+"ewkino_sus16_039_bf0p5_x0p05_gr.root", 
+  // 		    c5005, "gr_obs_smoothed", "gr_exp_smoothed");
+  // models.back().add(sus16039[arxivIdx]+", 2l SS + 3l ("+flavDem+", "+xl+"=0.95)",folder+"ewkino_sus16_039_bf0p5_x0p95_gr.root", 
+  // 		    c5095, "gr_obs_smoothed", "gr_exp_smoothed");
+
+  // models.back().add(sus16039[arxivIdx]+", 3l ("+tauDom+", "+xl+"=0.5)",folder+"ewkino_sus16_039_bftau_x0p5_gr.root", 
+  // 		    ctau50, "gr_obs_smoothed", "gr_exp_smoothed");
 
   ///////////////////////////////    Defining T1tttt plot    /////////////////////////////////
   models.push_back(model_limits("T1tttt", pp_to_xx("g")+"t#kern[0.4]{#bar{t}}#kern[0.4]{"+lsp+"}"));
@@ -372,16 +372,16 @@ int main(){
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{q}}}}";
   models.back().do_prelim = false;
   models.back().legScale = 0.8;
-  // models.back().addLabel(0.22,0.27,"one light #lower[-0.12]{#tilde{q}}");
-  models.back().addLabel(0.15,0.18,"one light #lower[0.10]{#tilde{q}}");
-  models.back().addLabel(0.36,0.52,"#lower[-0.12]{#tilde{q}}_{L}+#lower[-0.12]{#tilde{q}}_{R} (#lower[-0.12]{#tilde{u}},#lower[-0.12]{#tilde{d}},#lower[-0.12]{#tilde{s}},#lower[-0.12]{#tilde{c}})");
+  models.back().addLabel(0.22,0.27,"one light #tilde{q}");
+  // models.back().addLabel(0.15,0.18,"one light #lower[0.10]{#tilde{q}}");
+  models.back().addLabel(0.36,0.50,"#lower[-0.12]{#tilde{q}}_{L}+#lower[-0.12]{#tilde{q}}_{R} (#lower[-0.12]{#tilde{u}},#lower[-0.12]{#tilde{d}},#lower[-0.12]{#tilde{s}},#lower[-0.12]{#tilde{c}})");
     
   models.back().add(sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t2qq_sus16_033.root", 
   		    cSus16033, "ObsLim2", "ExpLim2");
   models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t2qq_sus16_036.root", 
  		    cSus15003, "ObsLim_1squark", "ExpLim_1squark");
-  models.back().add(sus16038[arxivIdx]+", 0-lep ("+alphat+")", folder+"t2qq_sus16_038.root", 
-  		    kGray, "contour_Obs_0", "contour_Exp_0");
+  // models.back().add(sus16038[arxivIdx]+", 0-lep ("+alphat+")", folder+"t2qq_sus16_038.root", 
+  // 		    kGray, "contour_Obs_0", "contour_Exp_0");
   models.back().add("", folder+"t2qq_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
   models.back().add("", folder+"t2qq_sus16_036.root",
@@ -443,7 +443,8 @@ int main(){
 
 
   ///////////////////////////////    Defining T2tt+compressed plot    ///////////////////////////////// 
-  models.push_back(model_limits("T2ttWithCompressed", pp_to_xx("t")+"t#lower[0.2]{#scale[0.85]{^{(*)}}}#kern[0.4]{"+lsp+"}"));
+  models.push_back(model_limits("T2tt234body", 
+				pp_to_xx("t")+"t#lower[0.2]{#scale[0.85]{^{(*)}}}#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
   models.back().setRanges(100, 1200, 0, 900, 5); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().addLine("m_{t~} = m_{"+lsp+"}+m_{b}", 5, 600);
@@ -487,24 +488,25 @@ int main(){
   models.back().add(sus16049[arxivIdx]+", 0-lep stop", folder+"t2bW_sus16_049.root", 
    		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp", 175.);
   models.back().add(sus16051[arxivIdx]+", 1-lep stop", folder+"t6bbWW_sus16_051.root",
-  		    cSus16002, "gObs", "gExp", 175.);
+  		    cSus16002, "gObs", "gExp", 175., false);
   models.back().add("", folder+"t6bbWW_sus16_051.root",
-  		    cSus16002, "gObs_2", "gExp_2", 175.);
+  		    cSus16002, "gObs_2", "gExp_2", 175., false);
   models.back().add(sus17001[arxivIdx]+", 2-lep stop", folder+"t2bW_sus17_001_gr.root", 
     		    cSus15004, "contour_obs", "contour_exp", 175.);
   models.back().add(sus17005[arxivIdx]+" (soft 1-lep + 0-lep)", folder+"t2bWc_sus17_005_gr.root", 
      		    kRed, "gOBSOut0", "gEXPOut0", 5.);
   models.back().add(sus16048[arxivIdx]+" (soft 2-lep)", folder+"t6bbWW_sus16_048.root", 
-     		    kGreen, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
+     		    kBlue, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
 
-  ///////////////////////////////    Defining stop compressed    ///////////////////////////////// 
-  TString titleStopCompressed = "pp #rightarrow #tilde{t}#kern[0.3]{#bar{#tilde{t}}}, ";
-  titleStopCompressed += "(m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.24]{_{#lower[-0.12]{";
-  titleStopCompressed += lsp+"}}})";
-  titleStopCompressed += " < m#kern[0.24]{_{#lower[-0.12]{W}}}";
-  models.push_back(model_limits("StopCompressed", titleStopCompressed));
+  ///////////////////////////////    Defining stop compressed 4-body / cc   //////////////////////////
+  // TString titleStopCompressed = "pp #rightarrow #tilde{t}#kern[0.3]{#bar{#tilde{t}}}, ";
+  // titleStopCompressed += "(m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.24]{_{#lower[-0.12]{";
+  // titleStopCompressed += lsp+"}}})";
+  // titleStopCompressed += " < m#kern[0.24]{_{#lower[-0.12]{W}}}";
+  models.push_back(model_limits("T2tt-cc-compressed", 
+				pp_to_xx("t")+"(#kern[0.4]{b}#kern[0.4]{f}#kern[0.4]{#bar{f}'} / c)#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
-  models.back().setRanges(100, 800, 10, 150, 80); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().setRanges(200, 700, 10, 135, 80); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().legScale = 0.8;
   models.back().vsDM = true;
   models.back().do_prelim = false;
@@ -514,32 +516,32 @@ int main(){
   models.back().addLine("m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} = m#kern[0.24]{_{#lower[-0.12]{"+
 			lsp+"}}} + m#kern[0.24]{_{#lower[-0.12]{W}}}", 80, 600, true);
 
-  models.back().add("#tilde{t}#rightarrow t#lower[0.2]{#scale[0.85]{^{(*)}}} "+lsp+": "+
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{b}#kern[0.4]{f}#kern[0.4]{#bar{f}'}#kern[0.4]{"+lsp+"}: "+
 		    sus17005[arxivIdx]+" (soft 1-lep + 0-lep)", 
 		    folder+"t2tt4c_sus17_005_gr_dm.root",
 		    kGreen+3, "gOBSOut0", "gEXPOut0");
-  models.back().add("#tilde{t}#rightarrow t#lower[0.2]{#scale[0.85]{^{(*)}}} "+lsp+": "+
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{b}#kern[0.4]{f}#kern[0.4]{#bar{f}'}#kern[0.4]{"+lsp+"}: "+
 		    sus17005[arxivIdx]+" (soft 1-lep MVA)", 
 		    folder+"t2tt4bdy_sus17_005_mva_gr_dm.root", 
     		    kGreen-9, "gOBSOut0", "gEXPOut0");
-  models.back().add("#tilde{t}#rightarrow c "+lsp+": "+sus16032[arxivIdx]+" (0-lep sbottom)", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16032[arxivIdx]+" (0-lep, stop/sbottom)", 
 		    folder+"t2cc_sus16_032_dm.root", 
     		    kRed+2, "smoothed_obs", "smoothed_Exp");
-  models.back().add("#tilde{t}#rightarrow c "+lsp+": "+sus16036[arxivIdx]+" (0-lep, :"+mt2+")", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16036[arxivIdx]+" (0-lep, :"+mt2+")", 
 		    folder+"t2cc_sus16_036_dm.root", 
     		    kRed-4, "ObsLim", "ExpLim");
-  models.back().add("#tilde{t}#rightarrow c "+sus16049[arxivIdx]+" (0-lep, stop)", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16049[arxivIdx]+" (0-lep, stop)", 
 		    folder+"t2cc_sus16_049_dm.root", 
     		    kMagenta, "graph_smoothed_Obs", "graph_smoothed_Exp");
-  models.back().add("#tilde{t}#rightarrow c "+sus16038[arxivIdx]+" (0-lep, "+alphat+")", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16038[arxivIdx]+" (0-lep, "+alphat+")", 
 		    folder+"t2cc_sus16_038_dm.root", 
     		    kOrange, "contour_Obs_0", "contour_Exp_0");
-  models.back().add("#tilde{t}#rightarrow b "+chip+": "+sus17005[arxivIdx]+" (soft 1-lep + 0-lep)",
-		    folder+"t2bWc_sus17_005_gr_dm.root", 
-    		    kBlue+3, "gOBSOut0", "gEXPOut0");
-  models.back().add("#tilde{t}#rightarrow b "+chip+": "+sus16048[arxivIdx]+" (soft 2-lep)", 
-		    folder+"t6bbWW_sus16_048_dm.root", 
-    		    kBlue-9, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph");
+  // models.back().add("#tilde{t}#rightarrow b "+chip+": "+sus17005[arxivIdx]+" (soft 1-lep + 0-lep)",
+  // 		    folder+"t2bWc_sus17_005_gr_dm.root", 
+  //   		    kBlue+3, "gOBSOut0", "gEXPOut0");
+  // models.back().add("#tilde{t}#rightarrow b "+chip+": "+sus16048[arxivIdx]+" (soft 2-lep)", 
+  // 		    folder+"t6bbWW_sus16_048_dm.root", 
+  //   		    kBlue-9, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph");
 
    //////////////////////////////////////////////////////////////////////////////////////// 
   //////////////////////////////////    Making plots    //////////////////////////////////
@@ -604,7 +606,6 @@ int main(){
       float minGlu=dM;
       float maxh = mod.lines[iline].maxHeight;
       float labh = mod.lines[iline].labHeight;
-      cout << "labh " << maxh << " " << labh << endl;
       if(dM<Xmin) minGlu = Xmin;
       if (mod.vsDM) {
 	line.DrawLine(Xmin,dM,Xmax,dM);
@@ -633,7 +634,9 @@ int main(){
 	}
 	label.DrawLatex(dM+labh-offsetX, labh-offsetX+offsetY, mod.lines[iline].label);
 	// label.DrawLatex(200., 200., mod.lines[iline].label);
-	cout << "Drawing label " << dM+labh-offsetX << " " << labh-offsetX+offsetY << " " << mod.lines[iline].label << endl;
+	if (debug)
+	  cout << "Drawing label " << dM+labh-offsetX << " " << labh-offsetX+offsetY << " " 
+	       << mod.lines[iline].label << endl;
       }
     }// Loop over lines
 
@@ -666,10 +669,10 @@ int main(){
       // 	changeDmCoordinates(exp[file]);
       // 	changeDmCoordinates(obs[file]);
       // }
-      setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], 
-		    mod, debug);
-      setGraphStyle(obs[file], mod.colors[file], 1, LineWidth, mod_gl, mod.model+"_"+mod.labels[file], 
-		    mod, debug);
+      setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.ext_graph[file], 
+		    mod.model+"_"+mod.labels[file], mod, debug);
+      setGraphStyle(obs[file], mod.colors[file], 1, LineWidth, mod_gl, mod.ext_graph[file],
+		    mod.model+"_"+mod.labels[file], mod, debug);
       //printExclGlu(obs[file], exp[file], mLSPs, mod.labels[file]);
       obs[file]->Draw("f same");
 
@@ -688,7 +691,7 @@ int main(){
 	obs[file]->Draw("same");
       }// Loop over curves in each model
 
-    if(mod.model.Contains("T2tt")){ // T2tt tweaks from Pieters Everaerts
+    if(mod.model.Contains("T2tt") && !mod.vsDM ){ // T2tt tweaks from Pieters Everaerts
       // Blocking out the top corridor at low LSP mass
       Float_t diagX[4] = {176.+25.,287.5,262.5,175.-24.};
       Float_t diagY[4] = {1,87.5,112.5,1};

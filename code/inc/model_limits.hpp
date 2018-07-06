@@ -37,11 +37,12 @@ public:
   std::vector<TString> labels, files, obsnames, expnames;
   std::vector<int> colors;
   std::vector<float> glu_lsps;
+  std::vector<bool> ext_graph;
   std::vector<dm_line> lines;
   std::vector<dm_label> plot_labels;
   float Xmin, Xmax, Ymin, Ymax;
 
-  void add(TString label, TString file, int color, TString obsname, TString expname, float glu_lsp=-1.);
+  void add(TString label, TString file, int color, TString obsname, TString expname, float glu_lsp=-1., bool extend=true);
   void addLine(TString ilabel, float idm, float imaxHeight, bool above=true, float labHeight=-9999);
   void addLabel(float X, float Y, TString label, int text_align=11);
   void setRanges(float iXmin, float iXmax, float iYmin, float iYmax, float iglu_lsp=25.);

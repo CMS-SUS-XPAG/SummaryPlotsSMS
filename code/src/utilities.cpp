@@ -83,8 +83,8 @@ TGraph* getGraph(TFile &flimit, TString gname){
   return graph;
 }
 
-void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_lsp,TString model_leg, 
-		   model_limits& model, bool debug){
+void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_lsp, bool ext_graph,
+		   TString model_leg, model_limits& model, bool debug){
   if(graph==0) return;
 
   // Setting graph style
@@ -192,15 +192,20 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
 	  graph->SetPoint(graph->GetN(), intersection, glu_lsp);
 	  cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << glu_lsp << endl;
 	}
+	if (glu_lsp<1000 && ext_graph) {
+	  graph->SetPoint(graph->GetN(), model.Xmin, glu_lsp);
+	  cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << model.Xmin << " " << glu_lsp << endl;
+	}
       }
       else{
 	if(slope<1) graph->SetPoint(graph->GetN(), intersection, intersection-glu_lsp);
 	if(slope<1) 
 	  cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << intersection-glu_lsp << endl;
 	
-	if(glu_lsp<1000) graph->SetPoint(graph->GetN(), 0, -glu_lsp);
-	if(glu_lsp<1000)
+	if (glu_lsp<1000 && ext_graph) {
+	  graph->SetPoint(graph->GetN(), 0, -glu_lsp);
 	  cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << 0. << " " << -glu_lsp << endl;
+	}
       }
     }
       
