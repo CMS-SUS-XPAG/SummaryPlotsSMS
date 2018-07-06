@@ -11,10 +11,10 @@
 class dm_line {
 public:
   TString label;
-  float dm, maxHeight;
+  float dm, maxHeight, labHeight;
   bool above;
 
-  dm_line(TString ilabel, float idm, float imaxHeight, bool iabove=true);
+  dm_line(TString ilabel, float idm, float imaxHeight, bool iabove=true, float labHeight=-9999);
 };
 
 class dm_label {
@@ -32,15 +32,18 @@ public:
   TString lumi, xtitle, ytitle;
   float legScale, glu_lsp;
   bool reverseOrder;
+  bool vsDM;
+  bool do_prelim;
   std::vector<TString> labels, files, obsnames, expnames;
   std::vector<int> colors;
   std::vector<float> glu_lsps;
+  std::vector<bool> ext_graph;
   std::vector<dm_line> lines;
   std::vector<dm_label> plot_labels;
   float Xmin, Xmax, Ymin, Ymax;
 
-  void add(TString label, TString file, int color, TString obsname, TString expname, float glu_lsp=-1.);
-  void addLine(TString ilabel, float idm, float imaxHeight, bool above=true);
+  void add(TString label, TString file, int color, TString obsname, TString expname, float glu_lsp=-1., bool extend=true);
+  void addLine(TString ilabel, float idm, float imaxHeight, bool above=true, float labHeight=-9999);
   void addLabel(float X, float Y, TString label, int text_align=11);
   void setRanges(float iXmin, float iXmax, float iYmin, float iYmax, float iglu_lsp=25.);
   model_limits(TString imodel, TString ititle, float ilegScale=1.);
