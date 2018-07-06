@@ -108,6 +108,7 @@ int main(){
   vector<TString> sus17001; sus17001.push_back("SUS-17-001"); sus17001.push_back("1711.00752");
   vector<TString> sus17004; sus17004.push_back("SUS-17-004"); sus17004.push_back("1801.03957");
   vector<TString> sus17005; sus17005.push_back("SUS-17-005"); sus17005.push_back("1805.05784");
+  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("SUS-17-010");
 
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
@@ -440,6 +441,8 @@ int main(){
                     cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add("Comb. 0-, 1- and 2-lep stop", folder+"t2tt_comb.root", 
     		    cComb, "gObs", "gExp");
+  // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/stop)", folder+"t2tt_sus17_010.root", 
+  //   		    kYellow, "gr_Obs", "gr_Exp");
 
 
   ///////////////////////////////    Defining T2tt+compressed plot    ///////////////////////////////// 
@@ -466,10 +469,12 @@ int main(){
   // //  		    kGray, "ObsLim", "ExpLim");
   models.back().add(sus16051[arxivIdx]+", 1-lep", folder+"t2tt_sus16_051.root",
    		    cSus16002, "gObs", "gExp", 85.);
-  models.back().add(sus17005[arxivIdx]+" (soft 1-lep + 0-lep)", folder+"t2tt4c_sus17_005_gr.root", 
+  models.back().add(sus17005[arxivIdx]+", soft 1-lep + 0-lep", folder+"t2tt4c_sus17_005_gr.root", 
     		    kRed, "gOBSOut0", "gEXPOut0");
-  models.back().add(sus17005[arxivIdx]+" (soft 1-lep MVA)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
+  models.back().add(sus17005[arxivIdx]+", soft 1-lep (MVA)", folder+"t2tt4bdy_sus17_005_mva_gr.root", 
     		    kGreen, "gOBSOut0", "gEXPOut0");
+  // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/stop)", folder+"t2tt_sus17_010.root", 
+  //   		    kBlue, "gr_Obs", "gr_Exp");
 
   ///////////////////////////////    Defining T6bbWW    ///////////////////////////////// 
   models.push_back(model_limits("T6bbWW", pp_to_xx("t")+"b#kern[0.1]{"+chip+"} #rightarrow b#kern[0.1]{"+wp+"}#kern[0.0]{"+lsp+"}      "));
@@ -493,17 +498,19 @@ int main(){
   		    cSus16002, "gObs_2", "gExp_2", 175., false);
   models.back().add(sus17001[arxivIdx]+", 2-lep stop", folder+"t2bW_sus17_001_gr.root", 
     		    cSus15004, "contour_obs", "contour_exp", 175.);
-  models.back().add(sus17005[arxivIdx]+" (soft 1-lep + 0-lep)", folder+"t2bWc_sus17_005_gr.root", 
+  models.back().add(sus17005[arxivIdx]+", soft 1-lep + 0-lep", folder+"t2bWc_sus17_005_gr.root", 
      		    kRed, "gOBSOut0", "gEXPOut0", 5.);
-  models.back().add(sus16048[arxivIdx]+" (soft 2-lep)", folder+"t6bbWW_sus16_048.root", 
+  models.back().add(sus16048[arxivIdx]+"soft 2-lep", folder+"t6bbWW_sus16_048.root", 
      		    kBlue, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
+  // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/stop)", folder+"t2bW_sus17_010.root", 
+  //    		    kBlack, "gr_Obs", "gr_Exp", 85.);
 
   ///////////////////////////////    Defining stop compressed 4-body / cc   //////////////////////////
   // TString titleStopCompressed = "pp #rightarrow #tilde{t}#kern[0.3]{#bar{#tilde{t}}}, ";
   // titleStopCompressed += "(m#kern[0.24]{_{#lower[-0.12]{#tilde{t}}}} - m#kern[0.24]{_{#lower[-0.12]{";
   // titleStopCompressed += lsp+"}}})";
   // titleStopCompressed += " < m#kern[0.24]{_{#lower[-0.12]{W}}}";
-  models.push_back(model_limits("T2tt-cc-compressed", 
+  models.push_back(model_limits("T2tt4body-c", 
 				pp_to_xx("t")+"(#kern[0.4]{b}#kern[0.4]{f}#kern[0.4]{#bar{f}'} / c)#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
   models.back().setRanges(200, 700, 10, 135, 80); // Xmin, Xmax, Ymin, Ymax, glu_lsp
@@ -517,23 +524,23 @@ int main(){
 			lsp+"}}} + m#kern[0.24]{_{#lower[-0.12]{W}}}", 80, 600, true);
 
   models.back().add("#tilde{t}#rightarrow#kern[0.4]{b}#kern[0.4]{f}#kern[0.4]{#bar{f}'}#kern[0.4]{"+lsp+"}: "+
-		    sus17005[arxivIdx]+" (soft 1-lep + 0-lep)", 
+		    sus17005[arxivIdx]+", soft 1-lep + 0-lep", 
 		    folder+"t2tt4c_sus17_005_gr_dm.root",
 		    kGreen+3, "gOBSOut0", "gEXPOut0");
   models.back().add("#tilde{t}#rightarrow#kern[0.4]{b}#kern[0.4]{f}#kern[0.4]{#bar{f}'}#kern[0.4]{"+lsp+"}: "+
-		    sus17005[arxivIdx]+" (soft 1-lep MVA)", 
+		    sus17005[arxivIdx]+", soft 1-lep (MVA)", 
 		    folder+"t2tt4bdy_sus17_005_mva_gr_dm.root", 
     		    kGreen-9, "gOBSOut0", "gEXPOut0");
-  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16032[arxivIdx]+" (0-lep, stop/sbottom)", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16032[arxivIdx]+", 0-lep (stop/sbottom)", 
 		    folder+"t2cc_sus16_032_dm.root", 
     		    kRed+2, "smoothed_obs", "smoothed_Exp");
-  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16036[arxivIdx]+" (0-lep, :"+mt2+")", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16036[arxivIdx]+", 0-lep ("+mt2+")", 
 		    folder+"t2cc_sus16_036_dm.root", 
     		    kRed-4, "ObsLim", "ExpLim");
-  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16049[arxivIdx]+" (0-lep, stop)", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16049[arxivIdx]+"0-lep (stop)", 
 		    folder+"t2cc_sus16_049_dm.root", 
     		    kMagenta, "graph_smoothed_Obs", "graph_smoothed_Exp");
-  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16038[arxivIdx]+" (0-lep, "+alphat+")", 
+  models.back().add("#tilde{t}#rightarrow#kern[0.4]{c} "+lsp+": "+sus16038[arxivIdx]+"0-lep ("+alphat+")", 
 		    folder+"t2cc_sus16_038_dm.root", 
     		    kOrange, "contour_Obs_0", "contour_Exp_0");
   // models.back().add("#tilde{t}#rightarrow b "+chip+": "+sus17005[arxivIdx]+" (soft 1-lep + 0-lep)",
@@ -728,6 +735,7 @@ int main(){
     can.SaveAs(plotname);
     cout<<" open "<<plotname<<endl<<endl;
     can.SaveAs(plotname.ReplaceAll(".pdf",".root").ReplaceAll("_pdf", "_root"));
+    can.SaveAs(plotname.ReplaceAll(".root",".png").ReplaceAll("_root", "_png"));
   } // Loop over models
   cout<<endl<<endl;
 }
