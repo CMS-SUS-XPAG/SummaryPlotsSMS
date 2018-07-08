@@ -734,7 +734,8 @@ int main(){
       float mod_gl = glu_lsp;
       if(mod.glu_lsps[file]>0) mod_gl = mod.glu_lsps[file];
 
-      if(mod.labels[file].Contains("1801.01846")){ //16-048
+      if((mod.labels[file].Contains("1801.01846")||mod.labels[file].Contains("SUS-16-048"))&&
+	 !mod.model.BeginsWith("T6")){ //16-048
        	changeDmCoordinates(exp[file]);
        	changeDmCoordinates(obs[file]);
       }
