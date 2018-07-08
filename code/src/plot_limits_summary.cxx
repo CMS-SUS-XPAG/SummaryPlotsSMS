@@ -415,6 +415,8 @@ int main(){
   models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
+  models.back().add("", folder+"t2tt_comb.root", 
+    		    cComb, "gObs", "gExp");
   models.back().add(sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t2tt_sus16_033.root", 
    		    cSus16033, "ObsLim2", "ExpLim2");
   models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t2tt_sus16_036.root", 
