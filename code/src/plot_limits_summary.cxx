@@ -349,7 +349,10 @@ int main(){
   		    kBlack, "contour_Obs", "contour_Exp_0");
 
   ///////////////////////////////    Defining T5qqqqVV plot    /////////////////////////////////
-  models.push_back(model_limits("T5qqqqVV", pp_to_xx("g")+"q#kern[0.2]{#bar{q}}#kern[0.2]{V}#kern[0.2]{"+lsp+"}"));
+  models.push_back(model_limits("T5qqqqVV", 
+				"pp#kern[0.]{#rightarrow}#tilde{g}#kern[0.2]{#tilde{g}}, #tilde{g}#kern[0.]{#rightarrow}"
+				"q#kern[0.]{#bar{q}}#kern[0.]{("+chipm+"/"+chi2+
+				")}#kern[0.]{#rightarrow}q#kern[0.2]{#bar{q}}#kern[0.]{("+wpm+"/Z)}#kern[0.2]{"+lsp+"}     "));
   models.back().lumi = "35.9"; 
   models.back().setRanges(700, 2200, 0, 1850); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
@@ -357,13 +360,13 @@ int main(){
   models.back().legScale = 0.8;
 
   models.back().labMass = "m_{"+chipm+", "+chi2+"} = 0.5(m_{#lower[-0.12]{#tilde{g}}} + m_{"+lsp+"})";
-  models.back().add("V = W/Z: "+sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t5qqqqvv_sus16_033.root", 
+  models.back().add(wpm+"/Z: "+sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t5qqqqvv_sus16_033.root", 
   		    cSus16033, "ObsLim", "ExpLim");
-  models.back().add("V = W/Z: "+sus16041[arxivIdx]+", #geq3-lep", folder+"t5qqqqvv_sus16_041_gr.root", 
+  models.back().add(wpm+"/Z: "+sus16041[arxivIdx]+", #geq3-lep", folder+"t5qqqqvv_sus16_041_gr.root", 
   		    kCyan, "contour_obs", "contour_exp");
-  models.back().add("V = W: "+sus16042[arxivIdx]+", 1-lep ("+dphi+")", folder+"t5qqqqww_sus16_042.root", 
+  models.back().add(wpm+": "+sus16042[arxivIdx]+", 1-lep ("+dphi+")", folder+"t5qqqqww_sus16_042.root", 
     		    kOrange, "T5qqqqWWObservedLimit", "T5qqqqWWExpectedLimit");
-  models.back().add("V = W: "+sus16035[arxivIdx]+", #geq2-lep (same-sign)", folder+"t5qqqqww_sus16_035.root", 
+  models.back().add(wpm+": "+sus16035[arxivIdx]+", #geq2-lep (same-sign)", folder+"t5qqqqww_sus16_035.root", 
   		    kRed, "ssobs", "ssexp");
 
   ///////////////////////////////    Defining T2qq plot    /////////////////////////////////
@@ -757,7 +760,8 @@ void addLabelsTitle(float lMargin, float tMargin, float rMargin, TString title, 
   // Printing date
   label.SetTextAlign(31); label.SetTextFont(52); label.SetTextSize(0.45*tMargin);
   //  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "Moriond 2017");
-  label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "June 2018");
+  // label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "June 2018");
+  label.DrawLatex(1-rMargin, 1-tMargin+0.018, "June 2018");
   // Printing energy
   label.SetTextAlign(31); label.SetTextFont(42); label.SetTextSize(0.53*tMargin);
   if(lumi=="") lumi = "13 TeV";
