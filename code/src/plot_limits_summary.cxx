@@ -511,7 +511,7 @@ int main(){
     		    cSus15004, "contour_obs", "contour_exp", 175.);
   models.back().add(sus17005[arxivIdx]+", soft 1-lep + 0-lep", folder+"t2bWc_sus17_005_gr.root", 
      		    kRed, "gOBSOut0", "gEXPOut0", 5.);
-  models.back().add(sus16048[arxivIdx]+"soft 2-lep", folder+"t6bbWW_sus16_048.root", 
+  models.back().add(sus16048[arxivIdx]+", soft 2-lep", folder+"t6bbWW_sus16_048.root", 
      		    kBlue, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
   // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/stop)", folder+"t2bW_sus17_010.root", 
   //    		    kBlack, "gr_Obs", "gr_Exp", 85.);
