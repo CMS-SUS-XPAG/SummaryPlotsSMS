@@ -734,9 +734,9 @@ int main(){
       float mod_gl = glu_lsp;
       if(mod.glu_lsps[file]>0) mod_gl = mod.glu_lsps[file];
 
-      if(mod.labels[file].Contains("1801.01846")){ //16-048
-       	changeDmCoordinates(exp[file]);
-       	changeDmCoordinates(obs[file]);
+      if(mod.labels[file].Contains("1801.01846"&&!mod.model.StartsWith("T6"))){ //16-048
+	changeDmCoordinates(exp[file]);
+	changeDmCoordinates(obs[file]);
       }
       setGraphStyle(exp[file], mod.colors[file], 2, LineWidth, mod_gl, mod.ext_graph[file], 
 		    mod.model+"_"+mod.labels[file], mod, debug);
