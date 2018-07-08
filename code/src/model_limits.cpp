@@ -27,7 +27,8 @@ model_limits::model_limits(TString imodel, TString ititle, float ilegScale):
   labMass = "";
   reverseOrder = true;
   xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
-  ytitle = "#lower[-0.12]{#tilde{#chi}}#lower[0.2]{#scale[0.85]{^{0}}}#kern[-1.3]{#scale[0.85]{_{1}}}";
+  ytitle = "m#kern[0.24]{_{#lower[-0.12]{#tilde{#chi}}#lower[0.2]{#scale[0.85]{^{0}}}#kern[-1.3]{#scale[0.85]{_{1}}}}}";
+  // ytitle = "#lower[-0.12]{#tilde{#chi}}#lower[0.2]{#scale[0.85]{^{0}}}#kern[-1.3]{#scale[0.85]{_{1}}}";
   vsDM = false;
   do_prelim = true;
 }
