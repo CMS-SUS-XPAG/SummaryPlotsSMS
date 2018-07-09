@@ -189,7 +189,7 @@ int main(){
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
   models.back().add(sus17004[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root",
   		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root",
+  models.back().add(sus16048[arxivIdx]+", soft 2l (WZ)", folder+"ewkino_sus16_048_wz.root",
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
 
   // ///////////////////////////////    Defining EWK combination plot   //////////////////////////////
@@ -223,7 +223,7 @@ int main(){
     models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
     models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
     models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
-    models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+    models.back().xtitle = "m_{"+chi2+"}=m_{"+chipm+"} or m_{#tilde{e}_{L/R}}=m_{#tilde{#mu}_{L/R}}";
     
     models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root",
                       c5050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -275,7 +275,7 @@ int main(){
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
   models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root",
   		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root",
+  models.back().add(sus16048[arxivIdx]+", soft 2l (WZ)", folder+"ewkino_sus16_048_wz.root",
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
     
 
@@ -314,7 +314,7 @@ int main(){
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
   models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root",
   		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root",
+  models.back().add(sus16048[arxivIdx]+", soft 2l (WZ)", folder+"ewkino_sus16_048_wz.root",
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
 
   // ///////////////////////////////    Defining Sleptons plot    /////////////////////////////////
