@@ -63,4 +63,3 @@ void model_limits::setRanges(float iXmin, float iXmax, float iYmin, float iYmax,
   Ymax = iYmax;
   glu_lsp = iglu_lsp;
 }
-
