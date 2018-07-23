@@ -120,7 +120,7 @@ int main(){
   vector<TString> sus17004; sus17004.push_back("SUS-17-004"); sus17004.push_back("1801.03957");
   vector<TString> sus17005; sus17005.push_back("SUS-17-005"); sus17005.push_back("1805.05784");
   vector<TString> sus17009; sus17009.push_back("SUS-17-009"); sus17009.push_back("1806.05264");
-  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("SUS-17-010");
+  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("1807.07799");
 
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
@@ -143,6 +143,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 120);
   models.back().setRanges(120, 550, 0, 190); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root",
   		    cwh, "gr_obs", "gr_exp", 124.5);
@@ -160,6 +161,7 @@ int main(){
   // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 250);
   // models.back().setRanges(100, 650, 0, 390); // Xmin, Xmax, Ymin, Ymax
   // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // models.back().do_prelim = false;
 
   // models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root",
   // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
@@ -178,6 +180,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 250);
   models.back().setRanges(100, 650, 0, 470); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root",
   		    cwh, "gr_obs", "gr_exp", 124.5);
@@ -200,6 +203,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 290);
   models.back().setRanges(100, 700, 0, 430); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus17004[arxivIdx]+", comb. (WH)", folder+"ewkino_sus17_004_wh.root",
   		    cwh43, "gr_obs", "gr_exp", 124.5);
@@ -224,6 +228,7 @@ int main(){
     models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
     models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
     models.back().xtitle = "m_{"+chi2+"}=m_{"+chipm+"} or m_{#tilde{e}_{L/R}}=m_{#tilde{#mu}_{L/R}}";
+    models.back().do_prelim = false;
     
     models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root",
                       c5050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -258,6 +263,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
   models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root",
   		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -288,6 +294,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
   models.back().setRanges(100, 1250, 0, 1570); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root",
   		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -324,6 +331,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
   models.back().setRanges(100, 1250, 0, 1350); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root",
   		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
