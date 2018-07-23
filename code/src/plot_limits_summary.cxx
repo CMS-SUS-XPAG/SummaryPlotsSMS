@@ -120,7 +120,7 @@ int main(){
   vector<TString> sus17004; sus17004.push_back("SUS-17-004"); sus17004.push_back("1801.03957");
   vector<TString> sus17005; sus17005.push_back("SUS-17-005"); sus17005.push_back("1805.05784");
   vector<TString> sus17009; sus17009.push_back("SUS-17-009"); sus17009.push_back("1806.05264");
-  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("SUS-17-010");
+  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("1807.07799");
 
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
