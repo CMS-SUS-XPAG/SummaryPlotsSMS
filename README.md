@@ -12,3 +12,5 @@ The plots are produced in the `code` folder by compiling the repository and runn
 
     cd code
     ./compile.sh && ./run/plot_limits_summary.exe
+
+The main script for creating overview ("bar style") plots is code/python/makeBarPlot.py . It was tested with Python 2.7.11 and matplotlib 2.2.2 .

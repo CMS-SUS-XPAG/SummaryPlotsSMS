@@ -120,7 +120,7 @@ int main(){
   vector<TString> sus17004; sus17004.push_back("SUS-17-004"); sus17004.push_back("1801.03957");
   vector<TString> sus17005; sus17005.push_back("SUS-17-005"); sus17005.push_back("1805.05784");
   vector<TString> sus17009; sus17009.push_back("SUS-17-009"); sus17009.push_back("1806.05264");
-  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("SUS-17-010");
+  vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("1807.07799");
 
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
@@ -143,6 +143,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 120);
   models.back().setRanges(120, 550, 0, 190); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root",
   		    cwh, "gr_obs", "gr_exp", 124.5);
@@ -160,6 +161,7 @@ int main(){
   // models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 250);
   // models.back().setRanges(100, 650, 0, 390); // Xmin, Xmax, Ymin, Ymax
   // models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  // models.back().do_prelim = false;
 
   // models.back().add(sus16034[arxivIdx]+", 2l OS (WZ)", folder+"ewkino_sus16_034_wz.root",
   // 		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
@@ -178,6 +180,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 250);
   models.back().setRanges(100, 650, 0, 470); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"ewkino_sus16_039_wh_gr.root",
   		    cwh, "gr_obs", "gr_exp", 124.5);
@@ -189,7 +192,7 @@ int main(){
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
   models.back().add(sus17004[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root",
   		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root",
+  models.back().add(sus16048[arxivIdx]+", soft 2l (WZ)", folder+"ewkino_sus16_048_wz.root",
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
 
   // ///////////////////////////////    Defining EWK combination plot   //////////////////////////////
@@ -200,6 +203,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 290);
   models.back().setRanges(100, 700, 0, 430); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus17004[arxivIdx]+", comb. (WH)", folder+"ewkino_sus17_004_wh.root",
   		    cwh43, "gr_obs", "gr_exp", 124.5);
@@ -223,7 +227,8 @@ int main(){
     models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
     models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
     models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
-    models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+    models.back().xtitle = "m_{"+chi2+"}=m_{"+chipm+"} or m_{#tilde{e}_{L/R}}=m_{#tilde{#mu}_{L/R}}";
+    models.back().do_prelim = false;
     
     models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root",
                       c5050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -258,6 +263,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
   models.back().setRanges(100, 1250, 0, 1560); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 3l ("+flavDem+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf0p5_x0p5_gr.root",
   		    c5050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -275,7 +281,7 @@ int main(){
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
   models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root",
   		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root",
+  models.back().add(sus16048[arxivIdx]+", soft 2l (WZ)", folder+"ewkino_sus16_048_wz.root",
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
     
 
@@ -288,6 +294,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 850, false);
   models.back().setRanges(100, 1250, 0, 1570); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root",
   		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -314,7 +321,7 @@ int main(){
   		    cwz34, "gr_obs_smoothed", "gr_exp_smoothed", 9999);
   models.back().add(sus16039[arxivIdx]+", 3l (WZ)", folder+"ewkino_sus16_039_wz_gr.root",
   		    cwz39, "gr_obs", "gr_exp", 7);
-  models.back().add(sus16048[arxivIdx]+", soft 2-lep (WZ)", folder+"ewkino_sus16_048_wz.root",
+  models.back().add(sus16048[arxivIdx]+", soft 2l (WZ)", folder+"ewkino_sus16_048_wz.root",
    		    cwz48, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 7);
 
   // ///////////////////////////////    Defining Sleptons plot    /////////////////////////////////
@@ -324,6 +331,7 @@ int main(){
   models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 590);
   models.back().setRanges(100, 1250, 0, 1350); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = false;
 
   models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root",
   		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
@@ -464,24 +472,24 @@ int main(){
   ///////////////////////////////    Defining T2tt plot    ///////////////////////////////// 
   models.push_back(model_limits("T2tt", pp_to_xx("t")+"t#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "35.9"; 
-  models.back().setRanges(100, 1200, 0, 900, 100); // Xmin, Xmax, Ymin, Ymax, glu_lsp
+  models.back().setRanges(100, 1200, 0, 900, 85); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t}}}}";
   models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
-  models.back().add("", folder+"t2tt_comb.root", 
+  models.back().add("", folder+"t2tt_sus17_001_comb_gr.root", 
     		    cComb, "gObs", "gExp");
   models.back().add(sus16033[arxivIdx]+", 0-lep ("+mht+")", folder+"t2tt_sus16_033.root", 
    		    cSus16033, "ObsLim2", "ExpLim2");
   models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t2tt_sus16_036.root", 
    		    cSus15003, "ObsLim", "ExpLim");
-  models.back().add(sus16049[arxivIdx]+", 0-lep stop", folder+"t2tt_sus16_049.root", 
+  models.back().add(sus16049[arxivIdx]+", 0-lep (stop)", folder+"t2tt_sus16_049.root", 
 		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
   // models.back().add(sus16050[arxivIdx]+", 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
   //  		    kGray, "ObsLim", "ExpLim");
-  models.back().add(sus16051[arxivIdx]+", 1-lep stop", folder+"t2tt_sus16_051.root",
+  models.back().add(sus16051[arxivIdx]+", 1-lep (stop)", folder+"t2tt_sus16_051.root",
   		    cSus16002, "gObs", "gExp");
-  models.back().add(sus17001[arxivIdx]+", 2-lep stop", folder+"t2tt_sus17_001.root", 
+  models.back().add(sus17001[arxivIdx]+", 2-lep (stop)", folder+"t2tt_sus17_001.root", 
     		    cSus15004, "contour_obs", "contour_exp");
   models.back().add("", folder+"t2tt_sus16_033.root", 
     		    cSus16033, "ObsLim", "ExpLim");
@@ -495,8 +503,10 @@ int main(){
                     cSus16002, "gObs_2", "gExp_2");
   models.back().add("", folder+"t2tt_sus16_049.root",
                     cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp");
-  models.back().add("Combination 0-, 1- and 2-lep stop", folder+"t2tt_comb.root", 
+  models.back().add(sus17001[arxivIdx]+", 0-, 1- and 2-lep (stop)", folder+"t2tt_sus17_001_comb_gr.root", 
     		    cComb, "gObs", "gExp");
+  // models.back().add("Combination 0-, 1- and 2-lep (stop)", folder+"t2tt_comb.root", 
+  //    		    cComb, "gObs", "gExp");
   // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/stop)", folder+"t2tt_sus17_010.root", 
   //   		    kYellow, "gr_Obs", "gr_Exp");
 
@@ -515,7 +525,7 @@ int main(){
 
   // models.back().add("", folder+"t2tt_comb.root", 
   //   		    cComb, "gObs", "gExp", 80.);
-  models.back().add(sus16049[arxivIdx]+", 0-lep stop", folder+"t2tt_sus16_049.root", 
+  models.back().add(sus16049[arxivIdx]+", 0-lep (stop)", folder+"t2tt_sus16_049.root", 
 		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp",85.);
   models.back().add("", folder+"t2tt_sus16_049.root", 
     		    cSus16007A, "graph_smoothed_Obs_12", "graph_smoothed_Exp",85.);
@@ -525,9 +535,9 @@ int main(){
    		    cSus16007A, "graph_smoothed_Obs_6", "graph_smoothed_Exp",85.);
   // // models.back().add(sus16050[arxivIdx]+", 0-lep stop / top ID", folder+"t2tt_sus16_050.root", 
   // //  		    kGray, "ObsLim", "ExpLim");
-  models.back().add(sus16051[arxivIdx]+", 1-lep stop", folder+"t2tt_sus16_051.root",
+  models.back().add(sus16051[arxivIdx]+", 1-lep (stop)", folder+"t2tt_sus16_051.root",
    		    cSus16002, "gObs", "gExp", 85.);
-  models.back().add(sus17001[arxivIdx]+", 2-lep stop", folder+"t2tt_sus17_001.root", 
+  models.back().add(sus17001[arxivIdx]+", 2-lep (stop)", folder+"t2tt_sus17_001.root", 
     		    cSus15004, "contour_obs", "contour_exp", 85.);
   // models.back().add("Combination 0-, 1- and 2-lep stop", folder+"t2tt_comb.root", 
   //   		    cComb, "gObs", "gExp", 80.);
@@ -552,20 +562,24 @@ int main(){
 
   // models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t6bbWW_sus16_036.root", 
   //    		    kYellow, "ObsLim", "ExpLim", 175.);
-  models.back().add(sus16049[arxivIdx]+", 0-lep stop", folder+"t2bW_sus16_049.root", 
-   		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp", 175.);
-  models.back().add(sus16051[arxivIdx]+", 1-lep stop", folder+"t6bbWW_sus16_051.root",
-  		    cSus16002, "gObs", "gExp", 175., false);
-  models.back().add("", folder+"t6bbWW_sus16_051.root",
-  		    cSus16002, "gObs_2", "gExp_2", 175., false);
-  models.back().add(sus17001[arxivIdx]+", 2-lep stop", folder+"t2bW_sus17_001_gr.root", 
-    		    cSus15004, "contour_obs", "contour_exp", 175.);
+  models.back().add(sus17001[arxivIdx]+", 0-, 1-, 2-lep (stop)", folder+"t2bW_sus17_001_comb_gr.root", 
+    		    cComb, "gObs", "gExp", 175.);
+  models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t6bbWW_sus16_036.root", 
+   		    cSus16036, "ObsLim", "ExpLim", 175.);
+  // models.back().add(sus16049[arxivIdx]+", 0-lep (stop)", folder+"t2bW_sus16_049.root", 
+  //  		    cSus16007A, "graph_smoothed_Obs", "graph_smoothed_Exp", 175.);
+  // models.back().add(sus16051[arxivIdx]+", 1-lep (stop)", folder+"t6bbWW_sus16_051.root",
+  // 		    cSus16002, "gObs", "gExp", 175., false);
+  // models.back().add("", folder+"t6bbWW_sus16_051.root",
+  // 		    cSus16002, "gObs_2", "gExp_2", 175., false);
+  // models.back().add(sus17001[arxivIdx]+", 2-lep (stop)", folder+"t2bW_sus17_001_gr.root", 
+  //   		    cSus15004, "contour_obs", "contour_exp", 175.);
   models.back().add(sus17005[arxivIdx]+", soft 1-lep + 0-lep", folder+"t2bWc_sus17_005_gr.root", 
      		    kRed, "gOBSOut0", "gEXPOut0", 5.);
   models.back().add(sus16048[arxivIdx]+", soft 2-lep", folder+"t6bbWW_sus16_048.root", 
      		    kBlue, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 5.);
-  // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/stop)", folder+"t2bW_sus17_010.root", 
-  //    		    kBlack, "gr_Obs", "gr_Exp", 85.);
+  // models.back().add(sus17010[arxivIdx]+", 2-lep (EWK/(stop))", folder+"t2bW_sus17_010.root", 
+  //    		    kBlack, "gr_Obs", "gr_Exp", 175.);
 
   ///////////////////////////////    Defining stop compressed 4-body / cc   //////////////////////////
   // TString titleStopCompressed = "pp #rightarrow #tilde{t}#kern[0.3]{#bar{#tilde{t}}}, ";
@@ -818,7 +832,7 @@ void addLabelsTitle(float lMargin, float tMargin, float rMargin, TString title, 
   // Printing date
   label.SetTextAlign(31); label.SetTextFont(52); label.SetTextSize(0.45*tMargin);
   //  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "Moriond 2017");
-  label.DrawLatex(1-rMargin, 1-tMargin+0.018, "June 2018");
+  label.DrawLatex(1-rMargin, 1-tMargin+0.018, "July 2018");
   // Printing energy
   label.SetTextAlign(31); label.SetTextFont(42); label.SetTextSize(0.53*tMargin);
   if(lumi=="") lumi = "13 TeV";
