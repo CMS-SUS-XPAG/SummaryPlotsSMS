@@ -1,0 +1,433 @@
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for i386-apple-darwin11.3.0
+Reading makefiles...
+Reading makefile `makefile'...
+Reading makefile `bin/model_limits.d' (search path) (don't care) (no ~ expansion)...
+Reading makefile `bin/utilities.d' (search path) (don't care) (no ~ expansion)...
+Reading makefile `bin/extract_graphs.d' (search path) (don't care) (no ~ expansion)...
+Reading makefile `bin/plot_limits_summary.d' (search path) (don't care) (no ~ expansion)...
+Updating makefiles....
+ Considering target file `bin/plot_limits_summary.d'.
+  File `bin/plot_limits_summary.d' does not exist.
+  Looking for an implicit rule for `bin/plot_limits_summary.d'.
+  Trying pattern rule with stem `plot_limits_summary'.
+  Trying implicit prerequisite `src/plot_limits_summary.cpp'.
+  Trying pattern rule with stem `plot_limits_summary'.
+  Trying implicit prerequisite `src/plot_limits_summary.cxx'.
+  Found an implicit rule for `bin/plot_limits_summary.d'.
+   Considering target file `src/plot_limits_summary.cxx'.
+    Looking for an implicit rule for `src/plot_limits_summary.cxx'.
+    No implicit rule found for `src/plot_limits_summary.cxx'.
+    Finished prerequisites of target file `src/plot_limits_summary.cxx'.
+   No need to remake target `src/plot_limits_summary.cxx'.
+  Finished prerequisites of target file `bin/plot_limits_summary.d'.
+ Must remake target `bin/plot_limits_summary.d'.
+Need a job token; we don't have children
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -MM -MG -MF bin/plot_limits_summary.d src/plot_limits_summary.cxx && perl -pi -e 's|plot_limits_summary.o|bin/plot_limits_summary.o bin/plot_limits_summary.d|g' bin/plot_limits_summary.d
+Putting child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 on the chain.
+ Commands of `bin/plot_limits_summary.d' are being run.
+ Considering target file `bin/extract_graphs.d'.
+  File `bin/extract_graphs.d' does not exist.
+  Looking for an implicit rule for `bin/extract_graphs.d'.
+  Trying pattern rule with stem `extract_graphs'.
+  Trying implicit prerequisite `src/extract_graphs.cpp'.
+  Trying pattern rule with stem `extract_graphs'.
+  Trying implicit prerequisite `src/extract_graphs.cxx'.
+  Found an implicit rule for `bin/extract_graphs.d'.
+   Considering target file `src/extract_graphs.cxx'.
+    Looking for an implicit rule for `src/extract_graphs.cxx'.
+    No implicit rule found for `src/extract_graphs.cxx'.
+    Finished prerequisites of target file `src/extract_graphs.cxx'.
+   No need to remake target `src/extract_graphs.cxx'.
+  Finished prerequisites of target file `bin/extract_graphs.d'.
+ Must remake target `bin/extract_graphs.d'.
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Need a job token; we have children
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Obtained token for child 0x7ff8a7d00cd0 (bin/extract_graphs.d).
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -MM -MG -MF bin/extract_graphs.d src/extract_graphs.cxx && perl -pi -e 's|extract_graphs.o|bin/extract_graphs.o bin/extract_graphs.d|g' bin/extract_graphs.d
+Putting child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 on the chain.
+ Commands of `bin/extract_graphs.d' are being run.
+ Considering target file `bin/utilities.d'.
+  File `bin/utilities.d' does not exist.
+  Looking for an implicit rule for `bin/utilities.d'.
+  Trying pattern rule with stem `utilities'.
+  Trying implicit prerequisite `src/utilities.cpp'.
+  Found an implicit rule for `bin/utilities.d'.
+   Considering target file `src/utilities.cpp'.
+    Looking for an implicit rule for `src/utilities.cpp'.
+    No implicit rule found for `src/utilities.cpp'.
+    Finished prerequisites of target file `src/utilities.cpp'.
+   No need to remake target `src/utilities.cpp'.
+  Finished prerequisites of target file `bin/utilities.d'.
+ Must remake target `bin/utilities.d'.
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Need a job token; we have children
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Obtained token for child 0x7ff8a7d025f0 (bin/utilities.d).
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -MM -MG -MF bin/utilities.d src/utilities.cpp && perl -pi -e 's|utilities.o|bin/utilities.o bin/utilities.d|g' bin/utilities.d
+Putting child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 on the chain.
+ Commands of `bin/utilities.d' are being run.
+ Considering target file `bin/model_limits.d'.
+  File `bin/model_limits.d' does not exist.
+  Looking for an implicit rule for `bin/model_limits.d'.
+  Trying pattern rule with stem `model_limits'.
+  Trying implicit prerequisite `src/model_limits.cpp'.
+  Found an implicit rule for `bin/model_limits.d'.
+   Considering target file `src/model_limits.cpp'.
+    Looking for an implicit rule for `src/model_limits.cpp'.
+    No implicit rule found for `src/model_limits.cpp'.
+    Finished prerequisites of target file `src/model_limits.cpp'.
+   No need to remake target `src/model_limits.cpp'.
+  Finished prerequisites of target file `bin/model_limits.d'.
+ Must remake target `bin/model_limits.d'.
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Need a job token; we have children
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Obtained token for child 0x7ff8a7c051d0 (bin/model_limits.d).
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -MM -MG -MF bin/model_limits.d src/model_limits.cpp && perl -pi -e 's|model_limits.o|bin/model_limits.o bin/model_limits.d|g' bin/model_limits.d
+Putting child 0x7ff8a7c051d0 (bin/model_limits.d) PID 21764 on the chain.
+ Commands of `bin/model_limits.d' are being run.
+ Considering target file `makefile'.
+  Looking for an implicit rule for `makefile'.
+  No implicit rule found for `makefile'.
+  Finished prerequisites of target file `makefile'.
+ No need to remake target `makefile'.
+Live child 0x7ff8a7c051d0 (bin/model_limits.d) PID 21764 
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Reaping winning child 0x7ff8a7c051d0 PID 21764 
+Removing child 0x7ff8a7c051d0 PID 21764 from chain.
+Released token for child 0x7ff8a7c051d0 (bin/model_limits.d).
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+ Considering target file `bin/plot_limits_summary.d'.
+ Still updating file `bin/plot_limits_summary.d'.
+ Considering target file `bin/extract_graphs.d'.
+ Still updating file `bin/extract_graphs.d'.
+ Considering target file `bin/utilities.d'.
+ Still updating file `bin/utilities.d'.
+ Considering target file `bin/model_limits.d'.
+ File `bin/model_limits.d' was considered already.
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Live child 0x7ff8a7d006a0 (bin/plot_limits_summary.d) PID 21761 
+Reaping winning child 0x7ff8a7d006a0 PID 21761 
+Removing child 0x7ff8a7d006a0 PID 21761 from chain.
+Released token for child 0x7ff8a7d006a0 (bin/plot_limits_summary.d).
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+ Considering target file `bin/plot_limits_summary.d'.
+ File `bin/plot_limits_summary.d' was considered already.
+Live child 0x7ff8a7d025f0 (bin/utilities.d) PID 21763 
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Reaping winning child 0x7ff8a7d025f0 PID 21763 
+Removing child 0x7ff8a7d025f0 PID 21763 from chain.
+Released token for child 0x7ff8a7d025f0 (bin/utilities.d).
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+ Considering target file `bin/extract_graphs.d'.
+ Still updating file `bin/extract_graphs.d'.
+ Considering target file `bin/utilities.d'.
+ File `bin/utilities.d' was considered already.
+Live child 0x7ff8a7d00cd0 (bin/extract_graphs.d) PID 21762 
+Reaping winning child 0x7ff8a7d00cd0 PID 21762 
+Removing child 0x7ff8a7d00cd0 PID 21762 from chain.
+ Considering target file `bin/extract_graphs.d'.
+ File `bin/extract_graphs.d' was considered already.
+Re-executing[1]: /Applications/Xcode.app/Contents/Developer/usr/bin/make -d -j 4 -k -r -R
+GNU Make 3.81
+Copyright (C) 2006  Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+
+This program built for i386-apple-darwin11.3.0
+Reading makefiles...
+Reading makefile `makefile'...
+Reading makefile `bin/model_limits.d' (search path) (don't care) (no ~ expansion)...
+Reading makefile `bin/utilities.d' (search path) (don't care) (no ~ expansion)...
+Reading makefile `bin/extract_graphs.d' (search path) (don't care) (no ~ expansion)...
+Reading makefile `bin/plot_limits_summary.d' (search path) (don't care) (no ~ expansion)...
+Updating makefiles....
+ Considering target file `bin/plot_limits_summary.d'.
+  Looking for an implicit rule for `bin/plot_limits_summary.d'.
+  Trying pattern rule with stem `plot_limits_summary'.
+  Trying implicit prerequisite `src/plot_limits_summary.cpp'.
+  Trying pattern rule with stem `plot_limits_summary'.
+  Trying implicit prerequisite `src/plot_limits_summary.cxx'.
+  Found an implicit rule for `bin/plot_limits_summary.d'.
+   Considering target file `src/plot_limits_summary.cxx'.
+    Looking for an implicit rule for `src/plot_limits_summary.cxx'.
+    No implicit rule found for `src/plot_limits_summary.cxx'.
+    Finished prerequisites of target file `src/plot_limits_summary.cxx'.
+   No need to remake target `src/plot_limits_summary.cxx'.
+   Pruning file `src/plot_limits_summary.cxx'.
+   Considering target file `inc/utilities.hpp'.
+    Looking for an implicit rule for `inc/utilities.hpp'.
+    No implicit rule found for `inc/utilities.hpp'.
+    Finished prerequisites of target file `inc/utilities.hpp'.
+   No need to remake target `inc/utilities.hpp'.
+   Considering target file `inc/model_limits.hpp'.
+    Looking for an implicit rule for `inc/model_limits.hpp'.
+    No implicit rule found for `inc/model_limits.hpp'.
+    Finished prerequisites of target file `inc/model_limits.hpp'.
+   No need to remake target `inc/model_limits.hpp'.
+  Finished prerequisites of target file `bin/plot_limits_summary.d'.
+  Prerequisite `src/plot_limits_summary.cxx' is older than target `bin/plot_limits_summary.d'.
+  Prerequisite `src/plot_limits_summary.cxx' is older than target `bin/plot_limits_summary.d'.
+  Prerequisite `inc/utilities.hpp' is older than target `bin/plot_limits_summary.d'.
+  Prerequisite `inc/model_limits.hpp' is older than target `bin/plot_limits_summary.d'.
+ No need to remake target `bin/plot_limits_summary.d'.
+ Considering target file `bin/extract_graphs.d'.
+  Looking for an implicit rule for `bin/extract_graphs.d'.
+  Trying pattern rule with stem `extract_graphs'.
+  Trying implicit prerequisite `src/extract_graphs.cpp'.
+  Trying pattern rule with stem `extract_graphs'.
+  Trying implicit prerequisite `src/extract_graphs.cxx'.
+  Found an implicit rule for `bin/extract_graphs.d'.
+   Considering target file `src/extract_graphs.cxx'.
+    Looking for an implicit rule for `src/extract_graphs.cxx'.
+    No implicit rule found for `src/extract_graphs.cxx'.
+    Finished prerequisites of target file `src/extract_graphs.cxx'.
+   No need to remake target `src/extract_graphs.cxx'.
+   Pruning file `src/extract_graphs.cxx'.
+  Finished prerequisites of target file `bin/extract_graphs.d'.
+  Prerequisite `src/extract_graphs.cxx' is older than target `bin/extract_graphs.d'.
+  Prerequisite `src/extract_graphs.cxx' is older than target `bin/extract_graphs.d'.
+ No need to remake target `bin/extract_graphs.d'.
+ Considering target file `bin/utilities.d'.
+  Looking for an implicit rule for `bin/utilities.d'.
+  Trying pattern rule with stem `utilities'.
+  Trying implicit prerequisite `src/utilities.cpp'.
+  Found an implicit rule for `bin/utilities.d'.
+   Considering target file `src/utilities.cpp'.
+    Looking for an implicit rule for `src/utilities.cpp'.
+    No implicit rule found for `src/utilities.cpp'.
+    Finished prerequisites of target file `src/utilities.cpp'.
+   No need to remake target `src/utilities.cpp'.
+   Pruning file `src/utilities.cpp'.
+   Pruning file `inc/utilities.hpp'.
+   Considering target file `VecCore/VecCore'.
+    File `VecCore/VecCore' does not exist.
+    Looking for an implicit rule for `VecCore/VecCore'.
+    No implicit rule found for `VecCore/VecCore'.
+    Finished prerequisites of target file `VecCore/VecCore'.
+   Must remake target `VecCore/VecCore'.
+   Failed to remake target file `VecCore/VecCore'.
+  Finished prerequisites of target file `bin/utilities.d'.
+ Giving up on target file `bin/utilities.d'.
+ Considering target file `bin/model_limits.d'.
+  Looking for an implicit rule for `bin/model_limits.d'.
+  Trying pattern rule with stem `model_limits'.
+  Trying implicit prerequisite `src/model_limits.cpp'.
+  Found an implicit rule for `bin/model_limits.d'.
+   Considering target file `src/model_limits.cpp'.
+    Looking for an implicit rule for `src/model_limits.cpp'.
+    No implicit rule found for `src/model_limits.cpp'.
+    Finished prerequisites of target file `src/model_limits.cpp'.
+   No need to remake target `src/model_limits.cpp'.
+   Pruning file `src/model_limits.cpp'.
+   Pruning file `inc/model_limits.hpp'.
+  Finished prerequisites of target file `bin/model_limits.d'.
+  Prerequisite `src/model_limits.cpp' is older than target `bin/model_limits.d'.
+  Prerequisite `src/model_limits.cpp' is older than target `bin/model_limits.d'.
+  Prerequisite `inc/model_limits.hpp' is older than target `bin/model_limits.d'.
+ No need to remake target `bin/model_limits.d'.
+ Considering target file `makefile'.
+  Looking for an implicit rule for `makefile'.
+  No implicit rule found for `makefile'.
+  Finished prerequisites of target file `makefile'.
+ No need to remake target `makefile'.
+Updating goal targets....
+Considering target file `all'.
+ File `all' does not exist.
+ Looking for an implicit rule for `all'.
+ No implicit rule found for `all'.
+  Considering target file `run/extract_graphs.exe'.
+   File `run/extract_graphs.exe' does not exist.
+   Looking for an implicit rule for `run/extract_graphs.exe'.
+   Trying pattern rule with stem `extract_graphs'.
+   Trying implicit prerequisite `bin/extract_graphs.o'.
+   Trying rule prerequisite `bin/libStatObj.a'.
+   Found an implicit rule for `run/extract_graphs.exe'.
+    Considering target file `bin/extract_graphs.o'.
+     File `bin/extract_graphs.o' does not exist.
+     Looking for an implicit rule for `bin/extract_graphs.o'.
+     Trying pattern rule with stem `extract_graphs'.
+     Trying implicit prerequisite `src/extract_graphs.cpp'.
+     Trying pattern rule with stem `extract_graphs'.
+     Trying implicit prerequisite `src/extract_graphs.cxx'.
+     Found an implicit rule for `bin/extract_graphs.o'.
+      Pruning file `src/extract_graphs.cxx'.
+      Pruning file `src/extract_graphs.cxx'.
+     Finished prerequisites of target file `bin/extract_graphs.o'.
+    Must remake target `bin/extract_graphs.o'.
+Need a job token; we don't have children
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -o bin/extract_graphs.o -c src/extract_graphs.cxx
+Putting child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 on the chain.
+    Commands of `bin/extract_graphs.o' are being run.
+    Considering target file `bin/libStatObj.a'.
+     File `bin/libStatObj.a' does not exist.
+     Looking for an implicit rule for `bin/libStatObj.a'.
+     Trying pattern rule with stem `libStatObj'.
+     Found an implicit rule for `bin/libStatObj.a'.
+      Considering target file `bin/model_limits.o'.
+       File `bin/model_limits.o' does not exist.
+       Looking for an implicit rule for `bin/model_limits.o'.
+       Trying pattern rule with stem `model_limits'.
+       Trying implicit prerequisite `src/model_limits.cpp'.
+       Found an implicit rule for `bin/model_limits.o'.
+        Pruning file `src/model_limits.cpp'.
+        Pruning file `src/model_limits.cpp'.
+        Pruning file `inc/model_limits.hpp'.
+       Finished prerequisites of target file `bin/model_limits.o'.
+      Must remake target `bin/model_limits.o'.
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Need a job token; we have children
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Obtained token for child 0x7fbfa54098b0 (bin/model_limits.o).
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -o bin/model_limits.o -c src/model_limits.cpp
+Putting child 0x7fbfa54098b0 (bin/model_limits.o) PID 21850 on the chain.
+      Commands of `bin/model_limits.o' are being run.
+      Considering target file `bin/utilities.o'.
+       File `bin/utilities.o' does not exist.
+       Looking for an implicit rule for `bin/utilities.o'.
+       Trying pattern rule with stem `utilities'.
+       Trying implicit prerequisite `src/utilities.cpp'.
+       Found an implicit rule for `bin/utilities.o'.
+        Pruning file `src/utilities.cpp'.
+        Pruning file `src/utilities.cpp'.
+        Pruning file `inc/utilities.hpp'.
+        Pruning file `VecCore/VecCore'.
+       Finished prerequisites of target file `bin/utilities.o'.
+      Giving up on target file `bin/utilities.o'.
+     Finished prerequisites of target file `bin/libStatObj.a'.
+    The prerequisites of `bin/libStatObj.a' are being made.
+   Finished prerequisites of target file `run/extract_graphs.exe'.
+  The prerequisites of `run/extract_graphs.exe' are being made.
+  Considering target file `run/plot_limits_summary.exe'.
+   File `run/plot_limits_summary.exe' does not exist.
+   Looking for an implicit rule for `run/plot_limits_summary.exe'.
+   Trying pattern rule with stem `plot_limits_summary'.
+   Trying implicit prerequisite `bin/plot_limits_summary.o'.
+   Trying rule prerequisite `bin/libStatObj.a'.
+   Found an implicit rule for `run/plot_limits_summary.exe'.
+    Considering target file `bin/plot_limits_summary.o'.
+     File `bin/plot_limits_summary.o' does not exist.
+     Looking for an implicit rule for `bin/plot_limits_summary.o'.
+     Trying pattern rule with stem `plot_limits_summary'.
+     Trying implicit prerequisite `src/plot_limits_summary.cpp'.
+     Trying pattern rule with stem `plot_limits_summary'.
+     Trying implicit prerequisite `src/plot_limits_summary.cxx'.
+     Found an implicit rule for `bin/plot_limits_summary.o'.
+      Pruning file `src/plot_limits_summary.cxx'.
+      Pruning file `src/plot_limits_summary.cxx'.
+      Pruning file `inc/utilities.hpp'.
+      Pruning file `inc/model_limits.hpp'.
+     Finished prerequisites of target file `bin/plot_limits_summary.o'.
+    Must remake target `bin/plot_limits_summary.o'.
+Live child 0x7fbfa54098b0 (bin/model_limits.o) PID 21850 
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Need a job token; we have children
+Live child 0x7fbfa54098b0 (bin/model_limits.o) PID 21850 
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Obtained token for child 0x7fbfa55009c0 (bin/plot_limits_summary.o).
+clang++ -isystem /opt/local/libexec/root6/include/root -Wextra -pedantic -Wshadow -Woverloaded-virtual -Wold-style-cast -Wcast-align -Wcast-qual -Wdisabled-optimization -Wformat=2 -Wformat-nonliteral -Wformat-security -Wformat-y2k -Winit-self -Winvalid-pch -Wlong-long -Wmissing-format-attribute -Wmissing-include-dirs -Wmissing-noreturn -Wpacked -Wpointer-arith -Wredundant-decls -Wstack-protector -Wswitch-default -Wswitch-enum -Wundef -Wunused -Wvariadic-macros -Wwrite-strings -Wabi -Wctor-dtor-privacy -Wnon-virtual-dtor -Wsign-promo -Wsign-compare  -pthread -stdlib=libc++ -std=c++1z -m64 -I/opt/local/libexec/root6/include/root -O2 -I inc -std=c++11  -o bin/plot_limits_summary.o -c src/plot_limits_summary.cxx
+Putting child 0x7fbfa55009c0 (bin/plot_limits_summary.o) PID 21854 on the chain.
+    Commands of `bin/plot_limits_summary.o' are being run.
+    Pruning file `bin/libStatObj.a'.
+   Finished prerequisites of target file `run/plot_limits_summary.exe'.
+  The prerequisites of `run/plot_limits_summary.exe' are being made.
+ Finished prerequisites of target file `all'.
+The prerequisites of `all' are being made.
+Live child 0x7fbfa55009c0 (bin/plot_limits_summary.o) PID 21854 
+Live child 0x7fbfa54098b0 (bin/model_limits.o) PID 21850 
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Reaping winning child 0x7fbfa54098b0 PID 21850 
+Removing child 0x7fbfa54098b0 PID 21850 from chain.
+Released token for child 0x7fbfa54098b0 (bin/model_limits.o).
+Live child 0x7fbfa55009c0 (bin/plot_limits_summary.o) PID 21854 
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Considering target file `all'.
+ File `all' does not exist.
+  Considering target file `run/extract_graphs.exe'.
+   File `run/extract_graphs.exe' does not exist.
+    Considering target file `bin/extract_graphs.o'.
+    Still updating file `bin/extract_graphs.o'.
+    Considering target file `bin/libStatObj.a'.
+     File `bin/libStatObj.a' does not exist.
+      Considering target file `bin/model_limits.o'.
+      File `bin/model_limits.o' was considered already.
+      Considering target file `bin/utilities.o'.
+      Recently tried and failed to update file `bin/utilities.o'.
+     Finished prerequisites of target file `bin/libStatObj.a'.
+    Giving up on target file `bin/libStatObj.a'.
+   Finished prerequisites of target file `run/extract_graphs.exe'.
+  The prerequisites of `run/extract_graphs.exe' are being made.
+  Considering target file `run/plot_limits_summary.exe'.
+   File `run/plot_limits_summary.exe' does not exist.
+    Considering target file `bin/plot_limits_summary.o'.
+    Still updating file `bin/plot_limits_summary.o'.
+    Pruning file `bin/libStatObj.a'.
+   Finished prerequisites of target file `run/plot_limits_summary.exe'.
+  The prerequisites of `run/plot_limits_summary.exe' are being made.
+ Finished prerequisites of target file `all'.
+The prerequisites of `all' are being made.
+Live child 0x7fbfa55009c0 (bin/plot_limits_summary.o) PID 21854 
+Live child 0x7fbfa5408850 (bin/extract_graphs.o) PID 21846 
+Reaping winning child 0x7fbfa5408850 PID 21846 
+Removing child 0x7fbfa5408850 PID 21846 from chain.
+Released token for child 0x7fbfa5408850 (bin/extract_graphs.o).
+Live child 0x7fbfa55009c0 (bin/plot_limits_summary.o) PID 21854 
+Considering target file `all'.
+ File `all' does not exist.
+  Considering target file `run/extract_graphs.exe'.
+   File `run/extract_graphs.exe' does not exist.
+    Considering target file `bin/extract_graphs.o'.
+    File `bin/extract_graphs.o' was considered already.
+    Considering target file `bin/libStatObj.a'.
+    Recently tried and failed to update file `bin/libStatObj.a'.
+   Finished prerequisites of target file `run/extract_graphs.exe'.
+  Giving up on target file `run/extract_graphs.exe'.
+  Considering target file `run/plot_limits_summary.exe'.
+   File `run/plot_limits_summary.exe' does not exist.
+    Considering target file `bin/plot_limits_summary.o'.
+    Still updating file `bin/plot_limits_summary.o'.
+    Pruning file `bin/libStatObj.a'.
+   Finished prerequisites of target file `run/plot_limits_summary.exe'.
+  The prerequisites of `run/plot_limits_summary.exe' are being made.
+ Finished prerequisites of target file `all'.
+The prerequisites of `all' are being made.
+Live child 0x7fbfa55009c0 (bin/plot_limits_summary.o) PID 21854 
+Reaping winning child 0x7fbfa55009c0 PID 21854 
+Removing child 0x7fbfa55009c0 PID 21854 from chain.
+Considering target file `all'.
+ File `all' does not exist.
+  Considering target file `run/extract_graphs.exe'.
+  Recently tried and failed to update file `run/extract_graphs.exe'.
+  Considering target file `run/plot_limits_summary.exe'.
+   File `run/plot_limits_summary.exe' does not exist.
+    Considering target file `bin/plot_limits_summary.o'.
+    File `bin/plot_limits_summary.o' was considered already.
+    Considering target file `bin/libStatObj.a'.
+    Recently tried and failed to update file `bin/libStatObj.a'.
+   Finished prerequisites of target file `run/plot_limits_summary.exe'.
+  Giving up on target file `run/plot_limits_summary.exe'.
+ Finished prerequisites of target file `all'.
+Giving up on target file `all'.
+
+
+[01;31m==========  ERRORS AND WARNINGS  ============[0m

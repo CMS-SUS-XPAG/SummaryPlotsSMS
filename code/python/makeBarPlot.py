@@ -58,7 +58,7 @@ analysis_group = args.category[0]
 #
 # create list of selected analysis
 #
-print analysis_group
+print(analysis_group)
 allABs_list = allABs.getBars(analysis_group)
 bins = 0
 for al in allABs_list:
@@ -84,7 +84,7 @@ index = 0
 # get TeX title for category
 #
 name_tex = allABs.categories[analysis_group]["name_tex"]
-print 8*"*" , "in the analysis group : " , name_tex , 8*"*" # e.g. Stop&Sbottom
+print (8*"*" , "in the analysis group : " , name_tex , 8*"*") # e.g. Stop&Sbottom
 #
 # for option to indicate section ranges
 #
@@ -125,7 +125,7 @@ for al in allABs_list[::-1]:
 
     # standard case
     if verbose:
-        print "Setting bin contents for bin",index+1,"to",al.upLim,al.decay
+        print ("Setting bin contents for bin",index+1,"to",al.upLim,al.decay)
     # set position
     bar_positions.append(index+1)
     # set lower limit (or 0 if none)
@@ -317,7 +317,7 @@ for al in allABs_list[::-1]:
 
 
         if verbose:
-            print 'This is the pas label', Pas_Label, ' ################## ' ,al.label
+            print ('This is the pas label', Pas_Label, ' ################## ' ,al.label)
 
 
         #
@@ -462,7 +462,7 @@ hdr3 = ax1.text(0.01*xmax,ymax-0.01*(ymax-ymin), \
                 horizontalalignment='left',verticalalignment='top',color=title_color,weight='bold',
                 size=bar_height*0.90*72)
 hdr2 = ax1.text(xmax,ymax+0.01*(ymax-ymin), \
-                "July 2018", \
+                "Moriond 2019", \
                 horizontalalignment='right',verticalalignment='bottom',color='black',weight='bold',
                 size=bar_height*0.90*72)
 hdr1 = ax1.text(0.01*xmax,ymax+0.01*(ymax-ymin), \
