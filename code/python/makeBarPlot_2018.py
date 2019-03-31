@@ -462,7 +462,7 @@ hdr3 = ax1.text(0.01*xmax,ymax-0.01*(ymax-ymin), \
                 horizontalalignment='left',verticalalignment='top',color=title_color,weight='bold',
                 size=bar_height*0.90*72)
 hdr2 = ax1.text(xmax,ymax+0.01*(ymax-ymin), \
-                "Moriond 2019", \
+                "July 2018", \
                 horizontalalignment='right',verticalalignment='bottom',color='black',weight='bold',
                 size=bar_height*0.90*72)
 hdr1 = ax1.text(0.01*xmax,ymax+0.01*(ymax-ymin), \

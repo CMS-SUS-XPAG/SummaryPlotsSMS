@@ -82,14 +82,20 @@ T5tttt = r'\tilde{g} \rightarrow t \tilde{t} \rightarrow t t '+N1
 
 T2bbWWoff = r'\tilde{t} \rightarrow b f  \bar{f}^\prime '+N1
 
-T5ZZGMSB = r'\tilde{g} \rightarrow qq'+N1+', '+N1+r' \rightarrow Z \tilde{G}'
+T5ZZGMSB = r'\tilde{g} \rightarrow q\bar{q}'+N1+', '+N1+r' \rightarrow Z \tilde{G}'
 
-T5gg 	 	  = r'\tilde{g} \rightarrow q q '+N1+r' \rightarrow q q \gamma \tilde{G}'
-T5Wg 	 	  = r'\tilde{g} \rightarrow (q q '+N1+r' \rightarrow q q \gamma \tilde{G} / q q '+C1+ \
-    r' \rightarrow q q W \tilde{G})'
+T5gg 	 	  = r'\tilde{g} \rightarrow q \bar{q} '+N1+r' \rightarrow q \bar{q} \gamma \tilde{G}'
+T5Wg 	 	  = r'\tilde{g} \rightarrow (q \bar{q} '+N1+r' \rightarrow q \bar{q} \gamma \tilde{G} / q \bar{q}^\prime '+C1+ \
+    r' \rightarrow q \bar{q}^\prime W \tilde{G})'
+
+T5Hg            = r'\tilde{g} \rightarrow q\bar{q}'+N1+', '+N1+r' \rightarrow (\gamma / H)\tilde{G}'
+T5bbbbZG            = r'\tilde{g} \rightarrow b\bar{b}'+N1+', '+N1+r' \rightarrow (\gamma / Z) \tilde{G}'
+T5ttttZG            = r'\tilde{g} \rightarrow t\bar{t}'+N1+', '+N1+r' \rightarrow (\gamma / Z) \tilde{G}'
+
 T6gg 	 	  = r'\tilde{q} \rightarrow q '+N1+r' \rightarrow q \gamma \tilde{G}'
 T6Wg 	 	  = r'\tilde{q} \rightarrow (q '+N1+r' \rightarrow q \gamma \tilde{G} / q '+C1+ \
     r' \rightarrow q W \tilde{G})'
+T6ttZG            = r'\tilde{t} \rightarrow t'+N1+', '+N1+r' \rightarrow (\gamma / Z) \tilde{G}'
 
 #TChiHHGG      = pp+N1+N1+', '+N1+r' \rightarrow h \tilde{G}' 
 TChiHHGG      = pp+CNi+CNj+r' \rightarrow h h \tilde{G} \tilde{G} + X_{\mathrm{soft}}' 
@@ -155,7 +161,7 @@ cadiToArxiv["SUS-16-039"] = "1709.05406"
 cadiToArxiv["SUS-16-040"] = "1712.08920"
 cadiToArxiv["SUS-16-041"] = "1710.09154"
 cadiToArxiv["SUS-16-042"] = "1709.09814"
-cadiToArxiv["SUS-16-043"] = "arXiv:1706.09933"
+cadiToArxiv["SUS-16-043"] = "1706.09933"
 cadiToArxiv["SUS-16-044"] = "1709.04896"
 cadiToArxiv["SUS-16-045"] = "1709.00384"
 cadiToArxiv["SUS-16-046"] = "1711.08008"
@@ -172,7 +178,10 @@ cadiToArxiv["SUS-17-005"] = "1805.05784"
 cadiToArxiv["SUS-17-006"] = "1712.08501"
 cadiToArxiv["SUS-17-009"] = "1806.05264"
 cadiToArxiv["SUS-17-010"] = "1807.07799"
-cadiToArxiv["SUS-17-012"] = None
+cadiToArxiv["SUS-17-011"] = None
+cadiToArxiv["SUS-17-012"] = "1812.04066"
+cadiToArxiv["SUS-18-002"] = "1901.06726"
+cadiToArxiv["SUS-18-005"] = None
 
 
 #
@@ -384,25 +393,42 @@ allABs.add('GMSB','16-046-T5gg',desc=r'$\mathbf{\gamma+\mathrm{ME}_{T}}$',label=
                comment=Max)
 allABs.add('GMSB','16-047-T5gg',desc=r'$\mathbf{\gamma+\mathrm{H}_{T}}$',label='SUS-16-047',upLim=2095,decay=T5gg, \
                comment=Max)
+allABs.add('GMSB','17-011-T5gg',desc=r'$\mathbf{\gamma\gamma}$',label='SUS-17-011',upLim=1860,decay=T5gg, \
+           comment=Max)
 allABs.add('GMSB','16-046-T5Wg',desc=r'$\mathbf{\gamma+\mathrm{ME}_{T}}$',label='SUS-16-046',upLim=1986,decay=T5Wg, \
                comment=Max)
 allABs.add('GMSB','16-047-T5Wg',desc=r'$\mathbf{\gamma+\mathrm{H}_{T}}$',label='SUS-16-047',upLim=1953,decay=T5Wg, \
                comment=Max)
 allABs.add('GMSB','17-012-T5Wg',desc=r'$\mathbf{\gamma+\ell+\mathrm{ME}_{T}}$',label='SUS-17-012', \
                upLim=1700,decay=T5Wg,comment=Max)
+allABs.add('GMSB','18-005-T5Wg',desc=r'$\mathbf{combined}$',label='SUS-18-005', \
+           upLim=1975,decay=T5Wg,comment=Max)
+allABs.add('GMSB','18-002-T5Hg',desc=r'$\mathbf{\gamma+b+\mathrm{ME}_{T}}$',label='SUS-18-002',upLim=2090,decay=T5Hg, \
+           comment=Max)
+allABs.add('GMSB','18-002-T5bbbbZG',desc=r'$\mathbf{\gamma+b+\mathrm{ME}_{T}}$',label='SUS-18-002',upLim=2120,decay=T5bbbbZG, \
+           comment=Max)
+allABs.add('GMSB','18-002-T5ttttZG',desc=r'$\mathbf{\gamma+b+\mathrm{ME}_{T}}$',label='SUS-18-002',upLim=1970,decay=T5ttttZG, \
+           comment=Max)
 allABs.add('GMSB','16-034-T5ZZGMSB',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-034', \
                upLim=1784,decay=T5ZZGMSB,comment=Max)
-allABs.add('GMSB',r'pp \rightarrow \tilde{q}\tilde{q}')
+allABs.add('GMSB',r'pp \rightarrow \tilde{q}\bar{\tilde{q}}')
 allABs.add('GMSB','16-046-T6gg',desc=r'$\mathbf{\gamma+\mathrm{ME}_{T}}$',label='SUS-16-046',upLim=1744,decay=T6gg, \
                comment=Max)
 allABs.add('GMSB','16-047-T6gg',desc=r'$\mathbf{\gamma+\mathrm{H}_{T}}$',label='SUS-16-047',upLim=1700,decay=T6gg, \
                comment=Max)
+allABs.add('GMSB','17-011-T6gg',desc=r'$\mathbf{\gamma\gamma}$',label='SUS-17-011',upLim=1590,decay=T6gg, \
+           comment=Max)
 allABs.add('GMSB','16-046-T6Wg',desc=r'$\mathbf{\gamma+\mathrm{ME}_{T}}$',label='SUS-16-046',upLim=1640,decay=T6Wg, \
                comment=Max)
 allABs.add('GMSB','16-047-T6Wg',desc=r'$\mathbf{\gamma+\mathrm{H}_{T}}$',label='SUS-16-047',upLim=1580,decay=T6Wg, \
                comment=Max)
 allABs.add('GMSB','17-012-T6Wg',desc=r'$\mathbf{\gamma+\ell+\mathrm{ME}_{T}}$',label='SUS-17-012', \
                upLim=1400,decay=T6Wg,comment=Max)
+
+allABs.add('GMSB',r'pp \rightarrow \tilde{t}\bar{\tilde{t}}')
+allABs.add('GMSB','18-002-T6ttZG',desc=r'$\mathbf{\gamma+b+\mathrm{ME}_{T}}$',label='SUS-18-002',upLim=1230,decay=T6ttZG, \
+           comment=Max)
+
 allABs.add('GMSB',r'pp \rightarrow'+N1+' '+C1+','+C1+' '+C1)
 allABs.add('GMSB','16-046-TChiWgGG',desc=r'$\mathbf{\gamma+\mathrm{ME}_{T}}$',label='SUS-16-046', \
                upLim=784,lowLim=300,decay=TChiWgGG)
