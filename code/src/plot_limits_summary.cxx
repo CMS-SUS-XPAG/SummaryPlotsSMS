@@ -121,11 +121,19 @@ int main(){
   vector<TString> sus17005; sus17005.push_back("SUS-17-005"); sus17005.push_back("1805.05784");
   vector<TString> sus17009; sus17009.push_back("SUS-17-009"); sus17009.push_back("1806.05264");
   vector<TString> sus17010; sus17010.push_back("SUS-17-010"); sus17010.push_back("1807.07799");
-  vector<TString> sus19005; sus19005.push_back("SUS-19-005"); sus19005.push_back("SUS-19-005");
+  vector<TString> sus19005; sus19005.push_back("SUS-19-005"); sus19005.push_back("1909.03460");
   vector<TString> sus19006; sus19006.push_back("SUS-19-006"); sus19006.push_back("1908.04722");
-  vector<TString> sus19007; sus19007.push_back("SUS-19-007"); sus19007.push_back("SUS-19-007");
-  vector<TString> sus19008; sus19008.push_back("SUS-19-008"); sus19008.push_back("SUS-19-008");
-  vector<TString> sus19009; sus19009.push_back("SUS-19-009"); sus19009.push_back("SUS-19-009");
+  vector<TString> sus19007; sus19007.push_back("SUS-19-007"); sus19007.push_back("1911.07558");
+  vector<TString> sus19008; sus19008.push_back("SUS-19-008"); sus19008.push_back("2001.10086");
+  vector<TString> sus19009; sus19009.push_back("SUS-19-009"); sus19009.push_back("1912.08887");
+  vector<TString> sus19011; sus19011.push_back("SUS-19-011"); sus19011.push_back("2008.05936");
+  vector<TString> sus19010; sus19010.push_back("SUS-19-010"); sus19010.push_back("2103.01290");
+  vector<TString> sus20002; sus20002.push_back("SUS-20-002"); sus20002.push_back("SUS-20-002");
+  vector<TString> sus20001; sus20001.push_back("SUS-20-001"); sus20001.push_back("2012.08600");
+  vector<TString> sus20003; sus20003.push_back("SUS-20-003"); sus20003.push_back("SUS-20-003");
+  vector<TString> sus18004; sus18004.push_back("SUS-18-004"); sus18004.push_back("SUS-18-004");
+  vector<TString> sus19012; sus19012.push_back("SUS-19-012"); sus19012.push_back("SUS-19-012");
+
 
   // Label definitions
   TString mj("M#lower[-.1]{_{J}}"), dphi("#Delta#phi");
@@ -134,7 +142,7 @@ int main(){
 
   // Folder with root files containing the TGraphs
   //  TString basefolder("rootfiles/2017_Moriond/");
-  TString basefolder("rootfiles/2019_August/");
+  TString basefolder("rootfiles/2021_Moriond/");
   TString folder(basefolder+"input_root/");
     TString basefolder2016("rootfiles/2018_Summer/");
     TString folder2016(basefolder2016+"input_root/");
@@ -145,13 +153,72 @@ int main(){
   TString energy=""; // " (13 TeV)"; // Used when there are 8 and 13 TeV results
 
 
+  ///////////////////////////////    Defining WH only plot   //////////////////////////////                                                                                                                 
+  models.push_back(model_limits("WH","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));
+  models.back().lumi = "137"; models.back().reverseOrder = false;
+  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 300);
+  models.back().setRanges(120, 1000, 0, 500); // Xmin, Xmax, Ymin, Ymax                                                                                                                                      
+  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";
+  models.back().do_prelim = true;
+
+
+  models.back().add(sus17004[arxivIdx]+", 1l+b#bar{b}, 36 fb^{-1}", folder2016+"ewkino_sus17_004_wh.root", kGray, "gr_obs", "gr_exp", 124.5);
+  models.back().add(sus19012[arxivIdx]+", 2l SS + #geq3l (WH)", folder+"TChiWH_sus19_012.root",cwh, "obs", "exp",124.5);
+  models.back().add(sus20003[arxivIdx]+", 1l+b#bar{b} (WH)", folder+"TChiWH_sus20_003.root", cwh43, "TChiWHObservedLimit", "TChiWHExpectedLimit",150.5);
+
+
+  ///////////////////////////////    Defining WZ only plot   //////////////////////////////                                                                                                                
+
+
+  models.push_back(model_limits("WZ","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"}"));                                                                                                                   
+  models.back().lumi = "137"; models.back().reverseOrder = false;                                                                                                                                       
+  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 375);                                                                                                                                          
+  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 375);                                                                                                                                   
+  models.back().setRanges(100, 1100, 0, 600); // Xmin, Xmax, Ymin, Ymax                                                                                                                                   
+  models.back().xtitle = "m_{"+chi2+"} = m_{"+chipm+"}";                                                                                                                                                 
+  models.back().do_prelim = true;                                                                                                                                                                       
+
+                                                                                                                                                                                                        
+  models.back().add(sus17004[arxivIdx]+", combination, 36 fb^{-1}", folder2016+"ewkino_sus17_004_wz.root",kGray, "gr_obs", "gr_exp", 7);  
+  models.back().add(sus20001[arxivIdx]+", 2l OS (WZ)", folder+"TChiWZ_sus20_001.root",cwz34, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 9999);                                            
+  models.back().add(sus19012[arxivIdx]+", 2l SS + #geq3l (WZ)", folder+"TChiWZ_sus19_012.root",cwz39, "obs", "exp", 7);                                                                        
+  models.back().add(sus18004[arxivIdx]+", soft 2/3-lep (WZ)", folder+"TChiWZ_sus18_004.root",cwz48, "Observed", "Expected", 3);                                                                                                                            
+  // models.back().add(sus17004[arxivIdx]+", combined (WZ)", folder+"ewkino_sus17_004_wz.root",                                                                                                             
+  //                cwz39+2, "gr_obs", "gr_exp", 7);        
+
+
+
+  ///////////////////////////////    Defining EWK-best plot    /////////////////////////////////                                                                                                          
+  models.push_back(model_limits("EWK-best","pp #rightarrow "+chi2+"#kern[0.3]{"+chipm+"} ", 0.9));
+  models.back().lumi = "137"; models.back().reverseOrder = true;
+  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}", 0, 850);
+  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{Z}", 91, 850);
+  models.back().addLine("m_{"+chipm+"} = m_{"+lsp+"}+m_{H}", 125, 1000, false);
+  models.back().setRanges(100, 1500, 0, 1700); // Xmin, Xmax, Ymin, Ymax                                                                                                                                  
+  models.back().xtitle = "m_{"+chi2+"}=m_{"+chipm+"}}";
+  models.back().do_prelim = true;
+
+
+  models.back().add(sus20001[arxivIdx]+", 2l OS (WZ)", folder+"TChiWZ_sus20_001.root",cwz34, "ex_obs_smoothed_graph", "ex_exp_smoothed_graph", 9999);
+  models.back().add(sus19012[arxivIdx]+", 2l SS + #geq3l (WZ)", folder+"TChiWZ_sus19_012.root",cwh43, "obs", "exp", 7);
+  models.back().add(sus20003[arxivIdx]+", 1l+b#bar{b} (WH)", folder+"TChiWH_sus20_003.root", cwz39, "TChiWHObservedLimit", "TChiWHExpectedLimit",150.5);
+  models.back().add(sus18004[arxivIdx]+", soft 2/3-lep (WZ)", folder+"TChiWZ_sus18_004.root",cwz48, "Observed", "Expected", 3);
+  models.back().add(sus19012[arxivIdx]+", 2l SS + #geq3l ("+flavDem+", "+xl+"=0.5)", folder+"TChiSlepSnu_sus19_012.root",
+		    c5050, "obs", "exp");
+  //#models.back().add(sus16039[arxivIdx]+", 3l ("+tauRich+", "+xl+"=0.5)", folder+"ewkino_sus16_039_bf1_x0p5_gr.root",
+  //		    c10050, "gr_obs_smoothed", "gr_exp_smoothed");
+
+
+  models.back().add(sus19012[arxivIdx]+", 2l SS + #geq3l ("+tauDom+", "+xl+"=0.5)",folder+"TChiStauSnu_sus19_012.root", ctau50, "obs", "exp");
+
+
 
   ///////////////////////////////    Defining T1tttt plot    /////////////////////////////////
   models.push_back(model_limits("T1tttt", pp_to_xx("g")+"t#kern[0.4]{#bar{t}}#kern[0.4]{"+lsp+"}"));
   models.back().lumi = "137";
   models.back().setRanges(700, 2500, 0, 2000, 225); // Xmin, Xmax, Ymin, Ymax, glu_lsp
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
-  models.back().do_prelim = true;
+  models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
   models.back().add(sus19006[arxivIdx]+", 0-lep ("+mht+")", folder+"t1tttt_sus19_006.root",
@@ -160,10 +227,10 @@ int main(){
    		    cSus16036, "ObsLim", "ExpLim");
   // models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+")", folder+"t1tttt_sus16_036.root", 
   // 		    cSus16036-10, "ObsLim", "ExpLim");
+  models.back().add(sus19010[arxivIdx]+", 0-lep (stop)", folder+"t1tttt_sus19_010.root",
+                    kGray, "graph_smoothed_Obs", "graph_smoothed_Exp");
   models.back().add(sus19007[arxivIdx]+", 1-lep ("+mj+")", folder+"t1tttt_sus19_007.root", 
 		    cSus16037, "T1ttttObservedLimit", "T1ttttExpectedLimit");
-  //  models.back().add(sus16050[arxivIdx]+", 0-lep (stop), 36 fb^{-1}", folder2016+"t1tttt_sus16_050.root",
-  //		    kGray, "ObsLim", "ExpLim");
   models.back().add(sus19008[arxivIdx]+", #geq2-lep (same-sign)", folder+"t1tttt_sus19_008.root",
    		    cSus16035, "ssobs", "ssexp");
   models.back().add(sus16050[arxivIdx]+", 0-lep (stop), 36 fb^{-1}", folder2016+"t1tttt_sus16_050.root",
@@ -175,7 +242,7 @@ int main(){
   models.back().lumi = "137";
   models.back().setRanges(700, 2500, 0, 2000); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
-  models.back().do_prelim = true;
+  models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
   models.back().add(sus16036[arxivIdx]+" ("+mt2+"), 36 fb^{-1}", folder2016+"t1bbbb_sus16_036.root",
@@ -192,7 +259,7 @@ int main(){
   models.back().lumi = "137";
   models.back().setRanges(700, 2500, 0, 2000); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
-  models.back().do_prelim = true;
+  models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
   models.back().add(sus16033[arxivIdx]+" ("+mht+"), 36 fb^{-1}", folder2016+"t1qqqq_sus16_033.root",
@@ -208,7 +275,7 @@ int main(){
     models.back().lumi = "137";
     models.back().setRanges(700, 2600, 0, 3000); // Xmin, Xmax, Ymin, Ymax
     models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
-    models.back().do_prelim = true;
+    models.back().do_prelim = false;
     models.back().legScale = 0.8;
     models.back().addLabel(0.17,0.62,"#kern[0.2]{"+chipm+"#rightarrow"+lsp+"+#pi^{#pm}}");
 
@@ -225,13 +292,13 @@ int main(){
     
   ///////////////////////////////    Defining T5qqqqVV plot    /////////////////////////////////
   models.push_back(model_limits("T5qqqqVV",
-				"pp#kern[0.]{#rightarrow}#tilde{g}#kern[0.2]{#tilde{g}}, #tilde{g}#kern[0.]{#rightarrow}"
+				"pp#kern[0.]{#rightarrow}#tilde{g}#kern[0.2]{#tilde{g}},#tilde{g}#kern[0.]{#rightarrow}"
 				"q#kern[0.]{#bar{q}}#kern[0.]{("+chipm+"/"+chi2+
 				")}#kern[0.]{#rightarrow}q#kern[0.2]{#bar{q}}#kern[0.]{("+wpm+"/Z)}#kern[0.2]{"+lsp+"}     "));
   models.back().lumi = "137";
   models.back().setRanges(700, 2200, 0, 1850); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{g}}}}";
-  models.back().do_prelim = true;
+  models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
   models.back().labMass = "m_{"+chipm+", "+chi2+"} = 0.5(m_{#lower[-0.12]{#tilde{g}}} + m_{"+lsp+"})";
@@ -249,7 +316,7 @@ int main(){
     models.back().lumi = "137";
     models.back().setRanges(350, 2000, 0, 1400); // Xmin, Xmax, Ymin, Ymax
     models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{q}}}}";
-    models.back().do_prelim = true;
+    models.back().do_prelim = false;
     models.back().legScale = 0.8;
     models.back().addLabel(0.22,0.27,"one light #tilde{q}");
     // models.back().addLabel(0.15,0.18,"one light #lower[0.10]{#tilde{q}}");
@@ -276,7 +343,7 @@ int main(){
   models.back().lumi = "137";
   models.back().setRanges(350, 2000, 0, 2000); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{q}}}}";
-  models.back().do_prelim = true;
+  models.back().do_prelim = false;
   models.back().legScale = 0.8;
   models.back().addLabel(0.2,0.57,"#lower[-0.12]{#tilde{q}}_{L}+#lower[-0.12]{#tilde{q}}_{R} (#lower[-0.12]{#tilde{u}},#lower[-0.12]{#tilde{d}},#lower[-0.12]{#tilde{s}},#lower[-0.12]{#tilde{c}})");  
 
@@ -306,7 +373,7 @@ int main(){
     models.back().lumi = "137";
     models.back().setRanges(350, 2000, 0, 2000); // Xmin, Xmax, Ymin, Ymax
     models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{q}}}}";
-    models.back().do_prelim = true;
+    models.back().do_prelim = false;
     models.back().legScale = 0.8;
     models.back().addLabel(0.2,0.5,"one light #tilde{q}");
 
@@ -333,7 +400,7 @@ int main(){
   models.back().lumi = "137";
   models.back().setRanges(350, 1500, 0, 1150); // Xmin, Xmax, Ymin, Ymax
   models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{b}}}}";
-  models.back().do_prelim = true;
+  models.back().do_prelim = false;
   models.back().legScale = 0.8;
 
     models.back().add(sus16036[arxivIdx]+", 0-lep ("+mt2+"), 36 fb^{-1}", folder2016+"t2bb_sus16_036.root",
@@ -352,17 +419,24 @@ int main(){
   models.back().do_prelim = true;
   models.back().legScale = 0.8;
      
-
+  models.back().add(sus20002[arxivIdx]+", 0-, 1- and 2-lep combination", folder+"t2tt_sus20_002.root",
+		    cComb, "contour_obs", "contour_exp");
     models.back().add(sus17001[arxivIdx]+", 0-, 1- and 2-lep (stop), 36 fb^{-1}", folder2016+"t2tt_sus17_001_comb_gr.root",
-    		    kGray, "gObs", "gExp");
+  		    kGray, "gObs", "gExp");
 
-    models.back().add(sus19006[arxivIdx]+", 0-lep ("+mht+")", folder+"t2tt_sus19_006.root",
-		      cSus16033, "ObsLim", "ExpLim");
-    models.back().add(sus19005[arxivIdx]+", 0-lep ("+mt2+")", folder+"t2tt_sus19_005.root",
-                      cSus16036, "ObsLim", "ExpLim");
+    //graph_smoothed_Exp
+    models.back().add(sus19010[arxivIdx]+", 0-lep (stop)", folder+"t2tt_sus19_010.root",                                                                                                              
+			cSus16033, "graph_smoothed_Obs", "graph_smoothed_Exp"); 
+    //cSus16033, "ObsLim", "ExpLim");
+    //models.back().add(sus19005[arxivIdx]+", 0-lep ("+mt2+")", folder+"t2tt_sus19_005.root",
+    //                  cSus16036, "ObsLim", "ExpLim");
     models.back().add(sus19009[arxivIdx]+", 1-lep (stop)", folder+"t2tt_sus19_009.root",
-		      cSus16002, "gObs", "gExp");
-
+		      cSus16036, "gObs", "gExp");
+    models.back().add(sus19011[arxivIdx]+", 2-lep (stop)", folder+"t2tt_sus19_011.root",
+                      cSus16035, "contour_obs", "contour_exp");
+    models.back().add("", folder+"t2tt_sus19_011.root",
+                      cSus16035, "contour_corr_obs", "contour_exp");
+    
 
     ///////////////////////////////    Defining T6ttHZ plot    /////////////////////////////////
     models.push_back(model_limits("T6ttHZ",
@@ -372,7 +446,7 @@ int main(){
     models.back().xtitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t_{2}}}}}";
     models.back().ytitle = "m#kern[0.12]{_{#lower[-0.12]{#tilde{t_{1}}}}}";
     models.back().reverseOrder = false;
-    models.back().do_prelim = true;
+    models.back().do_prelim = false;
     models.back().legScale = 0.8;
     
     models.back().labMass = "m_{#tilde{t}_{1}} - m_{"+lsp+"} = 175 GeV";
@@ -652,7 +726,7 @@ int main(){
 	obs[file]->Draw("same");
       }// Loop over curves in each model
 
-    if(mod.model.Contains("T2tt") && !mod.vsDM ){ // T2tt tweaks
+    /* if(mod.model.Contains("T2tt") && !mod.vsDM ){ // T2tt tweaks
       // Blocking out the top corridor at low LSP mass
       Float_t diagX[4] = {176.+25.,287.5,262.5,175.-24.};
       Float_t diagY[4] = {1,87.5,112.5,1};
@@ -668,7 +742,7 @@ int main(){
       tdiagonal->SetTextAlign(11);
       tdiagonal->SetTextSize(0.015);
       tdiagonal->Draw("SAME");
-    }
+      } */
 
     // Drawing legends
     baseleg.Draw();
@@ -704,12 +778,12 @@ void addLabelsTitle(float lMargin, float tMargin, float rMargin, TString title, 
   if(do_prelim) label.DrawLatex(0.27+offsetx, ycms, "Preliminary");
 
   // Printing top title
-  label.SetTextAlign(21); label.SetTextFont(42); label.SetTextSize(0.6*tMargin);
+  label.SetTextAlign(21); label.SetTextFont(42); label.SetTextSize(0.56*tMargin);
   label.DrawLatex((1-rMargin-lMargin)/2.+lMargin-0.05, 1-tMargin+0.024, title);
   // Printing date
   label.SetTextAlign(31); label.SetTextFont(52); label.SetTextSize(0.45*tMargin);
   //  if(do_prelim) label.DrawLatex(1-rMargin-0.02, 1-tMargin+0.018, "Moriond 2017");
-  label.DrawLatex(1-rMargin, 1-tMargin+0.018, "August 2019");
+  label.DrawLatex(1-rMargin, 1-tMargin+0.018, "Moriond 2021");
   // Printing energy
   label.SetTextAlign(31); label.SetTextFont(42); label.SetTextSize(0.53*tMargin);
   if(lumi=="") lumi = "13 TeV";

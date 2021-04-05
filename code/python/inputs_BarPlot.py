@@ -171,7 +171,7 @@ cadiToArxiv["SUS-16-049"] = "1707.03316"
 cadiToArxiv["SUS-16-050"] = "1710.11188"
 cadiToArxiv["SUS-16-051"] = "1706.04402"
 cadiToArxiv["SUS-17-001"] = "1711.00752"
-cadiToArxiv["SUS-17-002"] = None
+cadiToArxiv["SUS-17-002"] = "1903.07070"
 cadiToArxiv["SUS-17-003"] = "1807.02048"
 cadiToArxiv["SUS-17-004"] = "1801.03957"
 cadiToArxiv["SUS-17-005"] = "1805.05784"
@@ -181,8 +181,19 @@ cadiToArxiv["SUS-17-010"] = "1807.07799"
 cadiToArxiv["SUS-17-011"] = None
 cadiToArxiv["SUS-17-012"] = "1812.04066"
 cadiToArxiv["SUS-18-002"] = "1901.06726"
-cadiToArxiv["SUS-18-005"] = None
-
+cadiToArxiv["SUS-18-005"] = "1907.00857"
+cadiToArxiv["SUS-19-005"] = "1909.03460"
+cadiToArxiv["SUS-19-006"] = "1908.04722"
+cadiToArxiv["SUS-19-007"] = "1911.07558"
+cadiToArxiv["SUS-19-008"] = "2001.10086"
+cadiToArxiv["SUS-19-009"] = "1912.08887"
+cadiToArxiv["SUS-19-010"] = "2103.01290"
+cadiToArxiv["SUS-19-011"] = "2008.05936"
+cadiToArxiv["SUS-20-001"] = "2012.08600"
+cadiToArxiv["SUS-18-004"] = None
+cadiToArxiv["SUS-19-012"] = None
+cadiToArxiv["SUS-20-002"] = None
+cadiToArxiv["SUS-20-003"] = None
 
 #
 # define all bars to appear in the plot (in groups, and in the sequence as below)
@@ -192,46 +203,47 @@ allABs = AnalysisBars()
 # Gluino production
 allABs.add('Gluino',r'pp \rightarrow \tilde{g}\tilde{g}')
 
-allABs.add('Gluino','16-050-T1tttt',desc=r'$\mathbf{0\ell}$',label='SUS-16-050,SUS-16-033,SUS-16-036,SUS-16-038', \
-               upLim=2035,decay=T1tttt)
-allABs.add('Gluino','16-037-T1tttt',desc=r'$\mathbf{1\ell}$',label='SUS-16-037,SUS-16-042',upLim=1893,decay=T1tttt)
-allABs.add('Gluino','16-035-T1tttt',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1521,decay=T1tttt)
-allABs.add('Gluino','16-041-T1tttt',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=1625,decay=T1tttt)
+allABs.add('Gluino','16-050-T1tttt',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-006,SUS-19-010', \
+               upLim=2250,decay=T1tttt)
+allABs.add('Gluino','16-037-T1tttt',desc=r'$\mathbf{1\ell}$',label='SUS-19-007',upLim=2150,decay=T1tttt)
+allABs.add('Gluino','16-035-T1tttt',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{\geq 3\ell}$',label='SUS-19-008',upLim=1690,decay=T1tttt)
+#allABs.add('Gluino','16-041-T1tttt',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=1625,decay=T1tttt)
 
-allABs.add('Gluino','16-050-T5tttt',desc=r'$\mathbf{0\ell}$',label='SUS-16-050',upLim=2000,decay=T5tttt, \
-               comment=T5tttt_Comm)
-allABs.add('Gluino','16-037-T5tttt',desc=r'$\mathbf{1\ell}$',label='SUS-16-037',upLim=1900,decay=T5tttt, \
-               comment=T5tttt_Comm)
-allABs.add('Gluino','16-035-T5tttt',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1416,decay=T5tttt, \
-               comment=T5tttt_Comm)
+#allABs.add('Gluino','16-050-T5tttt',desc=r'$\mathbf{0\ell}$',label='SUS-16-050',upLim=2000,decay=T5tttt, \
+#               comment=T5tttt_Comm)
+#allABs.add('Gluino','16-037-T5tttt',desc=r'$\mathbf{1\ell}$',label='SUS-16-037',upLim=1900,decay=T5tttt, \
+#               comment=T5tttt_Comm)
+#allABs.add('Gluino','16-035-T5tttt',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1416,decay=T5tttt, \
+#               comment=T5tttt_Comm)
 
-allABs.add('Gluino','16-050-T5tctc',desc=r'$\mathbf{0\ell}$',label='SUS-16-050',upLim=1690,decay=T5tctc, \
-               comment=T5tctc_Comm)
-allABs.add('Gluino','16-035-T5tctc',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1188,decay=T5tctc, \
-               comment=T5tctc_Comm)
-allABs.add('Gluino','16-050-T1tbtb',desc=r'$\mathbf{0\ell}$',label='SUS-16-033',upLim=1849,decay=T1tbtb, \
-               comment=T1tbtb_Comm)
-allABs.add('Gluino','16-035-T1btbt',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1400,decay=T1tbtb, \
-               comment=T1tbtb_5_Comm)
-allABs.add('Gluino','16-050-T1ttbbbt',desc=r'$\mathbf{0\ell}$',label='SUS-16-050',upLim=1950,decay=T1ttbbbt, \
-               comment=T1ttbbbt_Comm)
-allABs.add('Gluino','16-036-T1bbbb',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-033,SUS-16-038', \
-               upLim=2028,decay=T1bbbb) #d
-allABs.add('Gluino','16-036-T1qqqq',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-033,SUS-16-038', \
-               upLim=1861,decay=T1qqqq) #d
+#allABs.add('Gluino','16-050-T5tctc',desc=r'$\mathbf{0\ell}$',label='SUS-16-050',upLim=1690,decay=T5tctc, \
+#               comment=T5tctc_Comm)
+#allABs.add('Gluino','16-035-T5tctc',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1188,decay=T5tctc, \
+#               comment=T5tctc_Comm)
+#allABs.add('Gluino','16-050-T1tbtb',desc=r'$\mathbf{0\ell}$',label='SUS-16-033',upLim=1849,decay=T1tbtb, \
+#               comment=T1tbtb_Comm)
+#allABs.add('Gluino','16-035-T1btbt',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{\geq 3\ell}',label='SUS-19-008',upLim=1500,decay=T1tbtb, \
+#               comment=T1tbtb_5_Comm)
+#allABs.add('Gluino','16-050-T1ttbbbt',desc=r'$\mathbf{0\ell}$',label='SUS-16-050',upLim=1950,decay=T1ttbbbt, \
+#               comment=T1ttbbbt_Comm)
+
+allABs.add('Gluino','16-036-T1bbbb',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-006', \
+               upLim=2300,decay=T1bbbb) #d
+allABs.add('Gluino','16-036-T1qqqq',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-006', \
+               upLim=2000,decay=T1qqqq) #d
 
 
-allABs.add('Gluino','16-033-T5VV',desc=r'$\mathbf{0\ell}$',label='SUS-16-033',upLim=1807,decay=T5VV, \
+allABs.add('Gluino','16-033-T5VV',desc=r'$\mathbf{0\ell}$',label='SUS-19-006',upLim=2020,decay=T5VV, \
                comment=T5VV_Comm,xValue=0.5)
-allABs.add('Gluino','16-041-T5VV',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=1166,decay=T5VV, \
+allABs.add('Gluino','16-041-T5VV',desc=r'$\mathbf{2\ell}$ same-sign and  $\mathbf{\geq 3\ell}$',label='SUS-19-008',upLim=1360,decay=T5VV, \
                comment=T5VV_Comm,xValue=0.5)
-allABs.add('Gluino','16-042-T5WW',desc=r'$\mathbf{1\ell}$',label='SUS-16-042' ,upLim=1908,decay=T5WW,xValue=0.5)
-allABs.add('Gluino','16-020-16-035-T5WW',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1283, \
-               decay=T5WW,xValue=0.5)
-allABs.add('Gluino','16-020-16-035-T5WWDelta20',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035', \
-               upLim=1425,decay=T5WW,comment=D_I_20)
-allABs.add('Gluino','17-006-T5HH',desc=r'$\mathbf{0\ell}$',label='SUS-17-006',upLim=2010,decay=T5HH)
-allABs.add('Gluino','17-006-T5HZ',desc=r'$\mathbf{0\ell}$',label='SUS-17-006',upLim=1825,decay=T5HZ,comment='BF = 50\%')
+#allABs.add('Gluino','16-042-T5WW',desc=r'$\mathbf{1\ell}$',label='SUS-16-042' ,upLim=1908,decay=T5WW,xValue=0.5)
+#allABs.add('Gluino','16-020-16-035-T5WW',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=1283, \
+#               decay=T5WW,xValue=0.5)
+#allABs.add('Gluino','16-020-16-035-T5WWDelta20',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035', \
+#               upLim=1425,decay=T5WW,comment=D_I_20)
+#allABs.add('Gluino','17-006-T5HH',desc=r'$\mathbf{0\ell}$',label='SUS-17-006',upLim=2010,decay=T5HH)
+#allABs.add('Gluino','17-006-T5HZ',desc=r'$\mathbf{0\ell}$',label='SUS-17-006',upLim=1825,decay=T5HZ,comment='BF = 50\%')
 
 
 
@@ -239,78 +251,82 @@ allABs.add('Gluino','17-006-T5HZ',desc=r'$\mathbf{0\ell}$',label='SUS-17-006',up
 Stop
 '''
 allABs.add('Squark',r'pp \rightarrow \tilde{t}\tilde{t}')
+allABs.add('Squark','20-002-T2tt',desc=r'Combination',label='SUS-20-002',upLim=1320,decay=T2tt)
 allABs.add('Squark','16-036-T2tt',desc=r'$\mathbf{0\ell}$', \
-               label='SUS-16-036,SUS-16-033,SUS-16-038,SUS-16-049,SUS-16-050',upLim=1066,decay=T2tt)
-allABs.add('Squark','16-051-T2tt',desc=r'$\mathbf{1\ell}$',label='SUS-16-051',upLim=1114 ,decay=T2tt)
-allABs.add('Squark','17-001-T2tt',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-001', \
-               upLim=812,lowLim=247,decay=T2tt)
-allABs.add('Squark','17-010-T2tt',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-010',upLim=690,decay=T2tt)
+               label='SUS-19-005,SUS-19-006,SUS-19-010',upLim=1310,decay=T2tt)
+allABs.add('Squark','16-051-T2tt',desc=r'$\mathbf{1\ell}$',label='SUS-19-009',upLim=1190 ,decay=T2tt)
+#allABs.add('Squark','17-001-T2tt',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-001', \
+#               upLim=812,lowLim=247,decay=T2tt)
+allABs.add('Squark','17-010-T2tt',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-19-011',upLim=930,decay=T2tt)
 #allABs.add('Squark','17-001-T2tt',desc=r'$\mathbf{0,1,2\ell}$ combined',label='SUS-17-001,SUS-16-049,SUS-16-051' , \
 #  upLim=,lowLim=,decay=T2tt)
 
-allABs.add('Squark','16-036-T6bbWW',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-049', \
-upLim=904,decay=T6bbWW,xValue=0.5)
-allABs.add('Squark','16-051-T6bbWW',desc=r'$\mathbf{1\ell}$',label='SUS-16-051', \
-upLim=998,lowLim=272,decay=T6bbWW,xValue=0.5)
-allABs.add('Squark','17-001-T6bbWW',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-001', \
-upLim=738,lowLim=269,decay=T6bbWW,xValue=0.5)
-allABs.add('Squark','17-010-T6bbWW',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-010', \
-upLim=610,lowLim=250,decay=T6bbWW,xValue=0.5)
+allABs.add('Squark','20-002-T6bbWW',desc=r'Combination',label='SUS-20-002', \
+upLim=1260,decay=T6bbWW,xValue=0.5)
+allABs.add('Squark','16-036-T6bbWW',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-010', \
+upLim=1170,decay=T6bbWW,xValue=0.5)
+allABs.add('Squark','16-051-T6bbWW',desc=r'$\mathbf{1\ell}$',label='SUS-19-009', \
+upLim=1160,lowLim=220,decay=T6bbWW,xValue=0.5)
+allABs.add('Squark','17-001-T6bbWW',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-19-011', \
+upLim=840,lowLim=250,decay=T6bbWW,xValue=0.5)
 
-allABs.add('Squark','16-036-T2tb',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-049',upLim=950,decay=T2tb, \
+allABs.add('Squark','16-036-T2tb',desc=r'Combination',label='SUS-20-002',upLim=1180,decay=T2tb, \
                comment=T2tb_5_Comm)
-allABs.add('Squark','16-051-T2tb',desc=r'$\mathbf{1\ell}$',label='SUS-16-051',upLim=975 ,decay=T2tb)
+allABs.add('Squark','16-036-T2tb',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-010',upLim=1150,decay=T2tb, \
+               comment=T2tb_5_Comm)
+allABs.add('Squark','16-051-T2tb',desc=r'$\mathbf{1\ell}$',label='SUS-19-009',upLim=1070 ,decay=T2tb)
 
-allABs.add('Squark','16-049-T2bbWWoff',desc=r'$\mathbf{0\ell}$',label='SUS-16-049',upLim=584,decay=T2bbWWoff, \
+
+allABs.add('Squark','16-049-T2bbWWoff',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-010',upLim=630,decay=T2bbWWoff, \
                comment=Max80)
-allABs.add('Squark','17-005-T2bbWWoff',desc=r'$\mathbf{1\ell}$ soft',label='SUS-17-005',upLim=560,decay=T2bbWWoff, \
-               comment=Max80)
+#allABs.add('Squark','17-005-T2bbWWoff',desc=r'$\mathbf{1\ell}$ soft',label='SUS-17-005',upLim=560,decay=T2bbWWoff, \
+#               comment=Max80)
 #allABs.add('Squark','16-035-T2bbWWoff',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-048',upLim=454, \
 #  decay=T2bbWWoff,comment=Max)
 
-allABs.add('Squark','16-049-T2bW3bdy',desc=r'$\mathbf{0\ell}$',label='SUS-16-049', \
-               upLim=658,decay=T2bW3bdy,xValue=0.5,comment=Max80)
-allABs.add('Squark','17-005-T2bW3bdy',desc=r'$\mathbf{1\ell}$ soft',label='SUS-17-005', \
-               upLim=540,decay=T2bW3bdy,xValue=0.5,comment=Max80)
-allABs.add('Squark','16-048-T2bW3bdy',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-048', \
-               upLim=455,decay=T2bW3bdy,xValue=0.5,comment=Max80)
+allABs.add('Squark','16-049-T2bW3bdy',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-010', \
+               upLim=730,decay=T2bW3bdy,xValue=0.5,comment=Max80)
+#allABs.add('Squark','17-005-T2bW3bdy',desc=r'$\mathbf{1\ell}$ soft',label='SUS-17-005', \
+#               upLim=540,decay=T2bW3bdy,xValue=0.5,comment=Max80)
+#allABs.add('Squark','16-048-T2bW3bdy',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-048', \
+#               upLim=455,decay=T2bW3bdy,xValue=0.5,comment=Max80)
 
-allABs.add('Squark','16-036-T2cc',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-032,SUS-16-038,SUS-16-049', \
-               upLim=571,decay=T2cc,comment=Max80)
+allABs.add('Squark','16-036-T2cc',desc=r'$\mathbf{0\ell}$',label='SUS-19-010', \
+               upLim=670,decay=T2cc,comment=Max80)
 
-allABs.add('Squark','17-001-T8bbllnunu',desc=r'$\mathbf{2\ell}$',label='SUS-17-001', \
-               upLim=1194,decay=T8bbllnunu,xValue=0.5)
+allABs.add('Squark','17-001-T8bbllnunu',desc=r'$\mathbf{2\ell}$',label='SUS-19-011', \
+               upLim=1330,decay=T8bbllnunu,xValue=0.5)
 
-allABs.add('Squark','16-041-T6ttHH',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=724,decay=T6ttHH, \
-               comment=M200_STOP1)
-allABs.add('Squark','16-041-T6ttHZ',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=708,decay=T6ttHZ, \
-               comment=M200_STOP1_ZH)
-allABs.add('Squark','16-041-T6ttZZ',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=753,decay=T6ttZZ, \
-               comment=M200_STOP1)
+#allABs.add('Squark','16-041-T6ttHH',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=724,decay=T6ttHH, \
+#               comment=M200_STOP1)
+#allABs.add('Squark','16-041-T6ttHZ',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=708,decay=T6ttHZ, \
+#               comment=M200_STOP1_ZH)
+#allABs.add('Squark','16-041-T6ttZZ',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041',upLim=753,decay=T6ttZZ, \
+#               comment=M200_STOP1)
 
 '''
 Sbottom
 '''
 allABs.add('Squark',r'pp \rightarrow \tilde{b}\tilde{b}')
-allABs.add('Squark','16-032-T2bb',desc=r'$\mathbf{0\ell}$',label='SUS-16-032,SUS-16-033,SUS-16-036,SUS-16-038', \
-               upLim=1233,decay=T2bb)
-allABs.add('Squark','16-045-T6bbHH',desc=r'$\mathbf{h\rightarrow\gamma\gamma}$',label='SUS-16-045', \
-               upLim=493,decay=T6bbHH,comment=T6bbHH_Comm)
-allABs.add('Squark','16-035-T6ttWW',desc=r'$\mathbf{2\ell}$ same-sign',label='SUS-16-035',upLim=806,decay=T6ttWW, \
+allABs.add('Squark','16-032-T2bb',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-006', \
+               upLim=1260,decay=T2bb)
+#allABs.add('Squark','16-045-T6bbHH',desc=r'$\mathbf{h\rightarrow\gamma\gamma}$',label='SUS-16-045', \
+#               upLim=493,decay=T6bbHH,comment=T6bbHH_Comm)
+allABs.add('Squark','16-035-T6ttWW',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{\geq 3\ell}$',label='SUS-19-008',upLim=900,decay=T6ttWW, \
                comment=T6ttWW_Comm)
-allABs.add('Squark','16-041-T6ttWW',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041', \
-               upLim=560,comment=T6ttWW_Comm,decay=T6ttWW)
-allABs.add('Squark','16-034-T8bllbZ',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-034', \
-               upLim=1250,decay=T8bllbZ,comment=T8bllbZ_Comm)
+#allABs.add('Squark','16-041-T6ttWW',desc=r'$\mathbf{\geq 3\ell}$',label='SUS-16-041', \
+#               upLim=560,comment=T6ttWW_Comm,decay=T6ttWW)
+#allABs.add('Squark','16-034-T8bllbZ',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-034', \
+#               upLim=1250,decay=T8bllbZ,comment=T8bllbZ_Comm)
 
 '''
 Squark
 '''
 allABs.add('Squark',r'pp \rightarrow \tilde{q}\tilde{q}')
-allABs.add('Squark','16-036-T2qq-squarks',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-033,SUS-16-038', \
-               upLim=1544,decay=T2qq,comment=squarks)
-allABs.add('Squark','16-036-T2qq-squark',desc=r'$\mathbf{0\ell}$',label='SUS-16-036,SUS-16-033,SUS-16-038', \
-               upLim=1049,decay=T2qq,comment=squark)
+allABs.add('Squark','16-036-T2qq-squarks',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-006', \
+               upLim=1760,decay=T2qq,comment=squarks)
+allABs.add('Squark','16-036-T2qq-squark',desc=r'$\mathbf{0\ell}$',label='SUS-19-005,SUS-19-006', \
+               upLim=1280,decay=T2qq,comment=squark)
 
 
 
@@ -318,20 +334,20 @@ allABs.add('Squark','16-036-T2qq-squark',desc=r'$\mathbf{0\ell}$',label='SUS-16-
 EWK
 '''
 allABs.add('EWK',r'pp \rightarrow'+N2+' '+C1)
-allABs.add('EWK','16-039-TChiChipmSlepL050',desc=r'$\mathbf{3\ell}$',label='SUS-16-039',upLim=1145, \
+allABs.add('EWK','16-039-TChiChipmSlepL050',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{3\ell}$',label='SUS-19-012',upLim=1400, \
                decay=TChiChipmSlepL,xValue=0.5,comment=TChiChipmSlepL_Comm)
-allABs.add('EWK','16-039-TChiChipmSlepL005',desc=r'$\mathbf{\geq 3\ell}$ + $\mathbf{2\ell}$ same-sign', \
-               label='SUS-16-039',upLim=1122,decay=TChiChipmSlepL,xValue=0.05,comment=TChiChipmSlepL_Comm)
-allABs.add('EWK','16-039-TChiChipmSlepL095',desc=r'$\mathbf{\geq 3\ell}$ + $\mathbf{2\ell}$ same-sign', \
-               label='SUS-16-039',upLim=1042,decay=TChiChipmSlepL,xValue=0.95,comment=TChiChipmSlepL_Comm)
-allABs.add('EWK','16-039-TChiChipmSlepStau005',desc=r'$\mathbf{3\ell/\tau_{h}}$',label='SUS-16-039', \
-               upLim=1032,decay=TChiChipmSlepStau,xValue=0.5,comment=TChiChipmSlepStau_Comm)
-allABs.add('EWK','16-039-TChiChipmSlepStau050',desc=r'$\mathbf{3\ell/\tau_{h}}$',label='SUS-16-039', \
-               upLim=1080,decay=TChiChipmSlepStau,xValue=0.05,comment=TChiChipmSlepStau_Comm)
-allABs.add('EWK','16-039-TChiChipmSlepStau095',desc=r'$\mathbf{3\ell/\tau_{h}}$',label='SUS-16-039', \
-               upLim=1048,decay=TChiChipmSlepStau,xValue=0.95,comment=TChiChipmSlepStau_Comm)
-allABs.add('EWK','16-039-TChiChipmStauStau050',desc=r'$\mathbf{\geq 3\ell/\tau_{h}}$',label='SUS-16-039', \
-               upLim=624,decay=TChiChipmStauStau,xValue=0.5,comment=TChiChipmStauStau_Comm)
+allABs.add('EWK','16-039-TChiChipmSlepL005',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{\geq 3\ell}$', \
+               label='SUS-19-012',upLim=1350,decay=TChiChipmSlepL,xValue=0.05,comment=TChiChipmSlepL_Comm)
+allABs.add('EWK','16-039-TChiChipmSlepL095',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{\geq 3\ell}$', \
+               label='SUS-19-012',upLim=1450,decay=TChiChipmSlepL,xValue=0.95,comment=TChiChipmSlepL_Comm)
+allABs.add('EWK','16-039-TChiChipmSlepStau005',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{3\ell/\tau_{h}}$',label='SUS-19-012', \
+               upLim=1110,decay=TChiChipmSlepStau,xValue=0.5,comment=TChiChipmSlepStau_Comm)
+allABs.add('EWK','16-039-TChiChipmSlepStau050',desc=r'$\mathbf{3\ell/\tau_{h}}$',label='SUS-19-012', \
+               upLim=1140,decay=TChiChipmSlepStau,xValue=0.05,comment=TChiChipmSlepStau_Comm)
+allABs.add('EWK','16-039-TChiChipmSlepStau095',desc=r'$\mathbf{3\ell/\tau_{h}}$',label='SUS-19-012', \
+               upLim=1190,decay=TChiChipmSlepStau,xValue=0.95,comment=TChiChipmSlepStau_Comm)
+allABs.add('EWK','16-039-TChiChipmStauStau050',desc=r'$\mathbf{\geq 3\ell/\tau_{h}}$',label='SUS-19-012', \
+               upLim=870,decay=TChiChipmStauStau,xValue=0.5,comment=TChiChipmStauStau_Comm)
 #allABs.add('EWK','17-002-TChiChipmStauStau050',desc=r'$e\tau_{h},\mu\tau_{h},e\mu$',label='SUS-17-002', \
 # upLim=560,decay=TChiChipmStauStau,xValue=0.5)
 #allABs.add('EWK','17-002-TChiChipmStauStau005',desc=r'$\mathbf{2\ell}$/$\mathbf{\tau}$',label='SUS-17-002', \
@@ -339,42 +355,35 @@ allABs.add('EWK','16-039-TChiChipmStauStau050',desc=r'$\mathbf{\geq 3\ell/\tau_{
 #allABs.add('EWK','17-002-TChiChipmStauStau095',desc=r'$\mathbf{2\ell}$/$\mathbf{\tau}$',label='SUS-17-002', \
 # upLim=520,decay=TChiChipmStauStau,xValue=0.95)
 
-allABs.add('EWK','16-039-TChiWH',desc=r'$\mathbf{\geq 3\ell/\tau_{h}}$ + $\mathbf{2\ell}$ same-sign', \
-               label='SUS-16-039',upLim=173,decay=TChiWH)
-allABs.add('EWK','16-043-TChiWH',desc=r'$\mathbf{1\ell}$+jets',label='SUS-16-043',lowLim=231, \
+allABs.add('EWK','16-039-TChiWH',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{\geq 3\ell/\tau_{h}}$', \
+               label='SUS-19-012',upLim=260,decay=TChiWH)
+allABs.add('EWK','16-043-TChiWH',desc=r'$\mathbf{1\ell}$+jets',label='SUS-20-003',lowLim=860, \
                upLim=490,decay=TChiWH)
-allABs.add('EWK','16-045-TChiWH',desc=r'$\mathbf{h \rightarrow \gamma\gamma}$',label='SUS-16-045', \
-               upLim=172,decay=TChiWH)
-allABs.add('EWK','17-004-TChiWH',desc='combined',label='SUS-17-004,SUS-16-043,SUS-16-045', \
-               upLim=482,decay=TChiWH)
-allABs.add('EWK','16-034-TChiWZ',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-16-034', \
-               upLim=612,decay=TChiWZ)
-allABs.add('EWK','16-039-TChiWZ',desc=r'$\mathbf{3\ell}$',label='SUS-16-039',upLim=446,decay=TChiWZ)
-allABs.add('EWK','16-048-TChiWZ',desc=r'$\mathbf{2\ell}$ soft',label='SUS-16-048',upLim=230,decay=TChiWZ, \
-               comment=r'$\Delta M=20$ GeV')
-allABs.add('EWK','17-004-TChiWZ',desc='combined',label='SUS-17-004,SUS-16-034,SUS-16-048', \
-               upLim=649,decay=TChiWZ)
-allABs.add('EWK','17-004-TChiWZH',desc='combined',label='SUS-17-004',upLim=535,decay=TChiWZH, \
-               comment='BF = 50\%')
-allABs.add('EWK','16-048-THiggsino',desc=r'$\mathbf{2\ell}$ soft',label='SUS-16-048', \
-               upLim=167,decay=THiggsino,comment=r'higgsino simplified model, $\Delta M = 15$--$20$ GeV')
+allABs.add('EWK','16-034-TChiWZ',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-20-001', \
+               upLim=745,decay=TChiWZ)
+allABs.add('EWK','16-039-TChiWZ',desc=r'$\mathbf{2\ell}$ same-sign and $\mathbf{3\ell}$',label='SUS-19-012',upLim=640,decay=TChiWZ)
+allABs.add('EWK','16-048-TChiWZ',desc=r'$\mathbf{2\ell}$ and $\mathbf{3\ell}$ soft',label='SUS-18-004',upLim=270,decay=TChiWZ, \
+               comment=r'$\Delta M=5$--$10$ GeV')
+allABs.add('EWK','16-048-THiggsino',desc=r'$\mathbf{2\ell}$ and $\mathbf{3\ell}$ soft',label='SUS-18-004', \
+               upLim=213,decay=THiggsino,comment=r'higgsino simplified model, $\Delta M = 5$--$10$ GeV')
 
 allABs.add('EWK',r'pp \rightarrow'+C1+' '+C1)
 allABs.add('EWK','17-010-TChiWW',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-010', \
-               upLim=325,lowLim=225,decay=TChiWW,comment=r'$M_{'+N1+'} = 1$ GeV')
+               upLim=200,lowLim=170,decay=TChiWW,comment=r'$M_{'+N1+'} = 1$ GeV')
 allABs.add('EWK','17-010-TChipmChipmSlepSnu050',desc=r'$\mathbf{2\ell}$ opposite-sign',label='SUS-17-010', \
                upLim=811,decay=TChipmChipmSlepSnu,xValue=0.5,comment=r'BF($\tilde{\ell}\nu$) = 50\%')
-allABs.add('EWK','17-003-TChipmChipmStauStau050', \
-               desc=r'$\mathbf{\tau_{h}\tau_{h},e\tau_{h},\mu\tau_{h},e\mu}$',label='SUS-17-003', \
-               upLim=706,decay=TChipmChipmStauStau,xValue=0.5,comment=r'BF($\tilde{\tau}\nu$) = 50\%')
+#allABs.add('EWK','17-003-TChipmChipmStauStau050', \
+#               desc=r'$\mathbf{\tau_{h}\tau_{h},e\tau_{h},\mu\tau_{h},e\mu}$',label='SUS-17-003', \
+#               upLim=706,decay=TChipmChipmStauStau,xValue=0.5,comment=r'BF($\tilde{\tau}\nu$) = 50\%')
 
 allABs.add('EWK',r'pp \rightarrow \tilde{\ell}\tilde{\ell}')
-allABs.add('EWK','17-009-T2llLR',desc=r'$\mathbf{e^{+}e^{-},\mu^{+}\mu^{-}}$',label='SUS-17-009', \
-               upLim=440,decay=T2llLR)
-allABs.add('EWK','17-009-T2llL',desc=r'$\mathbf{e^{+}e^{-},\mu^{+}\mu^{-}}$',label='SUS-17-009', \
-               upLim=400,decay=T2llL)
-allABs.add('EWK','17-009-T2llL',desc=r'$\mathbf{e^{+}e^{-},\mu^{+}\mu^{-}}$',label='SUS-17-009', \
-               upLim=285,decay=T2llR)
+allABs.add('EWK','17-009-T2llLR',desc=r'$\mathbf{e^{+}e^{-},\mu^{+}\mu^{-}}$',label='SUS-20-001', \
+               upLim=690,decay=T2llLR)
+#allABs.add('EWK','17-009-T2llL',desc=r'$\mathbf{e^{+}e^{-},\mu^{+}\mu^{-}}$',label='SUS-20-001', \
+#               upLim=400,decay=T2llL)
+#allABs.add('EWK','17-009-T2llL',desc=r'$\mathbf{e^{+}e^{-},\mu^{+}\mu^{-}}$',label='SUS-20-001', \
+#               upLim=285,decay=T2llR)
+
 #allABs.add('EWK','17-009-T2eeLR',desc=r'$\mathbf{e^{+}e^{-}}$',label='SUS-17-009',upLim=,decay=T2eeLR)
 #allABs.add('EWK','17-009-T2eeL',desc=r'$\mathbf{e^{+}e^{-}}$',label='SUS-17-009',upLim=,decay=T2eeL)
 #allABs.add('EWK','17-009-T2eeL',desc=r'$\mathbf{e^{+}e^{-}}$',label='SUS-17-009',upLim=,decay=T2eeR)
@@ -466,6 +475,7 @@ for al in allABs.allBars:
     if al.label==None:
         continue
     for l in al.labels:
+        print(l)
         assert l in cadiToArxiv
         arxiv = cadiToArxiv[l]
         if arxiv!=None:

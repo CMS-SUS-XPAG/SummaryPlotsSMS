@@ -195,7 +195,7 @@ cnvSizeY = ymax*bar_height+cnvMarginTop+cnvMarginBottom
 if (analysis_group == 'EWK'):
     cnvSizeX = 13.5
     cnvMarginLeft = 3.8
-    xmax = 1210/1.05
+    xmax = 1510/1.05
 #    pass
 elif (analysis_group == 'Squark'):
     cnvSizeX = 13.5
@@ -462,7 +462,7 @@ hdr3 = ax1.text(0.01*xmax,ymax-0.01*(ymax-ymin), \
                 horizontalalignment='left',verticalalignment='top',color=title_color,weight='bold',
                 size=bar_height*0.90*72)
 hdr2 = ax1.text(xmax,ymax+0.01*(ymax-ymin), \
-                "Moriond 2019", \
+                "Moriond 2021", \
                 horizontalalignment='right',verticalalignment='bottom',color='black',weight='bold',
                 size=bar_height*0.90*72)
 hdr1 = ax1.text(0.01*xmax,ymax+0.01*(ymax-ymin), \
@@ -474,7 +474,7 @@ exTrans = ax1.transData.transform([(0.01*xmax,ymax-0.01*(ymax-ymin))])
 exTransI = ax1.transData.inverted().transform([(exTrans[0][0],exTrans[0][1]-hdr3.get_size()/72.*fig.get_dpi())])
 #print exTransI
 hdr4 = ax1.text(0.03*xmax,exTransI[0][1], \
-                r"36 $\mathrm{fb}^{-1}$ (13 TeV)", \
+                r"137 $\mathrm{fb}^{-1}$ (13 TeV)", \
                 horizontalalignment='left',verticalalignment='top',color='black',weight='bold',
                 size=0.8*hdr3.get_size())
 bar_texts.append(hdr1)

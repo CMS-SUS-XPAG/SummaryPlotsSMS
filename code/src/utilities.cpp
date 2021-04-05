@@ -203,7 +203,7 @@ void setGraphStyle(TGraph* graph, int color, int style, int width, double glu_ls
 	  cout << "Setting point slope " << slope << " " << graph->GetN() << " " << intersection << " " << intersection-glu_lsp << endl;
 	
 	if (glu_lsp<1000 && ext_graph) {
-	  graph->SetPoint(graph->GetN(), 0, -glu_lsp);
+	   graph->SetPoint(graph->GetN(), 0, -glu_lsp);
 	  cout << "Setting point glu_lsp " << slope << " " << graph->GetN() << " " << 0. << " " << -glu_lsp << endl;
 	}
       }
